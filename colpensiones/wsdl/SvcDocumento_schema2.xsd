@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/schemas/1.0/comun/tramites" elementFormDefault="qualified" version="1.0" targetNamespace="http://www.colpensiones.gov.co/schemas/1.0/comun/tramites">
+
+  <xs:element name="tipoIdentificacionTramite" type="tns:tipoIdentificacionTramite"></xs:element>
+
+  <xs:complexType name="tipoIdentificacionTramite">
+    <xs:sequence>
+      <xs:element name="codigoTipo" type="xs:string" nillable="true"></xs:element>
+      <xs:element name="codigoSubTipo" type="xs:string" nillable="true"></xs:element>
+      <xs:element name="numRadicacion" type="xs:string" nillable="true"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

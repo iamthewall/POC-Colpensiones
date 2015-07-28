@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:ns1="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" xmlns:ns2="http://www.colpensiones.gov.co/schemas/1.0/comun" elementFormDefault="qualified" version="1.0" targetNamespace="http://www.colpensiones.gov.co/schemas/1.0/personas">
+
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" schemaLocation="SvcDocumento_schema3.xsd"></xs:import>
+
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun" schemaLocation="SvcDocumento_schema4.xsd"></xs:import>
+
+  <xs:element name="tipoAplicarDispocision" type="tns:tipoAplicarDispocision"></xs:element>
+
+  <xs:element name="tipoConsultaRecord" type="tns:tipoConsultaRecord"></xs:element>
+
+  <xs:element name="tipoConsultaSeries" type="tns:tipoConsultaSeries"></xs:element>
+
+  <xs:element name="tipoCriterioContent" type="tns:tipoCriterioContent"></xs:element>
+
+  <xs:element name="tipoDigitalizado" type="tns:tipoDigitalizado"></xs:element>
+
+  <xs:element name="tipoDigitalizados" type="tns:tipoDigitalizados"></xs:element>
+
+  <xs:element name="tipoDigitalizadosDTO" type="tns:tipoDigitalizadosDTO"></xs:element>
+
+  <xs:element name="tipoDocumento" type="tns:tipoDocumento"></xs:element>
+
+  <xs:element name="tipoDocumentoContent" type="tns:tipoDocumentoContent"></xs:element>
+
+  <xs:element name="tipoDocumentoDTO" type="tns:tipoDocumentoDTO"></xs:element>
+
+  <xs:element name="tipoDocumentoGenerico" type="tns:tipoDocumentoGenerico"></xs:element>
+
+  <xs:element name="tipoDocumentoTRD" type="tns:tipoDocumentoTRD"></xs:element>
+
+  <xs:element name="tipoDocumentos" type="tns:tipoDocumentos"></xs:element>
+
+  <xs:element name="tipoDocumentosGenericos" type="tns:tipoDocumentosGenericos"></xs:element>
+
+  <xs:element name="tipoDocumentosTRD" type="tns:tipoDocumentosTRD"></xs:element>
+
+  <xs:element name="tipoDocumentosTRDDTO" type="tns:tipoDocumentosTRDDTO"></xs:element>
+
+  <xs:element name="tipoEstadosEjecucion" type="tns:tipoEstadosEjecucion"></xs:element>
+
+  <xs:element name="tipoExpedienteContent" type="tns:tipoExpedienteContent"></xs:element>
+
+  <xs:element name="tipoExpedienteRecord" type="tns:tipoExpedienteRecord"></xs:element>
+
+  <xs:element name="tipoIdentificacionDocumento" type="tns:tipoIdentificacionDocumento"></xs:element>
+
+  <xs:element name="tipoIdentificacionDocumentoDTO" type="tns:tipoIdentificacionDocumentoDTO"></xs:element>
+
+  <xs:element name="tipoIdentificacionTRD" type="tns:tipoIdentificacionTRD"></xs:element>
+
+  <xs:element name="tipoIdentificacionTRDDocumento" type="tns:tipoIdentificacionTRDDocumento"></xs:element>
+
+  <xs:element name="tipoInformacionActualizarMetadata" type="tns:tipoInformacionActualizarMetadata"></xs:element>
+
+  <xs:element name="tipoInformacionActualizarMetadataDTO" type="tns:tipoInformacionActualizarMetadataDTO"></xs:element>
+
+  <xs:element name="tipoInformacionConsultaDigitalizados" type="tns:tipoInformacionConsultaDigitalizados"></xs:element>
+
+  <xs:element name="tipoInformacionConsultaDigitalizadosDTO" type="tns:tipoInformacionConsultaDigitalizadosDTO"></xs:element>
+
+  <xs:element name="tipoInformacionConsultaDocumentosTRD" type="tns:tipoInformacionConsultaDocumentosTRD"></xs:element>
+
+  <xs:element name="tipoInformacionConsultaRecord" type="tns:tipoInformacionConsultaRecord"></xs:element>
+
+  <xs:element name="tipoInformacionExpedienteContent" type="tns:tipoInformacionExpedienteContent"></xs:element>
+
+  <xs:element name="tipoInformacionExpedienteRecord" type="tns:tipoInformacionExpedienteRecord"></xs:element>
+
+  <xs:element name="tipoInformacionExpedientesContent" type="tns:tipoInformacionExpedientesContent"></xs:element>
+
+  <xs:element name="tipoInformacionExpedientesRecord" type="tns:tipoInformacionExpedientesRecord"></xs:element>
+
+  <xs:element name="tipoInformacionFolder" type="tns:tipoInformacionFolder"></xs:element>
+
+  <xs:element name="tipoInformacionGeneralTRD" type="tns:tipoInformacionGeneralTRD"></xs:element>
+
+  <xs:element name="tipoInformacionMovimientoDocumentoTRD" type="tns:tipoInformacionMovimientoDocumentoTRD"></xs:element>
+
+  <xs:element name="tipoInformacionMovimientoDocumentoTRDDTO" type="tns:tipoInformacionMovimientoDocumentoTRDDTO"></xs:element>
+
+  <xs:element name="tipoInformacionRegistroTRDDTO" type="tns:tipoInformacionRegistroTRDDTO"></xs:element>
+
+  <xs:element name="tipoObtenerDocumentosTRD" type="tns:tipoObtenerDocumentosTRD"></xs:element>
+
+  <xs:element name="tipoPagina" type="tns:tipoPagina"></xs:element>
+
+  <xs:element name="tipoPaginaMTOM" type="tns:tipoPaginaMTOM"></xs:element>
+
+  <xs:element name="tipoPaginas" type="tns:tipoPaginas"></xs:element>
+
+  <xs:element name="tipoPaginasMTOM" type="tns:tipoPaginasMTOM"></xs:element>
+
+  <xs:element name="tipoPropiedad" type="tns:tipoPropiedad"></xs:element>
+
+  <xs:element name="tipoPropiedades" type="tns:tipoPropiedades"></xs:element>
+
+  <xs:element name="tipoResultadoDispocision" type="tns:tipoResultadoDispocision"></xs:element>
+
+  <xs:element name="tipoSeguridadSeries" type="tns:tipoSeguridadSeries"></xs:element>
+
+  <xs:element name="tipoTipoDocumental" type="tns:tipoTipoDocumental"></xs:element>
+
+  <xs:complexType name="tipoDocumentosTRD">
+    <xs:sequence>
+      <xs:element name="documento" type="tns:tipoDocumentoTRD" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"></xs:element>
+      <xs:element name="contenido" type="xs:base64Binary"></xs:element>
+      <xs:element name="propiedades" type="tns:tipoPropiedades" nillable="true"></xs:element>
+      <xs:element name="tipoPaginasMTOM" type="tns:tipoPaginasMTOM"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoPropiedades">
+    <xs:sequence>
+      <xs:element name="propiedad" type="tns:tipoPropiedad" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoPropiedad">
+    <xs:sequence>
+      <xs:element name="clave" type="xs:string"></xs:element>
+      <xs:element name="valor" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionConsultaDocumentosTRD">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoInformacionConsultaDocumentoTRD"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoDocumento">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"></xs:element>
+      <xs:element name="tipoDocumental" type="tns:tipoTipoDocumental" nillable="true"></xs:element>
+      <xs:element name="numFolios" type="xs:int"></xs:element>
+      <xs:element name="fechaCreacion" type="xs:string"></xs:element>
+      <xs:element name="contenido" type="xs:string"></xs:element>
+      <xs:element name="extension" type="xs:string"></xs:element>
+      <xs:element name="paginas" type="tns:tipoPaginas"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoTipoDocumental">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:string" nillable="true"></xs:element>
+      <xs:element name="nombre" type="xs:string" nillable="true"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoSubseries">
+    <xs:sequence>
+      <xs:element name="tipoSubserie" type="tns:tipoSubserie" nillable="true" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoSubserie">
+    <xs:sequence>
+      <xs:element name="subserie" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionConsultaDigitalizadosDTO">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoInformacionConsultaDigitalizados"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoDocumentosTRDDTO">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoDocumentosTRD"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoDocumentos">
+    <xs:sequence>
+      <xs:element name="documento" type="tns:tipoDocumento" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoDocumentoGenerico">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"></xs:element>
+      <xs:element name="propiedades" type="tns:tipoPropiedades"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoExpedienteContent">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoInformacionExpedientesContent"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionConsultaDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="identificacionTRD" type="tns:tipoIdentificacionTRDDocumento" nillable="true"></xs:element>
+      <xs:element name="agrupador" type="xs:string"></xs:element>
+      <xs:element name="filtrosDocumento" type="tns:tipoPropiedades" nillable="true"></xs:element>
+      <xs:element name="incluirContenido" type="xs:boolean"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoIdentificacionTRDDocumento">
+    <xs:sequence>
+      <xs:element name="tramite" type="xs:string" nillable="true"></xs:element>
+      <xs:element name="subtramite" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoDocumentoDTO">
+    <xs:sequence>
+      <xs:element name="EstadoEjecucion" type="ns1:tipoEstadoEjecucion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoDocumento"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoIdentificacionTRD">
+    <xs:sequence>
+      <xs:element name="serie" type="xs:string" nillable="true"></xs:element>
+      <xs:element name="subserie" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoEstadosEjecucion">
+    <xs:sequence>
+      <xs:element name="resultado" type="ns1:tipoEstadoEjecucion" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionExpedienteContent">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoDigitalizados">
+    <xs:sequence>
+      <xs:element name="documento" type="tns:tipoDigitalizado" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoDigitalizado">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"></xs:element>
+      <xs:element name="url" type="xs:string"></xs:element>
+      <xs:element name="nombre" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionGeneralTRD">
+    <xs:sequence>
+      <xs:element name="identificacionTRD" type="tns:tipoIdentificacionTRDDocumento" nillable="true"></xs:element>
+      <xs:element name="agrupador" type="xs:string" nillable="true"></xs:element>
+      <xs:element name="documentos" type="tns:tipoDocumentosTRD" nillable="true"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionActualizarMetadataDTO">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoInformacionActualizarMetadata"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoObtenerDocumentosTRD">
+    <xs:sequence>
+      <xs:element name="EstadoEjecucion" type="ns1:tipoEstadoEjecucion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoObtenerDocumentoTRD"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoConsultaContent">
+    <xs:sequence>
+      <xs:element name="consultaContent" type="tns:tipoResultadoConsultaContent" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoResultadoConsultaContent">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"></xs:element>
+      <xs:element name="estado" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionExpedienteRecord">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"></xs:element>
+      <xs:element name="propiedades" type="tns:tipoPropiedades"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionConsultaRecord">
+    <xs:sequence>
+      <xs:element name="tipoInformacionRecord" type="tns:tipoInformacionRecord" nillable="true" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionRecord">
+    <xs:sequence>
+      <xs:element name="identificacionTRD" type="tns:tipoIdentificacionTRD" nillable="true"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoSeguridadSeries">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoInformacionSeries"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionSerie">
+    <xs:sequence>
+      <xs:element name="serie" type="xs:string"></xs:element>
+      <xs:element name="subseries" type="tns:tipoSubseries"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoConsultaSeries">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoObtenerDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"></xs:element>
+      <xs:element name="fechaCreacion" type="xs:string"></xs:element>
+      <xs:element name="contenido" type="xs:base64Binary"></xs:element>
+      <xs:element name="extension" type="xs:string"></xs:element>
+      <xs:element name="paginas" type="tns:tipoPaginasMTOM"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionFolder">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoResultadoDispocision">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoDigitalizadosDTO">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoDigitalizados"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoPaginaMTOM">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"></xs:element>
+      <xs:element name="contenido" type="xs:base64Binary"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionConsultaContent">
+    <xs:sequence>
+      <xs:element name="identificacionTRD" type="tns:tipoIdentificacionTRD" nillable="true"></xs:element>
+      <xs:element name="estado" type="xs:string" nillable="true"></xs:element>
+      <xs:element name="fechaInicial" type="xs:string"></xs:element>
+      <xs:element name="fechaFinal" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoPaginas">
+    <xs:sequence>
+      <xs:element name="pagina" type="tns:tipoPagina" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoPagina">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"></xs:element>
+      <xs:element name="contenido" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoIdentificacionDocumentoDTO">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoIdentificacionDocumento"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoDocumentoContent">
+    <xs:sequence>
+      <xs:element name="EstadoEjecucion" type="ns1:tipoEstadoEjecucion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoConsultaContent"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionExpedientesRecord">
+    <xs:sequence>
+      <xs:element name="tipoInformacionExpedienteRecord" type="tns:tipoInformacionExpedienteRecord" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoExpedienteRecord">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoInformacionExpedientesRecord"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionSeries">
+    <xs:sequence>
+      <xs:element name="tipoInformacionSerie" type="tns:tipoInformacionSerie" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoAplicarDispocision">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoFolderDispocision"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoPaginasMTOM">
+    <xs:sequence>
+      <xs:element name="tipoPaginaMTOM" type="tns:tipoPaginaMTOM" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionActualizarMetadata">
+    <xs:sequence>
+      <xs:element name="documentos" type="tns:tipoDocumentosGenericos" nillable="true"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoDocumentosGenericos">
+    <xs:sequence>
+      <xs:element name="documento" type="tns:tipoDocumentoGenerico" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoIdentificacionDocumento">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" nillable="true"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionMovimientoDocumentoTRDDTO">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoInformacionMovimientoDocumentoTRD"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionConsultaDigitalizados">
+    <xs:sequence>
+      <xs:element name="fechaInicial" type="xs:string"></xs:element>
+      <xs:element name="fechaFinal" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoDocumentoConsultaTRD">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoDocumentosTRD"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoFolderDispocision">
+    <xs:sequence>
+      <xs:element name="tipoInformacionFolder" type="tns:tipoInformacionFolder" nillable="true" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionMovimientoDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"></xs:element>
+      <xs:element name="identificacionTRD" type="tns:tipoIdentificacionTRDDocumento" nillable="true"></xs:element>
+      <xs:element name="agrupador" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoConsultaRecord">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoInformacionConsultaRecord"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionExpedientesContent">
+    <xs:sequence>
+      <xs:element name="razonCierre" type="xs:string"></xs:element>
+      <xs:element name="tipoInformacionExpedienteContent" type="tns:tipoInformacionExpedienteContent" nillable="true" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoIdentificacionDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoIdentificacionDocumento"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoCriterioContent">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoInformacionConsultaContent"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tipoInformacionRegistroTRDDTO">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion" nillable="true"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoInformacionGeneralTRD" nillable="true"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

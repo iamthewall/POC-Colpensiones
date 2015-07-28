@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/schemas/1.0/comun" elementFormDefault="qualified" version="1.0" targetNamespace="http://www.colpensiones.gov.co/schemas/1.0/comun">
+
+  <xs:element name="tipoCredencialesAutorizacion" type="tns:tipoCredencialesAutorizacion"></xs:element>
+
+  <xs:complexType name="tipoCredencialesAutorizacion">
+    <xs:sequence>
+      <xs:element name="nombreUsuarioNegocio" type="xs:string"></xs:element>
+      <xs:element name="nombreUsuarioSistema" type="xs:string"></xs:element>
+      <xs:element name="claveUsuarioSistema" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

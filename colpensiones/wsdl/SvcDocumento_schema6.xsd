@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/">
+
+  <xs:element name="QName" type="xs:QName"></xs:element>
+
+  <xs:element name="anyType" type="xs:anyType"></xs:element>
+
+  <xs:element name="anyURI" type="xs:string"></xs:element>
+
+  <xs:element name="base64Binary" type="xs:base64Binary"></xs:element>
+
+  <xs:element name="boolean" type="xs:boolean"></xs:element>
+
+  <xs:element name="byte" type="xs:byte"></xs:element>
+
+  <xs:element name="char" type="xs:int"></xs:element>
+
+  <xs:element name="dateTime" type="xs:anySimpleType"></xs:element>
+
+  <xs:element name="decimal" type="xs:decimal"></xs:element>
+
+  <xs:element name="double" type="xs:double"></xs:element>
+
+  <xs:element name="duration" type="xs:duration"></xs:element>
+
+  <xs:element name="float" type="xs:float"></xs:element>
+
+  <xs:element name="guid" type="xs:string"></xs:element>
+
+  <xs:element name="int" type="xs:int"></xs:element>
+
+  <xs:element name="long" type="xs:long"></xs:element>
+
+  <xs:element name="short" type="xs:short"></xs:element>
+
+  <xs:element name="string" type="xs:string"></xs:element>
+
+  <xs:element name="unsignedByte" type="xs:short"></xs:element>
+
+  <xs:element name="unsignedInt" type="xs:long"></xs:element>
+
+  <xs:element name="unsignedLong" type="xs:integer"></xs:element>
+
+  <xs:element name="unsignedShort" type="xs:int"></xs:element>
+</xs:schema>

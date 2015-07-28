@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="SvcDocumento" targetNamespace="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/personas" schemaLocation="SvcDocumento_schema1.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/tramites" schemaLocation="SvcDocumento_schema2.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" schemaLocation="SvcDocumento_schema3.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun" schemaLocation="SvcDocumento_schema4.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/contracts/1.0/personas" schemaLocation="SvcDocumento_schema5.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" schemaLocation="SvcDocumento_schema6.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="RegistrarArchivosTRDResponse">
+    <part name="DocumentosTRDDTO" element="tns:DocumentosTRDDTO">
+    </part>
+  </message>
+  <message name="ConsultarDocumentosTRDResponse">
+    <part name="DocumentosTRD" element="tns:DocumentosTRD">
+    </part>
+  </message>
+  <message name="ConsultarDigitalizados">
+    <part name="CriteriosConsultaDigitalizadosDTO" element="tns:CriteriosConsultaDigitalizadosDTO">
+    </part>
+  </message>
+  <message name="ConsultarMetadataTRDResponse">
+    <part name="DocumentosTRD" element="tns:DocumentosTRD">
+    </part>
+  </message>
+  <message name="ConsultarDigitalizadosResponse">
+    <part name="DigitalizadosDTO" element="tns:DigitalizadosDTO">
+    </part>
+  </message>
+  <message name="MoverDocumentoTRDResponse">
+    <part name="EstadoEjecucion" element="tns:EstadoEjecucion">
+    </part>
+  </message>
+  <message name="ConsultarMetadataTRD">
+    <part name="CriteriosConsultaTRD" element="tns:CriteriosConsultaTRD">
+    </part>
+  </message>
+  <message name="ObtenerDocumentoTRD">
+    <part name="IdentificacionDocumentoTRD" element="tns:IdentificacionDocumentoTRD">
+    </part>
+  </message>
+  <message name="ObtenerDocumentoTRDResponse">
+    <part name="ObtenerDocumentoTRD" element="tns:ObtenerDocumentoTRD">
+    </part>
+  </message>
+  <message name="ActualizarMetadata">
+    <part name="InformacionActualizarDTO" element="tns:InformacionActualizarDTO">
+    </part>
+  </message>
+  <message name="ActualizarMetadataResponse">
+    <part name="DocumentoDTO" element="tns:DocumentoDTO">
+    </part>
+  </message>
+  <message name="MoverDocumentoTRD">
+    <part name="InformacionMovimientoDocumentoTRDDTO" element="tns:InformacionMovimientoDocumentoTRDDTO">
+    </part>
+  </message>
+  <message name="ObtenerDocumentoResponse">
+    <part name="DocumentoDTO" element="tns:DocumentoDTO">
+    </part>
+  </message>
+  <message name="RegistrarArchivosTRD">
+    <part name="InformacionRegistroTRDDTO" element="tns:InformacionRegistroTRDDTO">
+    </part>
+  </message>
+  <message name="ObtenerDocumento">
+    <part name="IdentificacionDocumentoDTO" element="tns:IdentificacionDocumentoDTO">
+    </part>
+  </message>
+  <message name="ConsultarDocumentosTRD">
+    <part name="CriteriosConsultaTRD" element="tns:CriteriosConsultaTRD">
+    </part>
+  </message>
+  <portType name="ContratoSvcDocumento">
+    <operation name="ConsultarDocumentosTRD">
+      <input message="tns:ConsultarDocumentosTRD">
+    </input>
+      <output message="tns:ConsultarDocumentosTRDResponse">
+    </output>
+    </operation>
+    <operation name="ConsultarMetadataTRD">
+      <input message="tns:ConsultarMetadataTRD">
+    </input>
+      <output message="tns:ConsultarMetadataTRDResponse">
+    </output>
+    </operation>
+    <operation name="ObtenerDocumentoTRD">
+      <input message="tns:ObtenerDocumentoTRD">
+    </input>
+      <output message="tns:ObtenerDocumentoTRDResponse">
+    </output>
+    </operation>
+    <operation name="ObtenerDocumento">
+      <input message="tns:ObtenerDocumento">
+    </input>
+      <output message="tns:ObtenerDocumentoResponse">
+    </output>
+    </operation>
+    <operation name="ConsultarDigitalizados">
+      <input message="tns:ConsultarDigitalizados">
+    </input>
+      <output message="tns:ConsultarDigitalizadosResponse">
+    </output>
+    </operation>
+    <operation name="ActualizarMetadata">
+      <input message="tns:ActualizarMetadata">
+    </input>
+      <output message="tns:ActualizarMetadataResponse">
+    </output>
+    </operation>
+    <operation name="MoverDocumentoTRD">
+      <input message="tns:MoverDocumentoTRD">
+    </input>
+      <output message="tns:MoverDocumentoTRDResponse">
+    </output>
+    </operation>
+    <operation name="RegistrarArchivosTRD">
+      <input message="tns:RegistrarArchivosTRD">
+    </input>
+      <output message="tns:RegistrarArchivosTRDResponse">
+    </output>
+    </operation>
+  </portType>
+  <binding name="EndpointDocumentoBinding" type="tns:ContratoSvcDocumento">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="ConsultarDocumentosTRD">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ConsultarDocumentosTRD"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ConsultarMetadataTRD">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ConsultarMetadataTRD"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ObtenerDocumentoTRD">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ObtenerDocumentoTRD"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ObtenerDocumento">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ObtenerDocumento"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ConsultarDigitalizados">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ConsultarDigitalizados"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ActualizarMetadata">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ActualizarMetadata"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="MoverDocumentoTRD">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/MoverDocumentoTRD"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RegistrarArchivosTRD">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/RegistrarArchivosTRD"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SvcDocumento">
+    <port name="EndpointDocumento" binding="tns:EndpointDocumentoBinding">
+      <soap:address location="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento"/>
+    </port>
+  </service>
+</definitions>

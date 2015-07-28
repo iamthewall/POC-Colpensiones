@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:ns2="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" version="1.0" targetNamespace="http://www.colpensiones.gov.co/contracts/1.0/personas">
+
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/personas" schemaLocation="SvcDocumento_schema1.xsd"></xs:import>
+
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" schemaLocation="SvcDocumento_schema3.xsd"></xs:import>
+
+  <xs:element name="CriteriosConsultaDigitalizadosDTO" type="ns1:tipoInformacionConsultaDigitalizadosDTO"></xs:element>
+
+  <xs:element name="CriteriosConsultaTRD" type="ns1:tipoInformacionConsultaDocumentosTRD"></xs:element>
+
+  <xs:element name="CriteriosContent" type="ns1:tipoCriterioContent"></xs:element>
+
+  <xs:element name="CriteriosRecord" type="ns1:tipoConsultaRecord"></xs:element>
+
+  <xs:element name="CriteriosSeguridadSeries" type="ns1:tipoConsultaSeries"></xs:element>
+
+  <xs:element name="DigitalizadosDTO" type="ns1:tipoDigitalizadosDTO"></xs:element>
+
+  <xs:element name="DocumentoDTO" type="ns1:tipoDocumentoDTO"></xs:element>
+
+  <xs:element name="DocumentosContent" type="ns1:tipoDocumentoContent"></xs:element>
+
+  <xs:element name="DocumentosTRD" type="ns1:tipoDocumentoConsultaTRD"></xs:element>
+
+  <xs:element name="DocumentosTRDDTO" type="ns1:tipoDocumentosTRDDTO"></xs:element>
+
+  <xs:element name="EstadoEjecucion" type="ns2:tipoEstadoEjecucion"></xs:element>
+
+  <xs:element name="EstadosRecord" type="ns1:tipoExpedienteRecord"></xs:element>
+
+  <xs:element name="EstadosSeguridadSeries" type="ns1:tipoSeguridadSeries"></xs:element>
+
+  <xs:element name="IdentificacionDocumentoDTO" type="ns1:tipoIdentificacionDocumentoDTO"></xs:element>
+
+  <xs:element name="IdentificacionDocumentoTRD" type="ns1:tipoIdentificacionDocumentoTRD"></xs:element>
+
+  <xs:element name="IdentificacionExpedienteContent" type="ns1:tipoExpedienteContent"></xs:element>
+
+  <xs:element name="IdentificacionRecord" type="ns1:tipoAplicarDispocision"></xs:element>
+
+  <xs:element name="InformacionActualizarDTO" type="ns1:tipoInformacionActualizarMetadataDTO"></xs:element>
+
+  <xs:element name="InformacionExpedienteRecord" type="ns1:tipoExpedienteRecord"></xs:element>
+
+  <xs:element name="InformacionMovimientoDocumentoTRDDTO" type="ns1:tipoInformacionMovimientoDocumentoTRDDTO"></xs:element>
+
+  <xs:element name="InformacionRegistroTRDDTO" type="ns1:tipoInformacionRegistroTRDDTO"></xs:element>
+
+  <xs:element name="ObtenerDocumentoTRD" type="ns1:tipoObtenerDocumentosTRD"></xs:element>
+
+  <xs:element name="ResultadosRecord" type="ns1:tipoResultadoDispocision"></xs:element>
+</xs:schema>
