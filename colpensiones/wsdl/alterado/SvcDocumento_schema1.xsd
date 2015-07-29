@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:ns1="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" xmlns:ns2="http://www.colpensiones.gov.co/schemas/1.0/comun" elementFormDefault="qualified" version="1.0" targetNamespace="http://www.colpensiones.gov.co/schemas/1.0/personas">
+
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" schemaLocation="SvcDocumento_schema3.xsd"></xs:import>
+
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun" schemaLocation="SvcDocumento_schema4.xsd"></xs:import>
+  
+  <xs:element name="tipoDocumentoTRD" type="tns:tipoDocumentoTRD"></xs:element>
+
+  <xs:element name="tipoDocumentosTRD" type="tns:tipoDocumentosTRD"></xs:element>
+
+  <xs:element name="tipoDocumentosTRDDTO" type="tns:tipoDocumentosTRDDTO"></xs:element>
+
+  <xs:element name="tipoEstadosEjecucion" type="tns:tipoEstadosEjecucion"></xs:element>
+
+  <xs:element name="tipoIdentificacionTRDDocumento" type="tns:tipoIdentificacionTRDDocumento"></xs:element>
+
+  <xs:element name="tipoInformacionGeneralTRD" type="tns:tipoInformacionGeneralTRD"></xs:element>
+
+  <xs:element name="tipoInformacionRegistroTRDDTO" type="tns:tipoInformacionRegistroTRDDTO"></xs:element>
+
+  <xs:element name="tipoPaginaMTOM" type="tns:tipoPaginaMTOM"></xs:element>
+
+  <xs:element name="tipoPaginasMTOM" type="tns:tipoPaginasMTOM"></xs:element>
+
+  <xs:element name="tipoPropiedad" type="tns:tipoPropiedad"></xs:element>
+
+  <xs:element name="tipoPropiedades" type="tns:tipoPropiedades"></xs:element>
+  
+  <xs:complexType name="tipoDocumentosTRDDTO">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"></xs:element>
+      <xs:element name="Detalle" type="tns:tipoDocumentosTRD"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="tipoEstadosEjecucion">
+    <xs:sequence>
+      <xs:element name="resultado" type="ns1:tipoEstadoEjecucion" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="tipoDocumentosTRD">
+    <xs:sequence>
+      <xs:element name="documento" type="tns:tipoDocumentoTRD" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="tipoDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"></xs:element>
+      <xs:element name="contenido" type="xs:base64Binary"></xs:element>
+      <xs:element name="propiedades" type="tns:tipoPropiedades" nillable="true"></xs:element>
+      <xs:element name="tipoPaginasMTOM" type="tns:tipoPaginasMTOM"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="tipoPropiedades">
+    <xs:sequence>
+      <xs:element name="propiedad" type="tns:tipoPropiedad" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="tipoPaginasMTOM">
+    <xs:sequence>
+      <xs:element name="tipoPaginaMTOM" type="tns:tipoPaginaMTOM" nillable="true" minOccurs="0" maxOccurs="unbounded"></xs:element>
+    </xs:sequence>
+  </xs:complexType>  
+  
+  <xs:complexType name="tipoPaginaMTOM">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"></xs:element>
+      <xs:element name="contenido" type="xs:base64Binary"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="tipoPropiedad">
+    <xs:sequence>
+      <xs:element name="clave" type="xs:string"></xs:element>
+      <xs:element name="valor" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="tipoInformacionRegistroTRDDTO">
+    <xs:sequence>
+  <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion" nillable="true"></xs:element>
+  <xs:element name="Detalle" type="tns:tipoInformacionGeneralTRD" nillable="true"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  
+  <xs:complexType name="tipoInformacionGeneralTRD">
+    <xs:sequence>
+      <xs:element name="identificacionTRD" type="tns:tipoIdentificacionTRDDocumento" nillable="true"></xs:element>
+      <xs:element name="agrupador" type="xs:string" nillable="true"></xs:element>
+      <xs:element name="documentos" type="tns:tipoDocumentosTRD" nillable="true"></xs:element>      
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="tipoIdentificacionTRDDocumento">
+    <xs:sequence>
+      <xs:element name="tramite" type="xs:string" nillable="true"></xs:element>
+      <xs:element name="subtramite" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+    
+</xs:schema>

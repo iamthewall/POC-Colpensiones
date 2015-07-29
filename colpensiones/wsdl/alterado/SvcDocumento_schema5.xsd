@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:ns2="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" version="1.0" targetNamespace="http://www.colpensiones.gov.co/contracts/1.0/personas">
+
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/personas" schemaLocation="SvcDocumento_schema1.xsd"></xs:import>
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" schemaLocation="SvcDocumento_schema3.xsd"></xs:import>
+
+  <xs:element name="DocumentosTRDDTO" type="ns1:tipoDocumentosTRDDTO"></xs:element>
+  <xs:element name="EstadoEjecucion" type="ns2:tipoEstadoEjecucion"></xs:element> 
+  <xs:element name="InformacionRegistroTRDDTO" type="ns1:tipoInformacionRegistroTRDDTO"></xs:element>
+
+  </xs:schema>

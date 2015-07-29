@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="RegistrarDocumento" targetNamespace="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/personas" schemaLocation="SvcDocumento_schema1.xsd"/>
+    </xsd:schema>
+     <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/tramites" schemaLocation="SvcDocumento_schema2.xsd"/>
+    </xsd:schema>
+     <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" schemaLocation="SvcDocumento_schema3.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun" schemaLocation="SvcDocumento_schema4.xsd"/>
+    </xsd:schema>    
+    
+     <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/contracts/1.0/personas" schemaLocation="SvcDocumento_schema5.xsd"/>
+    </xsd:schema>
+    
+  </types>
+  
+  <message name="RegistrarArchivosNuevoResponse">
+    <part name="DocumentosTRDDTO" element="tns:DocumentosTRDDTO">
+    </part>
+  </message>
+  
+  <message name="RegistrarArchivosNuevo">
+    <part name="InformacionRegistroNuevo" element="tns:InformacionRegistroNuevo">
+    </part>
+  </message>
+  
+  <portType name="ContratoRegistroArchivosNuevo">
+    <operation name="RegistrarArchivosNuevo">
+      <input message="tns:RegistrarArchivosNuevo">
+    </input>
+      <output message="tns:RegistrarArchivosNuevoResponse">
+    </output>
+    </operation>
+  </portType>
+  
+  <binding name="EndpointRegistroDocumentoNuevoBinding" type="tns:ContratoRegistroArchivosNuevo">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    
+    <operation name="RegistrarArchivosNuevo">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoRegistroArchivosNuevo/RegistrarArchivosNuevo"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  
+  
+  <service name="RegistroDocumento">
+    <port name="EndpointRegistroDocumentoNuevo" binding="tns:EndpointRegistroDocumentoNuevoBinding">
+<!--       <soap:address location="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento"/> -->
+    </port>
+  </service>
+</definitions>

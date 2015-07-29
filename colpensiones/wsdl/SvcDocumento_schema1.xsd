@@ -79,6 +79,9 @@
   <xs:element name="tipoInformacionMovimientoDocumentoTRDDTO" type="tns:tipoInformacionMovimientoDocumentoTRDDTO"></xs:element>
 
   <xs:element name="tipoInformacionRegistroTRDDTO" type="tns:tipoInformacionRegistroTRDDTO"></xs:element>
+  
+  <!-- NUEVO -->
+  <xs:element name="tipoInformacionRegistroNuevo" type="tns:tipoInformacionRegistroNuevo"></xs:element>
 
   <xs:element name="tipoObtenerDocumentosTRD" type="tns:tipoObtenerDocumentosTRD"></xs:element>
 
@@ -521,4 +524,12 @@
       <xs:element name="Detalle" type="tns:tipoInformacionGeneralTRD" nillable="true"></xs:element>
     </xs:sequence>
   </xs:complexType>
+  
+  <!-- ELEMENTO NUEVO -->
+   <xs:complexType name="tipoInformacionRegistroNuevo">
+    <xs:sequence>      
+      <xs:element name="Detalle" type="tns:tipoInformacionGeneralTRD" nillable="true"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
 </xs:schema>

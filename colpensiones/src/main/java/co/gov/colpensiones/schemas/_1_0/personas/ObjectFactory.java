@@ -26,51 +26,52 @@ public class ObjectFactory {
 
     private final static QName _TipoConsultaRecord_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoConsultaRecord");
     private final static QName _TipoPaginas_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoPaginas");
-    private final static QName _TipoAplicarDispocision_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoAplicarDispocision");
-    private final static QName _TipoPagina_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoPagina");
-    private final static QName _TipoPropiedades_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoPropiedades");
-    private final static QName _TipoDigitalizados_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDigitalizados");
-    private final static QName _TipoInformacionMovimientoDocumentoTRD_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionMovimientoDocumentoTRD");
-    private final static QName _TipoInformacionConsultaDigitalizadosDTO_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionConsultaDigitalizadosDTO");
-    private final static QName _TipoInformacionExpedienteRecord_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionExpedienteRecord");
-    private final static QName _TipoIdentificacionTRDDocumento_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoIdentificacionTRDDocumento");
-    private final static QName _TipoDocumento_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDocumento");
-    private final static QName _TipoExpedienteRecord_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoExpedienteRecord");
-    private final static QName _TipoInformacionConsultaRecord_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionConsultaRecord");
-    private final static QName _TipoDigitalizado_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDigitalizado");
-    private final static QName _TipoInformacionExpedientesRecord_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionExpedientesRecord");
     private final static QName _TipoExpedienteContent_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoExpedienteContent");
-    private final static QName _TipoTipoDocumental_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoTipoDocumental");
+    private final static QName _TipoInformacionExpedientesRecord_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionExpedientesRecord");
     private final static QName _TipoDocumentoTRD_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDocumentoTRD");
     private final static QName _TipoConsultaSeries_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoConsultaSeries");
     private final static QName _TipoDocumentos_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDocumentos");
     private final static QName _TipoDocumentosTRDDTO_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDocumentosTRDDTO");
     private final static QName _TipoInformacionExpedienteContent_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionExpedienteContent");
-    private final static QName _TipoInformacionFolder_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionFolder");
     private final static QName _TipoDocumentoGenerico_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDocumentoGenerico");
     private final static QName _TipoPaginasMTOM_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoPaginasMTOM");
+    private final static QName _TipoCriterioContent_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoCriterioContent");
+    private final static QName _TipoDocumentoContent_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDocumentoContent");
+    private final static QName _TipoPropiedad_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoPropiedad");
+    private final static QName _TipoInformacionConsultaDigitalizados_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionConsultaDigitalizados");
+    private final static QName _TipoIdentificacionDocumentoDTO_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoIdentificacionDocumentoDTO");
+    private final static QName _TipoDocumentosGenericos_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDocumentosGenericos");
+    private final static QName _TipoObtenerDocumentosTRD_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoObtenerDocumentosTRD");
+    private final static QName _TipoAplicarDispocision_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoAplicarDispocision");
+    private final static QName _TipoPagina_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoPagina");
+    private final static QName _TipoPropiedades_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoPropiedades");
+    private final static QName _TipoDigitalizados_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDigitalizados");
+    private final static QName _TipoInformacionMovimientoDocumentoTRD_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionMovimientoDocumentoTRD");
+    private final static QName _TipoInformacionExpedienteRecord_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionExpedienteRecord");
+    private final static QName _TipoInformacionConsultaDigitalizadosDTO_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionConsultaDigitalizadosDTO");
+    private final static QName _TipoDocumento_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDocumento");
+    private final static QName _TipoIdentificacionTRDDocumento_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoIdentificacionTRDDocumento");
+    private final static QName _TipoInformacionRegistroNuevo_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionRegistroNuevo");
+    private final static QName _TipoExpedienteRecord_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoExpedienteRecord");
+    private final static QName _TipoInformacionConsultaRecord_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionConsultaRecord");
+    private final static QName _TipoDigitalizado_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDigitalizado");
+    private final static QName _TipoTipoDocumental_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoTipoDocumental");
+    private final static QName _TipoInformacionFolder_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionFolder");
     private final static QName _TipoSeguridadSeries_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoSeguridadSeries");
     private final static QName _TipoInformacionExpedientesContent_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionExpedientesContent");
     private final static QName _TipoInformacionMovimientoDocumentoTRDDTO_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionMovimientoDocumentoTRDDTO");
     private final static QName _TipoDocumentosTRD_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDocumentosTRD");
     private final static QName _TipoDigitalizadosDTO_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDigitalizadosDTO");
-    private final static QName _TipoCriterioContent_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoCriterioContent");
     private final static QName _TipoInformacionActualizarMetadataDTO_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionActualizarMetadataDTO");
     private final static QName _TipoInformacionRegistroTRDDTO_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionRegistroTRDDTO");
     private final static QName _TipoInformacionConsultaDocumentosTRD_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionConsultaDocumentosTRD");
     private final static QName _TipoDocumentoDTO_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDocumentoDTO");
     private final static QName _TipoInformacionActualizarMetadata_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionActualizarMetadata");
-    private final static QName _TipoEstadosEjecucion_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoEstadosEjecucion");
     private final static QName _TipoIdentificacionDocumento_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoIdentificacionDocumento");
-    private final static QName _TipoPropiedad_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoPropiedad");
-    private final static QName _TipoDocumentoContent_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDocumentoContent");
-    private final static QName _TipoInformacionConsultaDigitalizados_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionConsultaDigitalizados");
-    private final static QName _TipoIdentificacionDocumentoDTO_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoIdentificacionDocumentoDTO");
+    private final static QName _TipoEstadosEjecucion_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoEstadosEjecucion");
     private final static QName _TipoResultadoDispocision_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoResultadoDispocision");
-    private final static QName _TipoDocumentosGenericos_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoDocumentosGenericos");
-    private final static QName _TipoObtenerDocumentosTRD_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoObtenerDocumentosTRD");
-    private final static QName _TipoPaginaMTOM_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoPaginaMTOM");
     private final static QName _TipoInformacionGeneralTRD_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoInformacionGeneralTRD");
+    private final static QName _TipoPaginaMTOM_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoPaginaMTOM");
     private final static QName _TipoIdentificacionTRD_QNAME = new QName("http://www.colpensiones.gov.co/schemas/1.0/personas", "tipoIdentificacionTRD");
 
     /**
@@ -182,6 +183,14 @@ public class ObjectFactory {
      */
     public TipoDigitalizados createTipoDigitalizados() {
         return new TipoDigitalizados();
+    }
+
+    /**
+     * Create an instance of {@link TipoInformacionRegistroNuevo }
+     * 
+     */
+    public TipoInformacionRegistroNuevo createTipoInformacionRegistroNuevo() {
+        return new TipoInformacionRegistroNuevo();
     }
 
     /**
@@ -587,123 +596,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoAplicarDispocision }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoAplicarDispocision")
-    public JAXBElement<TipoAplicarDispocision> createTipoAplicarDispocision(TipoAplicarDispocision value) {
-        return new JAXBElement<TipoAplicarDispocision>(_TipoAplicarDispocision_QNAME, TipoAplicarDispocision.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoPagina }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoPagina")
-    public JAXBElement<TipoPagina> createTipoPagina(TipoPagina value) {
-        return new JAXBElement<TipoPagina>(_TipoPagina_QNAME, TipoPagina.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoPropiedades }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoPropiedades")
-    public JAXBElement<TipoPropiedades> createTipoPropiedades(TipoPropiedades value) {
-        return new JAXBElement<TipoPropiedades>(_TipoPropiedades_QNAME, TipoPropiedades.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoDigitalizados }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoDigitalizados")
-    public JAXBElement<TipoDigitalizados> createTipoDigitalizados(TipoDigitalizados value) {
-        return new JAXBElement<TipoDigitalizados>(_TipoDigitalizados_QNAME, TipoDigitalizados.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionMovimientoDocumentoTRD }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionMovimientoDocumentoTRD")
-    public JAXBElement<TipoInformacionMovimientoDocumentoTRD> createTipoInformacionMovimientoDocumentoTRD(TipoInformacionMovimientoDocumentoTRD value) {
-        return new JAXBElement<TipoInformacionMovimientoDocumentoTRD>(_TipoInformacionMovimientoDocumentoTRD_QNAME, TipoInformacionMovimientoDocumentoTRD.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionConsultaDigitalizadosDTO }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionConsultaDigitalizadosDTO")
-    public JAXBElement<TipoInformacionConsultaDigitalizadosDTO> createTipoInformacionConsultaDigitalizadosDTO(TipoInformacionConsultaDigitalizadosDTO value) {
-        return new JAXBElement<TipoInformacionConsultaDigitalizadosDTO>(_TipoInformacionConsultaDigitalizadosDTO_QNAME, TipoInformacionConsultaDigitalizadosDTO.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionExpedienteRecord }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionExpedienteRecord")
-    public JAXBElement<TipoInformacionExpedienteRecord> createTipoInformacionExpedienteRecord(TipoInformacionExpedienteRecord value) {
-        return new JAXBElement<TipoInformacionExpedienteRecord>(_TipoInformacionExpedienteRecord_QNAME, TipoInformacionExpedienteRecord.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoIdentificacionTRDDocumento }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoIdentificacionTRDDocumento")
-    public JAXBElement<TipoIdentificacionTRDDocumento> createTipoIdentificacionTRDDocumento(TipoIdentificacionTRDDocumento value) {
-        return new JAXBElement<TipoIdentificacionTRDDocumento>(_TipoIdentificacionTRDDocumento_QNAME, TipoIdentificacionTRDDocumento.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoDocumento }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoDocumento")
-    public JAXBElement<TipoDocumento> createTipoDocumento(TipoDocumento value) {
-        return new JAXBElement<TipoDocumento>(_TipoDocumento_QNAME, TipoDocumento.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoExpedienteRecord }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoExpedienteRecord")
-    public JAXBElement<TipoExpedienteRecord> createTipoExpedienteRecord(TipoExpedienteRecord value) {
-        return new JAXBElement<TipoExpedienteRecord>(_TipoExpedienteRecord_QNAME, TipoExpedienteRecord.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionConsultaRecord }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionConsultaRecord")
-    public JAXBElement<TipoInformacionConsultaRecord> createTipoInformacionConsultaRecord(TipoInformacionConsultaRecord value) {
-        return new JAXBElement<TipoInformacionConsultaRecord>(_TipoInformacionConsultaRecord_QNAME, TipoInformacionConsultaRecord.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoDigitalizado }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoDigitalizado")
-    public JAXBElement<TipoDigitalizado> createTipoDigitalizado(TipoDigitalizado value) {
-        return new JAXBElement<TipoDigitalizado>(_TipoDigitalizado_QNAME, TipoDigitalizado.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionExpedientesRecord }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionExpedientesRecord")
-    public JAXBElement<TipoInformacionExpedientesRecord> createTipoInformacionExpedientesRecord(TipoInformacionExpedientesRecord value) {
-        return new JAXBElement<TipoInformacionExpedientesRecord>(_TipoInformacionExpedientesRecord_QNAME, TipoInformacionExpedientesRecord.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TipoExpedienteContent }{@code >}}
      * 
      */
@@ -713,12 +605,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoTipoDocumental }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionExpedientesRecord }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoTipoDocumental")
-    public JAXBElement<TipoTipoDocumental> createTipoTipoDocumental(TipoTipoDocumental value) {
-        return new JAXBElement<TipoTipoDocumental>(_TipoTipoDocumental_QNAME, TipoTipoDocumental.class, null, value);
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionExpedientesRecord")
+    public JAXBElement<TipoInformacionExpedientesRecord> createTipoInformacionExpedientesRecord(TipoInformacionExpedientesRecord value) {
+        return new JAXBElement<TipoInformacionExpedientesRecord>(_TipoInformacionExpedientesRecord_QNAME, TipoInformacionExpedientesRecord.class, null, value);
     }
 
     /**
@@ -767,15 +659,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionFolder }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionFolder")
-    public JAXBElement<TipoInformacionFolder> createTipoInformacionFolder(TipoInformacionFolder value) {
-        return new JAXBElement<TipoInformacionFolder>(_TipoInformacionFolder_QNAME, TipoInformacionFolder.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TipoDocumentoGenerico }{@code >}}
      * 
      */
@@ -791,6 +674,204 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoPaginasMTOM")
     public JAXBElement<TipoPaginasMTOM> createTipoPaginasMTOM(TipoPaginasMTOM value) {
         return new JAXBElement<TipoPaginasMTOM>(_TipoPaginasMTOM_QNAME, TipoPaginasMTOM.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoCriterioContent }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoCriterioContent")
+    public JAXBElement<TipoCriterioContent> createTipoCriterioContent(TipoCriterioContent value) {
+        return new JAXBElement<TipoCriterioContent>(_TipoCriterioContent_QNAME, TipoCriterioContent.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoDocumentoContent }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoDocumentoContent")
+    public JAXBElement<TipoDocumentoContent> createTipoDocumentoContent(TipoDocumentoContent value) {
+        return new JAXBElement<TipoDocumentoContent>(_TipoDocumentoContent_QNAME, TipoDocumentoContent.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoPropiedad }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoPropiedad")
+    public JAXBElement<TipoPropiedad> createTipoPropiedad(TipoPropiedad value) {
+        return new JAXBElement<TipoPropiedad>(_TipoPropiedad_QNAME, TipoPropiedad.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionConsultaDigitalizados }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionConsultaDigitalizados")
+    public JAXBElement<TipoInformacionConsultaDigitalizados> createTipoInformacionConsultaDigitalizados(TipoInformacionConsultaDigitalizados value) {
+        return new JAXBElement<TipoInformacionConsultaDigitalizados>(_TipoInformacionConsultaDigitalizados_QNAME, TipoInformacionConsultaDigitalizados.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoIdentificacionDocumentoDTO }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoIdentificacionDocumentoDTO")
+    public JAXBElement<TipoIdentificacionDocumentoDTO> createTipoIdentificacionDocumentoDTO(TipoIdentificacionDocumentoDTO value) {
+        return new JAXBElement<TipoIdentificacionDocumentoDTO>(_TipoIdentificacionDocumentoDTO_QNAME, TipoIdentificacionDocumentoDTO.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoDocumentosGenericos }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoDocumentosGenericos")
+    public JAXBElement<TipoDocumentosGenericos> createTipoDocumentosGenericos(TipoDocumentosGenericos value) {
+        return new JAXBElement<TipoDocumentosGenericos>(_TipoDocumentosGenericos_QNAME, TipoDocumentosGenericos.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoObtenerDocumentosTRD }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoObtenerDocumentosTRD")
+    public JAXBElement<TipoObtenerDocumentosTRD> createTipoObtenerDocumentosTRD(TipoObtenerDocumentosTRD value) {
+        return new JAXBElement<TipoObtenerDocumentosTRD>(_TipoObtenerDocumentosTRD_QNAME, TipoObtenerDocumentosTRD.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoAplicarDispocision }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoAplicarDispocision")
+    public JAXBElement<TipoAplicarDispocision> createTipoAplicarDispocision(TipoAplicarDispocision value) {
+        return new JAXBElement<TipoAplicarDispocision>(_TipoAplicarDispocision_QNAME, TipoAplicarDispocision.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoPagina }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoPagina")
+    public JAXBElement<TipoPagina> createTipoPagina(TipoPagina value) {
+        return new JAXBElement<TipoPagina>(_TipoPagina_QNAME, TipoPagina.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoPropiedades }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoPropiedades")
+    public JAXBElement<TipoPropiedades> createTipoPropiedades(TipoPropiedades value) {
+        return new JAXBElement<TipoPropiedades>(_TipoPropiedades_QNAME, TipoPropiedades.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoDigitalizados }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoDigitalizados")
+    public JAXBElement<TipoDigitalizados> createTipoDigitalizados(TipoDigitalizados value) {
+        return new JAXBElement<TipoDigitalizados>(_TipoDigitalizados_QNAME, TipoDigitalizados.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionMovimientoDocumentoTRD }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionMovimientoDocumentoTRD")
+    public JAXBElement<TipoInformacionMovimientoDocumentoTRD> createTipoInformacionMovimientoDocumentoTRD(TipoInformacionMovimientoDocumentoTRD value) {
+        return new JAXBElement<TipoInformacionMovimientoDocumentoTRD>(_TipoInformacionMovimientoDocumentoTRD_QNAME, TipoInformacionMovimientoDocumentoTRD.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionExpedienteRecord }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionExpedienteRecord")
+    public JAXBElement<TipoInformacionExpedienteRecord> createTipoInformacionExpedienteRecord(TipoInformacionExpedienteRecord value) {
+        return new JAXBElement<TipoInformacionExpedienteRecord>(_TipoInformacionExpedienteRecord_QNAME, TipoInformacionExpedienteRecord.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionConsultaDigitalizadosDTO }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionConsultaDigitalizadosDTO")
+    public JAXBElement<TipoInformacionConsultaDigitalizadosDTO> createTipoInformacionConsultaDigitalizadosDTO(TipoInformacionConsultaDigitalizadosDTO value) {
+        return new JAXBElement<TipoInformacionConsultaDigitalizadosDTO>(_TipoInformacionConsultaDigitalizadosDTO_QNAME, TipoInformacionConsultaDigitalizadosDTO.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoDocumento }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoDocumento")
+    public JAXBElement<TipoDocumento> createTipoDocumento(TipoDocumento value) {
+        return new JAXBElement<TipoDocumento>(_TipoDocumento_QNAME, TipoDocumento.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoIdentificacionTRDDocumento }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoIdentificacionTRDDocumento")
+    public JAXBElement<TipoIdentificacionTRDDocumento> createTipoIdentificacionTRDDocumento(TipoIdentificacionTRDDocumento value) {
+        return new JAXBElement<TipoIdentificacionTRDDocumento>(_TipoIdentificacionTRDDocumento_QNAME, TipoIdentificacionTRDDocumento.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionRegistroNuevo }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionRegistroNuevo")
+    public JAXBElement<TipoInformacionRegistroNuevo> createTipoInformacionRegistroNuevo(TipoInformacionRegistroNuevo value) {
+        return new JAXBElement<TipoInformacionRegistroNuevo>(_TipoInformacionRegistroNuevo_QNAME, TipoInformacionRegistroNuevo.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoExpedienteRecord }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoExpedienteRecord")
+    public JAXBElement<TipoExpedienteRecord> createTipoExpedienteRecord(TipoExpedienteRecord value) {
+        return new JAXBElement<TipoExpedienteRecord>(_TipoExpedienteRecord_QNAME, TipoExpedienteRecord.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionConsultaRecord }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionConsultaRecord")
+    public JAXBElement<TipoInformacionConsultaRecord> createTipoInformacionConsultaRecord(TipoInformacionConsultaRecord value) {
+        return new JAXBElement<TipoInformacionConsultaRecord>(_TipoInformacionConsultaRecord_QNAME, TipoInformacionConsultaRecord.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoDigitalizado }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoDigitalizado")
+    public JAXBElement<TipoDigitalizado> createTipoDigitalizado(TipoDigitalizado value) {
+        return new JAXBElement<TipoDigitalizado>(_TipoDigitalizado_QNAME, TipoDigitalizado.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoTipoDocumental }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoTipoDocumental")
+    public JAXBElement<TipoTipoDocumental> createTipoTipoDocumental(TipoTipoDocumental value) {
+        return new JAXBElement<TipoTipoDocumental>(_TipoTipoDocumental_QNAME, TipoTipoDocumental.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionFolder }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionFolder")
+    public JAXBElement<TipoInformacionFolder> createTipoInformacionFolder(TipoInformacionFolder value) {
+        return new JAXBElement<TipoInformacionFolder>(_TipoInformacionFolder_QNAME, TipoInformacionFolder.class, null, value);
     }
 
     /**
@@ -839,15 +920,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoCriterioContent }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoCriterioContent")
-    public JAXBElement<TipoCriterioContent> createTipoCriterioContent(TipoCriterioContent value) {
-        return new JAXBElement<TipoCriterioContent>(_TipoCriterioContent_QNAME, TipoCriterioContent.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionActualizarMetadataDTO }{@code >}}
      * 
      */
@@ -893,15 +965,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoEstadosEjecucion }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoEstadosEjecucion")
-    public JAXBElement<TipoEstadosEjecucion> createTipoEstadosEjecucion(TipoEstadosEjecucion value) {
-        return new JAXBElement<TipoEstadosEjecucion>(_TipoEstadosEjecucion_QNAME, TipoEstadosEjecucion.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TipoIdentificacionDocumento }{@code >}}
      * 
      */
@@ -911,39 +974,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoPropiedad }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoEstadosEjecucion }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoPropiedad")
-    public JAXBElement<TipoPropiedad> createTipoPropiedad(TipoPropiedad value) {
-        return new JAXBElement<TipoPropiedad>(_TipoPropiedad_QNAME, TipoPropiedad.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoDocumentoContent }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoDocumentoContent")
-    public JAXBElement<TipoDocumentoContent> createTipoDocumentoContent(TipoDocumentoContent value) {
-        return new JAXBElement<TipoDocumentoContent>(_TipoDocumentoContent_QNAME, TipoDocumentoContent.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionConsultaDigitalizados }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionConsultaDigitalizados")
-    public JAXBElement<TipoInformacionConsultaDigitalizados> createTipoInformacionConsultaDigitalizados(TipoInformacionConsultaDigitalizados value) {
-        return new JAXBElement<TipoInformacionConsultaDigitalizados>(_TipoInformacionConsultaDigitalizados_QNAME, TipoInformacionConsultaDigitalizados.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoIdentificacionDocumentoDTO }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoIdentificacionDocumentoDTO")
-    public JAXBElement<TipoIdentificacionDocumentoDTO> createTipoIdentificacionDocumentoDTO(TipoIdentificacionDocumentoDTO value) {
-        return new JAXBElement<TipoIdentificacionDocumentoDTO>(_TipoIdentificacionDocumentoDTO_QNAME, TipoIdentificacionDocumentoDTO.class, null, value);
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoEstadosEjecucion")
+    public JAXBElement<TipoEstadosEjecucion> createTipoEstadosEjecucion(TipoEstadosEjecucion value) {
+        return new JAXBElement<TipoEstadosEjecucion>(_TipoEstadosEjecucion_QNAME, TipoEstadosEjecucion.class, null, value);
     }
 
     /**
@@ -956,21 +992,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoDocumentosGenericos }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionGeneralTRD }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoDocumentosGenericos")
-    public JAXBElement<TipoDocumentosGenericos> createTipoDocumentosGenericos(TipoDocumentosGenericos value) {
-        return new JAXBElement<TipoDocumentosGenericos>(_TipoDocumentosGenericos_QNAME, TipoDocumentosGenericos.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoObtenerDocumentosTRD }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoObtenerDocumentosTRD")
-    public JAXBElement<TipoObtenerDocumentosTRD> createTipoObtenerDocumentosTRD(TipoObtenerDocumentosTRD value) {
-        return new JAXBElement<TipoObtenerDocumentosTRD>(_TipoObtenerDocumentosTRD_QNAME, TipoObtenerDocumentosTRD.class, null, value);
+    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionGeneralTRD")
+    public JAXBElement<TipoInformacionGeneralTRD> createTipoInformacionGeneralTRD(TipoInformacionGeneralTRD value) {
+        return new JAXBElement<TipoInformacionGeneralTRD>(_TipoInformacionGeneralTRD_QNAME, TipoInformacionGeneralTRD.class, null, value);
     }
 
     /**
@@ -980,15 +1007,6 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoPaginaMTOM")
     public JAXBElement<TipoPaginaMTOM> createTipoPaginaMTOM(TipoPaginaMTOM value) {
         return new JAXBElement<TipoPaginaMTOM>(_TipoPaginaMTOM_QNAME, TipoPaginaMTOM.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TipoInformacionGeneralTRD }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.colpensiones.gov.co/schemas/1.0/personas", name = "tipoInformacionGeneralTRD")
-    public JAXBElement<TipoInformacionGeneralTRD> createTipoInformacionGeneralTRD(TipoInformacionGeneralTRD value) {
-        return new JAXBElement<TipoInformacionGeneralTRD>(_TipoInformacionGeneralTRD_QNAME, TipoInformacionGeneralTRD.class, null, value);
     }
 
     /**

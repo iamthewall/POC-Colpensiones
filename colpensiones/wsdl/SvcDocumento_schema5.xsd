@@ -45,6 +45,9 @@
   <xs:element name="InformacionMovimientoDocumentoTRDDTO" type="ns1:tipoInformacionMovimientoDocumentoTRDDTO"></xs:element>
 
   <xs:element name="InformacionRegistroTRDDTO" type="ns1:tipoInformacionRegistroTRDDTO"></xs:element>
+  
+  <!-- NUEVAO -->
+  <xs:element name="InformacionRegistroNuevo" type="ns1:tipoInformacionRegistroNuevo"></xs:element>
 
   <xs:element name="ObtenerDocumentoTRD" type="ns1:tipoObtenerDocumentosTRD"></xs:element>
 
