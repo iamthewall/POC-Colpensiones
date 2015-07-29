@@ -1,23 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.redhat</groupId>
-  <artifactId>poc-colpensiones</artifactId>
-  <packaging>jar</packaging>
+  <artifactId>colpensiones-poc</artifactId>
+  <packaging>bundle</packaging>
+<!--   <packaging>jar</packaging> -->
   <version>1.0.0-SNAPSHOT</version>
 
-  <name>A Camel Spring Route</name>
-  <url>http://www.myorganization.org</url>
+  	<name>POC: Colpensiones</name>
+	<description>Rutas de Integración a BD y File Net</description>
+	<url>http://www.myorganization.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>		
+		<camel-version>2.12.0.redhat-611412</camel-version>
+		<cxf-version>2.7.0.redhat-610379</cxf-version>
+		<cxf-xjc-plugin.version>2.3.0</cxf-xjc-plugin.version>
+		<servicemix.osgi.import>
+			*
+		</servicemix.osgi.import>
+		<servicemix.osgi.export>
+			org.apache.camel.demo.camel_jms_jdbc
+		</servicemix.osgi.export>
+		<servicemix.osgi.bundles />
+		<servicemix.osgi.dynamic.import>*</servicemix.osgi.dynamic.import>
+	</properties>
 
-  <repositories>
+
+<repositories>
     <repository>
       <id>release.fusesource.org</id>
       <name>FuseSource Release Repository</name>
@@ -29,17 +42,6 @@
         <enabled>true</enabled>
       </releases>
     </repository>
-    <repository>
-     <id>ea.fusesource.org</id>
-     <name>FuseSource Community Early Access Release Repository</name>
-     <url>http://repo.fusesource.com/nexus/content/groups/ea</url>
-     <snapshots>
-      <enabled>false</enabled>
-     </snapshots>
-     <releases>
-      <enabled>true</enabled>
-     </releases>
-    </repository>    
     <repository>
       <id>snapshot.fusesource.org</id>
       <name>FuseSource Snapshot Repository</name>
@@ -66,17 +68,6 @@
       </releases>
     </pluginRepository>
     <pluginRepository>
-     <id>ea.fusesource.org</id>
-     <name>FuseSource Community Early Access Release Repository</name>
-     <url>http://repo.fusesource.com/nexus/content/groups/ea</url>
-     <snapshots>
-      <enabled>false</enabled>
-     </snapshots>
-     <releases>
-      <enabled>true</enabled>
-     </releases>
-    </pluginRepository>      
-    <pluginRepository>
       <id>snapshot.fusesource.org</id>
       <name>FuseSource Snapshot Repository</name>
       <url>http://repo.fusesource.com/nexus/content/repositories/snapshots</url>
@@ -86,31 +77,70 @@
       <releases>
         <enabled>false</enabled>
       </releases>
-    </pluginRepository>
+    </pluginRepository>  
   </pluginRepositories>
 
   <dependencies>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-core</artifactId>
-      <version>2.12.0.redhat-610379</version>
+      <version>${camel-version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-spring</artifactId>
-      <version>2.12.0.redhat-610379</version>
+      <version>${camel-version}</version>
     </dependency>
+    
+    <!--CXF - PA LLAMAR WEB SERVICES -->
+	<dependency>
+		<groupId>org.apache.camel</groupId>
+		<artifactId>camel-cxf</artifactId>
+		<version>${camel-version}</version>
+	</dependency>
+	
+	<!--PARA USAR VELOCITY -->
+	<dependency>
+    	<groupId>org.apache.camel</groupId>
+    	<artifactId>camel-velocity</artifactId>
+    	<version>${camel-version}</version>
+    </dependency>
+	
+	<!-- PARA EL ERROR: NO TYPE CONVERTER AVAILABLE FROM TYPE JAVA.LANG-STRING -->
+    <!-- LOCAL CAMEL CONTEXT RUN. COMMENT WHEN DEPLOYING IN FUSEIDE-->
+ 	<dependency>
+		<groupId>org.apache.cxf</groupId>
+		<artifactId>cxf-rt-transports-http-jetty</artifactId>
+		<version>${cxf-version}</version>
+	</dependency>
+	
 
+
+	<!-- Para correr en el IDE --> 
+<!-- 	<dependency> -->
+<!--     	<groupId>org.apache.camel</groupId> -->
+<!--     	<artifactId>camel-jetty</artifactId> -->
+<!--     	<version>${camel-version}</version> -->
+<!--     </dependency> -->
+
+
+<!-- SOAP MARSHAL AND UNMARSHAL -->
+	<dependency>
+		<groupId>org.apache.camel</groupId>
+		<artifactId>camel-soap</artifactId>
+		<version>${camel-version}</version>
+	</dependency>	
+	
     <!-- logging -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>1.7.5</version>
+      <version>1.7.7</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
-      <version>1.7.5</version>
+      <version>1.7.7</version>
     </dependency>
     <dependency>
       <groupId>log4j</groupId>
@@ -122,11 +152,53 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-test-spring</artifactId>
-      <version>2.12.0.redhat-610379</version>
+      <version>${camel-version}</version>
       <scope>test</scope>
     </dependency>
+    
+    <!-- BD -->
+	<dependency>
+		<groupId>org.apache.camel</groupId>
+		<artifactId>camel-jdbc</artifactId>
+		<version>${camel-version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.camel</groupId>
+		<artifactId>camel-sql</artifactId>
+		<version>${camel-version}</version>
+	</dependency>
+	
+	<!-- Este funciona para el JBDS -->
+<!-- 	<dependency>
+		<groupId>commons-dbcp</groupId>
+		<artifactId>commons-dbcp</artifactId>
+		<version>1.4</version>
+	</dependency> -->
+	<dependency>
+		<groupId>org.apache.servicemix.bundles</groupId>
+		<artifactId>org.apache.servicemix.bundles.commons-dbcp</artifactId>
+		<version>1.4_3</version>
+	</dependency>
 
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>5.1.26</version>
+		<scope>provided</scope>
+		<optional>false</optional>
+	</dependency>
+	
+<!-- 	<dependency> -->
+<!-- 		<groupId>mysql</groupId> -->
+<!-- 		<artifactId>mysql-connector-java</artifactId> -->
+<!-- 		<version>5.1.22</version> -->
+<!-- 	</dependency> -->
+
+
+	
   </dependencies>
+  
+  
 
   <build>
     <defaultGoal>install</defaultGoal>
@@ -154,8 +226,67 @@
       <plugin>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-maven-plugin</artifactId>
-        <version>2.12.0.redhat-610379</version>
+        <version>${camel-version}</version>
       </plugin>
+
+	<plugin>
+		<groupId>org.apache.felix</groupId>
+		<artifactId>maven-bundle-plugin</artifactId>
+		<version>2.3.7</version>
+		<extensions>true</extensions>
+		<configuration>
+			<instructions>
+				<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+				<Bundle-Description>${project.description}</Bundle-Description>
+				<!-- <Export-Package> '=META-INF.com.redhat.poc','=META-INF.wsdl','=META-INF.cxf','=META-INF.cxf.camel' 
+					</Export-Package> -->
+					<Export-Package>${servicemix.osgi.export}</Export-Package> 				
+					<Import-Package>
+					*,
+					!junit.framework,
+					com.mysql.jdbc.*,
+					org.apache.commons.dbcp,${servicemix.osgi.import}
+				</Import-Package>
+				  <DynamicImport-Package>${servicemix.osgi.dynamic.import}</DynamicImport-Package>
+			</instructions>
+		</configuration>
+	</plugin>
+		
+		<!-- CXF wsdl2java generator, will plugin to the compile goal -->
+		<!-- Al generarse por primera vez los fuentes, se reemplazan los de encabezados y errores y no se corre mas esta tarea -->
+		  
+		<plugin>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-codegen-plugin</artifactId>
+			<version>2.7.6</version>
+			<executions>
+				<execution>
+					<id>generate-sources</id>
+					<phase>generate-sources</phase>
+					<configuration>
+						<sourceRoot>${basedir}/src/main/java</sourceRoot>
+						<wsdlOptions>
+							<wsdlOption>
+								<wsdl>wsdl/SvcDocumento.wsdl</wsdl>
+							</wsdlOption>
+						</wsdlOptions>
+						<extraargs>
+							<extraarg>-impl</extraarg>
+						</extraargs>
+						<includes>
+							<include>*.wsdl</include>
+							<include>*.xsd</include>
+						</includes>
+					</configuration>
+					<goals>
+						<goal>wsdl2java</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+		
+      
+      
     </plugins>
   </build>
 
