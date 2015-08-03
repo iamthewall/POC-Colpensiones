@@ -1,17 +1,21 @@
 package co.gov.colpensiones.processor;
 
-public class ProcesarInput {
-	public String doSomething(String body)
-	{		
-		body = body
-				.replaceAll("<per:InformacionRegistroNuevo>", 
-						"<per:InformacionRegistroTRDDTO>\n" +
-				"\t\t<per1:Contexto> \n" +
-				"\t\t\t<com:nombreUsuarioNegocio>INTBIZAGIECM</com:nombreUsuarioNegocio>\n" +
-				"\t\t\t<com:nombreUsuarioSistema>INTBIZAGIECM</com:nombreUsuarioSistema>\n" +
-				"\t\t\t<com:claveUsuarioSistema>Gesd927WS</com:claveUsuarioSistema>\n" +
-				"\t\t</per1:Contexto>")
-				.replaceAll("/per:InformacionRegistroNuevo>", "</per:InformacionRegistroTRDDTO>");
-		return body;
+import org.apache.camel.Exchange;
+import org.apache.camel.Processor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+
+public class ProcesarInput implements Processor {
+
+	private static final Logger log = LoggerFactory
+			.getLogger(ProcesarInput.class);
+	
+
+	
+	@Override
+	public void process(Exchange exchange) throws Exception {
+		log.info("Este es el original:" + exchange.getIn().getBody(String.class));
 	}
 }

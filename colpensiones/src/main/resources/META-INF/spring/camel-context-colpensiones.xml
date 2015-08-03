@@ -13,18 +13,34 @@
 	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- ENDPOINT DE ENTRADA -->
-	<cxf:cxfEndpoint id="ColpensionesRegistroArchivo" address="http://localhost:8080/colpensionesRegistro"
+	<cxf:cxfEndpoint id="ColpensionesRegistroArchivo" address="http://localhost:8080/colpensionesRegistro?wsdl"
 		endpointName="tns:EndpointRegistroDocumentoNuevo" serviceName="tns:RegistroDocumento"
 		serviceClass="co.gov.colpensiones.contracts._1_0.personas.RegistroDocumento"
 		wsdlURL="wsdl/RegistrarDocumento.wsdl"
 		xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas"
 	>
 		<cxf:properties>
-			<entry key="dataFormat" value="MESSAGE" />
-			<entry key="headerFilterStrategy" value="#dropAllMessageHeadersStrategy" />
-			<entry key="defaultOperationName" value="RegistrarArchivosTRD" />
-		</cxf:properties>
+	      <entry key="mtom-enabled" value="true" />
+	   	  <entry key="dataFormat" value="POJO" />
+	   	</cxf:properties>
+		
 	</cxf:cxfEndpoint>
+	
+	<!-- SIMULANDO ENTRADA CON EL LEGACY -->
+	
+	<cxf:cxfEndpoint id="RegistroLegacy" address="http://localhost:8080/colpensionesRegistroLegacy?wsdl"
+		endpointName="tns:EndpointDocumento" serviceName="tns:SvcDocumento"
+		serviceClass="co.gov.colpensiones.contracts._1_0.personas.SvcDocumento"
+		wsdlURL="wsdl/SvcDocumento.wsdl"
+		xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas"
+	>
+		<cxf:properties>
+	      <entry key="mtom-enabled" value="true" />
+	   	  <entry key="dataFormat" value="POJO" />
+	   	</cxf:properties>
+		
+	</cxf:cxfEndpoint>	
+	
 	
 <!-- 	SERVICIO WEB LEGACY DE DOCUMENTOS --> 
 <!-- 	<cxf:cxfEndpoint id="ColpensionesFileNetService" -->
@@ -46,27 +62,30 @@
 	<!-- PUEDE QUE NO SEA NECESARIO. EN CASO TAL BORRAR.  -->
 	<bean id="procesarInput" class="co.gov.colpensiones.processor.ProcesarInput"/>
 	
-	<camelContext trace="false" streamCache="true" id="camel-colpensiones-wsdl" 
-	xmlns="http://camel.apache.org/schema/spring"
-	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-	xmlns:per="http://www.colpensiones.gov.co/contracts/1.0/personas" 
-	xmlns:per1="http://www.colpensiones.gov.co/schemas/1.0/personas">
+	
+	<camelContext trace="false" streamCache="true" id="camel-colpensiones-wsdl" xmlns="http://camel.apache.org/schema/spring">
 	
 	<endpoint id="ColpensionesFileNetService" uri="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento"/>
 	
     	<route id="registrarDocumento">
         	<from uri="cxf:bean:ColpensionesRegistroArchivo"/>
-        	<removeHeaders pattern="*" />
+<!--         	<to uri="bean:procesarInput"/> -->
 
-			<setHeader headerName="tramite">
-				<xpath resultType="java.lang.String">/soapenv:Envelope/soapenv:Body/per:InformacionRegistroNuevo/text()</xpath>
-			</setHeader>
+<!-- 			NO SIRVIO NO LLEGA COMO XML.
+				<setHeader headerName="tramite"> -->
+<!-- 				<xpath resultType="java.lang.String">/soapenv:Envelope/soapenv:Body/per:InformacionRegistroNuevo/text()</xpath> -->
+<!-- 			</setHeader> -->
 
 <!-- 			<to uri="velocity:vm/requestOriginal.vm"/> -->
 			<log message="${headers.tramite}" />
 <!--         	<to ref="ColpensionesFileNetService"/> -->
 <!--         	<to uri="cxf:bean:ColpensionesFileNetService"/> -->
     	</route>
+    	
+    		<route id="RegistroLegacy">
+    	    	<from uri="cxf:bean:RegistroLegacy"/>
+    	    	<log message="${body}" />
+	    	</route>
     
 	</camelContext>
 
