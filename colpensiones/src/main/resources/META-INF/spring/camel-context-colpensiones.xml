@@ -59,8 +59,8 @@
 		<property name="relayHeaders" value="false" />
 	</bean>
 	
-	<!-- PUEDE QUE NO SEA NECESARIO. EN CASO TAL BORRAR.  -->
-	<bean id="procesarInput" class="co.gov.colpensiones.processor.ProcesarInput"/>
+	<!-- PUEDE QUE NO SEA NECESARIO. EN CASO TAL BORRAR.  -->	
+	<bean id="procesarInput" class="co.gov.colpensiones.processor.ProcesarRegistroArchivoNuevo"/>
 	
 	
 	<camelContext trace="false" streamCache="true" id="camel-colpensiones-wsdl" xmlns="http://camel.apache.org/schema/spring">
@@ -77,8 +77,9 @@
 <!-- 			</setHeader> -->
 
 <!-- 			<to uri="velocity:vm/requestOriginal.vm"/> -->
-			
+			<to uri="log:CamelMessageLogger?level=INFO"/>
 			<log message="HOLA: ${body}   CHAO" />
+			<to uri="bean:procesarInput"/>
 <!--         	<to ref="ColpensionesFileNetService"/> -->
 <!--         	<to uri="cxf:bean:ColpensionesFileNetService"/> -->
     	</route>
