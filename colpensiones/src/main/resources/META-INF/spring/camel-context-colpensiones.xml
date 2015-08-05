@@ -15,7 +15,7 @@
 	<!-- ENDPOINT DE ENTRADA -->
 	<cxf:cxfEndpoint id="ColpensionesRegistroArchivo" address="http://localhost:8080/colpensionesRegistro?wsdl"
 		endpointName="tns:EndpointRegistroDocumentoNuevo" serviceName="tns:RegistroDocumento"
-		serviceClass="co.gov.colpensiones.contracts._1_0.personas.RegistroDocumento"
+		serviceClass="co.gov.colpensiones.contracts._1_0.personas.ContratoRegistroArchivosNuevo"
 		wsdlURL="wsdl/RegistrarDocumento.wsdl"
 		xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas"
 	>
@@ -30,7 +30,7 @@
 	
 	<cxf:cxfEndpoint id="RegistroLegacy" address="http://localhost:8080/colpensionesRegistroLegacy?wsdl"
 		endpointName="tns:EndpointDocumento" serviceName="tns:SvcDocumento"
-		serviceClass="co.gov.colpensiones.contracts._1_0.personas.SvcDocumento"
+		serviceClass="co.gov.colpensiones.contracts._1_0.personas.ContratoSvcDocumento"
 		wsdlURL="wsdl/SvcDocumento.wsdl"
 		xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas"
 	>
@@ -77,7 +77,8 @@
 <!-- 			</setHeader> -->
 
 <!-- 			<to uri="velocity:vm/requestOriginal.vm"/> -->
-			<log message="${headers.tramite}" />
+			
+			<log message="HOLA: ${body}   CHAO" />
 <!--         	<to ref="ColpensionesFileNetService"/> -->
 <!--         	<to uri="cxf:bean:ColpensionesFileNetService"/> -->
     	</route>

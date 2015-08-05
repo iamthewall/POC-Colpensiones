@@ -22,7 +22,7 @@
   </types>
   
   <message name="RegistrarArchivosNuevoResponse">
-    <part name="DocumentosTRDDTO" element="tns:DocumentosTRDDTO">
+    <part name="SalidaRegistroArchivosNuevo" element="tns:DocumentosTRDDTO">
     </part>
   </message>
   
@@ -56,7 +56,7 @@
   
   <service name="RegistroDocumento">
     <port name="EndpointRegistroDocumentoNuevo" binding="tns:EndpointRegistroDocumentoNuevoBinding">
-    		<soap:address location="http://localhost:8080/colpensionesRegistro/"/> -->
+    		<soap:address location="http://localhost:8080/colpensionesRegistro/"/> 
     </port>
   </service>
 </definitions>
