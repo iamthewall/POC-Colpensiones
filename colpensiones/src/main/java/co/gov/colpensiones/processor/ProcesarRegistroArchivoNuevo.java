@@ -36,7 +36,6 @@ public class ProcesarRegistroArchivoNuevo implements ContratoRegistroArchivosNue
         co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo entrada
     )
     {
-    	LOG.debug("Entered doMtom().");
     	LOG.info("input: " + entrada.toString());
     	LOG.info(entrada.getDetalle().getDocumentos().getDocumento().get(0).getId());
     	
@@ -49,14 +48,6 @@ public class ProcesarRegistroArchivoNuevo implements ContratoRegistroArchivosNue
     	contexto.setNombreUsuarioSistema("");
     	
     	entradaServicioLegacy.setContexto(contexto);
-    	
-    	
-    	
-    	
-    	
-    	
-    	
-    	
     	
     	return null;
     }

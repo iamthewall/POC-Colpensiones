@@ -14,13 +14,14 @@
 
 	<!-- ENDPOINT DE ENTRADA -->
 	<cxf:cxfEndpoint id="ColpensionesRegistroArchivo"
-		address="http://localhost:8080/colpensionesRegistro?wsdl"
+		address="http://localhost:8080/colpensionesRegistro"
 		endpointName="tns:EndpointRegistroDocumentoNuevo" serviceName="tns:RegistroDocumento"
 		serviceClass="co.gov.colpensiones.contracts._1_0.personas.ContratoRegistroArchivosNuevo"
 		wsdlURL="wsdl/RegistrarDocumento.wsdl" xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas">
 		<cxf:properties>
 			<entry key="mtom-enabled" value="true" />
-			<entry key="dataFormat" value="POJO" />
+			<entry key="dataFormat" value="CXF_MESSAGE" />
+<!-- 			<entry key="dataFormat" value="POJO" /> -->
 		</cxf:properties>
 
 	</cxf:cxfEndpoint>
@@ -46,18 +47,20 @@
 	<bean id="procesarTransformacion"
 		class="co.gov.colpensiones.processor.ProcesarTransformacion" />
 
-	<camelContext trace="false" streamCache="true"
-		id="camel-colpensiones-wsdl" xmlns="http://camel.apache.org/schema/spring">
-			
-		<endpoint uri="dozer:transformation?sourceModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo&amp;targetModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO&amp;mappingFile=TransformToLegacy.xml" id="TransformToLegacy"/>
-		
-		<route id="registrarDocumento">
-			<from uri="cxf:bean:ColpensionesRegistroArchivo" />
-			<to ref="TransformToLegacy" />	
-			<log message="DESPUES DE TRANSFORMAR = ${body}" />
-			<to uri="bean:procesarTransformacion"/>
-			
-		</route>		
-	</camelContext>
+	<camelContext trace="false" streamCache="true" id="camel-colpensiones-wsdl" xmlns="http://camel.apache.org/schema/spring">
+    <endpoint uri="dozer:transformation?sourceModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo&amp;targetModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO&amp;mappingFile=TransformToLegacy.xml" id="TransformToLegacy"/>
+    <route customId="true" id="registrarDocumento">
+        <from uri="cxf:bean:ColpensionesRegistroArchivo"/>
+        <log message="ANTES DE TRANSFORMAR = ${body}" />       
+<!--         <to uri="bean:procesarInput"/> -->
+        <to uri="bean:procesarTransformacion"/>
+         <log message="DESPUES DE TRANSFORMAR = ${body}" />
+<!--         <marshal> -->
+<!--             <soapjaxb contextPath="co.gov.colpensiones.schemas._1_0.personas" elementNameStrategyRef="soapST" version="1.2"/> -->
+<!--         </marshal> -->
+<!--         <log message="DESPUES DE TRANSFORMAR = ${body}" /> -->
+        
+    </route>
+</camelContext>
 
 </beans>
