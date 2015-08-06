@@ -40,13 +40,6 @@
 
 	<!-- </cxf:cxfEndpoint> -->
 
-
-	<bean id="dropAllMessageHeadersStrategy"
-		class="org.apache.camel.component.cxf.common.header.CxfHeaderFilterStrategy">
-		<!-- Set relayHeaders to false to drop all SOAP headers -->
-		<property name="relayHeaders" value="false" />
-	</bean>
-
 	<!-- PUEDE QUE NO SEA NECESARIO. EN CASO TAL BORRAR. -->
 	<bean id="procesarInput"
 		class="co.gov.colpensiones.processor.ProcesarRegistroArchivoNuevo" />
@@ -55,9 +48,6 @@
 
 	<camelContext trace="false" streamCache="true"
 		id="camel-colpensiones-wsdl" xmlns="http://camel.apache.org/schema/spring">
-		
-		<endpoint uri="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento"
-			id="ColpensionesFileNetService" />
 			
 		<endpoint uri="dozer:transformation?sourceModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo&amp;targetModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO&amp;mappingFile=TransformToLegacy.xml" id="TransformToLegacy"/>
 		
