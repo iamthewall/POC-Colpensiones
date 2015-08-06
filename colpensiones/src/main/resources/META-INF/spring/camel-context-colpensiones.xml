@@ -59,8 +59,7 @@
 			id="ColpensionesFileNetService" />
 		
 		<route id="registrarDocumento">
-			<from uri="cxf:bean:ColpensionesRegistroArchivo" />
-			<to ref="TransformToLegacy" />
+			<from uri="cxf:bean:ColpensionesRegistroArchivo" />	
 			<log message="DESPUES DE TRANSFORMAR = ${body}" />
 			<to uri="bean:procesarTransformacion"/>
 			<!--  -->
