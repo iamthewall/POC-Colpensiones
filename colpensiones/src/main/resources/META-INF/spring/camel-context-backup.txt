@@ -12,15 +12,22 @@
 	   http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
 	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+
+<!-- 	<bean id="soapST" -->
+<!-- 		class="org.apache.camel.dataformat.soap.name.ServiceInterfaceStrategy"> -->
+<!-- 		<constructor-arg value="co.gov.colpensiones.contracts._1_0.personas.ContratoRegistroArchivosNuevo" /> -->
+<!-- 		<constructor-arg value="false" />		 -->
+<!-- 	</bean> -->
+	
 	<!-- ENDPOINT DE ENTRADA -->
 	<cxf:cxfEndpoint id="ColpensionesRegistroArchivo"
-		address="http://localhost:8080/colpensionesRegistro?wsdl"
+		address="http://localhost:8080/colpensionesRegistro"
 		endpointName="tns:EndpointRegistroDocumentoNuevo" serviceName="tns:RegistroDocumento"
 		serviceClass="co.gov.colpensiones.contracts._1_0.personas.ContratoRegistroArchivosNuevo"
 		wsdlURL="wsdl/RegistrarDocumento.wsdl" xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas">
 		<cxf:properties>
 			<entry key="mtom-enabled" value="true" />
-			<entry key="dataFormat" value="POJO" />
+			<entry key="dataFormat" value="PAYLOAD" />
 		</cxf:properties>
 
 	</cxf:cxfEndpoint>
@@ -40,34 +47,39 @@
 
 	<!-- </cxf:cxfEndpoint> -->
 
-
-	<bean id="dropAllMessageHeadersStrategy"
-		class="org.apache.camel.component.cxf.common.header.CxfHeaderFilterStrategy">
-		<!-- Set relayHeaders to false to drop all SOAP headers -->
-		<property name="relayHeaders" value="false" />
-	</bean>
-
-	<!-- PUEDE QUE NO SEA NECESARIO. EN CASO TAL BORRAR. -->
-	<bean id="procesarInput"
-		class="co.gov.colpensiones.processor.ProcesarRegistroArchivoNuevo" />
+		
 	<bean id="procesarTransformacion"
 		class="co.gov.colpensiones.processor.ProcesarTransformacion" />
 
-	<camelContext trace="false" streamCache="true"
-		id="camel-colpensiones-wsdl" xmlns="http://camel.apache.org/schema/spring">
-		
-		<endpoint uri="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento"
-			id="ColpensionesFileNetService" />
-			
+	<camelContext trace="false" streamCache="true" id="camel-colpensiones-wsdl" xmlns="http://camel.apache.org/schema/spring"
+		xmlns:per="http://www.colpensiones.gov.co/contracts/1.0/personas" 
+		xmlns:per1="http://www.colpensiones.gov.co/schemas/1.0/personas" 
+		xmlns:com="http://www.colpensiones.gov.co/schemas/1.0/comun">
+	
+	 	  <camel:dataFormats>
+		  	  <camel:jaxb id="registrarDocumentoJaxB" prettyPrint="true" contextPath="co.gov.colpensiones.schemas._1_0.personas"
+		  	  partClass="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo"/>
+		  </camel:dataFormats>
+	  	 
 		<endpoint uri="dozer:transformation?sourceModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo&amp;targetModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO&amp;mappingFile=TransformToLegacy.xml" id="TransformToLegacy"/>
-		
-		<route id="registrarDocumento">
-			<from uri="cxf:bean:ColpensionesRegistroArchivo" />
-			<to ref="TransformToLegacy" />	
-			<log message="DESPUES DE TRANSFORMAR = ${body}" />
-			<to uri="bean:procesarTransformacion"/>
-			
-		</route>		
-	</camelContext>
+    	<route customId="true" id="registrarDocumento">
+        	<from uri="cxf:bean:ColpensionesRegistroArchivo"/>
+        	<log message="ESTE ES EL BODY = ${body}" />       
+	        <to uri="bean:procesarTransformacion"/>
+	        <log message="ESTE ES EL BODY 2 = ${body}" />
+	        <camel:unmarshal ref="registrarDocumentoJaxB"/>        	
+			<log message="ESTE ES EL BODY 3 = ${body}" />       
+	        <to uri="bean:procesarTransformacion"/>
+	        <to uri="dozer:transformation"/>
+	        <log message="ESTE ES EL BODY 4 = ${body}" />
+<!-- 	        <camel:marshal ref="registrarDocumentoJaxB"/>        	 -->
+	        <log message="ESTE ES EL BODY 5 = ${body}" />
+
+        
+    	</route>
+ 
+
+    
+</camelContext>
 
 </beans>
