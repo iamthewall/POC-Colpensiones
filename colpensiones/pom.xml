@@ -91,10 +91,12 @@
       <artifactId>camel-spring</artifactId>
       <version>${camel-version}</version>
     </dependency>
+    
+    <!-- TOCA USAR VERSIÓN TECH PREVIEW -->
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-dozer</artifactId>
-      <version>${camel-version}</version>
+      <version>2.15.0</version>
     </dependency>
     
     <!--CXF - PA LLAMAR WEB SERVICES -->
@@ -125,10 +127,6 @@
 		<artifactId>cxf-rt-transports-http-jetty</artifactId>
 		<version>${cxf-version}</version>
 	</dependency>
-	
-	
-	
-
 
 	<!-- Para correr en el IDE --> 
 <!-- 	<dependency> -->

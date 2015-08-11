@@ -73,7 +73,8 @@
 			<to uri="bean:procesarTransformacion" />
 			<to ref="transformacionVisual" />
 			<log message="ESTE ES EL BODY 4 = ${body}" />
-			<log message="ESTE ES EL BODY 5 = ${body}" />
+			<to uri="bean:procesarTransformacion" />
+			
 		</route>
 	</camelContext>
 

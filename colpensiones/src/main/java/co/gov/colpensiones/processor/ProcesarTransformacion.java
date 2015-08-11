@@ -35,6 +35,14 @@ public class ProcesarTransformacion implements Processor {
 			 e.getOut().setBody(tirv);
 			 */
 		 }
+		 else if(body instanceof TipoInformacionRegistroTRDDTO)
+		 {
+			 log.info("DOCUMENTO TRDDTO");
+			 TipoInformacionRegistroTRDDTO tirn = (TipoInformacionRegistroTRDDTO)body;
+			 log.info("ya es trddtotramite =" + tirn.getDetalle().getIdentificacionTRD().getTramite());
+			 log.info("documento TRDDTO =" + tirn.getDetalle().getDocumentos().getDocumento().get(0).getId());
+			 
+		 }
 		 else
 		 {
 			 log.info("body.class.name != TipoInformacionRegistroNuevo");
