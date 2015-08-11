@@ -9,6 +9,7 @@ import org.apache.camel.Processor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import co.gov.colpensiones.schemas._1_0.comun.TipoCredencialesAutorizacion;
 import co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo;
 import co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO;
 
@@ -25,6 +26,14 @@ public class ProcesarTransformacion implements Processor {
 		 {
 			 TipoInformacionRegistroNuevo tirn = (TipoInformacionRegistroNuevo)body;
 			 log.info("tramite =" + tirn.getDetalle().getIdentificacionTRD().getTramite()); 		 
+			 /*
+			 TipoInformacionRegistroTRDDTO tirv = new TipoInformacionRegistroTRDDTO();
+			 tirv.setDetalle(tirn.getDetalle());
+			 TipoCredencialesAutorizacion contexto = new TipoCredencialesAutorizacion();
+			 contexto.setNombreUsuarioNegocio("ELSENIOR");
+			 tirv.setContexto(contexto);
+			 e.getOut().setBody(tirv);
+			 */
 		 }
 		 else
 		 {
