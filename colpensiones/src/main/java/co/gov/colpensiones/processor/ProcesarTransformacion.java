@@ -9,6 +9,7 @@ import org.apache.camel.Processor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo;
 import co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO;
 
 public class ProcesarTransformacion implements Processor {
@@ -18,6 +19,18 @@ public class ProcesarTransformacion implements Processor {
 	
 	@Override
 	public void process(Exchange e) throws Exception {
+		
+		 Object body = e.getIn().getBody();
+		 if (body instanceof TipoInformacionRegistroNuevo)
+		 {
+			 TipoInformacionRegistroNuevo tirn = (TipoInformacionRegistroNuevo)body;
+			 log.info("tramite =" + tirn.getDetalle().getIdentificacionTRD().getTramite()); 		 
+		 }
+		 else
+		 {
+			 log.info("body.class.name != TipoInformacionRegistroNuevo");
+		 }
+		
 		
 		 DataHandler dr = e.getIn().getAttachment("Demo Overview.pdf");
 		 
