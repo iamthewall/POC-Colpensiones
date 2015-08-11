@@ -59,10 +59,6 @@
 	 	  <camel:dataFormats>
 		  	  <camel:jaxb id="registrarDocumentoJaxB" prettyPrint="true" contextPath="co.gov.colpensiones.schemas._1_0.personas"
 		  	  partClass="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo"/>
-		  	  <!--  
-		  	  <camel:jaxb id="registrarDocumentoJaxB" prettyPrint="true" contextPath="co.gov.colpensiones.schemas._1_0.personas"/>
-		  	  -->
-<!-- 		      <camel:soapjaxb id="myJaxbSOAP" contextPath="com.info.dinardap.sei.xsd"/> -->
 		  </camel:dataFormats>
 	  	 
 		<endpoint uri="dozer:transformation?sourceModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo&amp;targetModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO&amp;mappingFile=TransformToLegacy.xml" id="TransformToLegacy"/>
@@ -78,19 +74,11 @@
 	        <log message="ESTE ES EL BODY 4 = ${body}" />
 <!-- 	        <camel:marshal ref="registrarDocumentoJaxB"/>        	 -->
 	        <log message="ESTE ES EL BODY 5 = ${body}" />
-<!--         <marshal> -->
-<!--             <soapjaxb contextPath="co.gov.colpensiones.schemas._1_0.personas" elementNameStrategyRef="soapST" version="1.2"/> -->
-<!--         </marshal> -->
-<!--         <log message="DESPUES DE TRANSFORMAR = ${body}" /> -->
+
         
     	</route>
  
-<!--     	<route id="Invocar Legado"> -->
-<!--         	<from uri="direct:start"/> -->
-<!--         	<transform> -->
-<!--             	<simple>Bye ${body}</simple> -->
-<!--         	</transform> -->
-<!--     	</route> -->
+
     
 </camelContext>
 
