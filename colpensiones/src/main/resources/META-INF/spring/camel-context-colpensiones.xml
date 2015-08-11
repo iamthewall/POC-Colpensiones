@@ -51,10 +51,13 @@
 	<bean id="procesarTransformacion"
 		class="co.gov.colpensiones.processor.ProcesarTransformacion" />
 
-	<camelContext trace="false" streamCache="true" id="camel-colpensiones-wsdl" xmlns="http://camel.apache.org/schema/spring">
+	<camelContext trace="false" streamCache="true" id="camel-colpensiones-wsdl" xmlns="http://camel.apache.org/schema/spring"
+		xmlns:per="http://www.colpensiones.gov.co/contracts/1.0/personas" 
+		xmlns:per1="http://www.colpensiones.gov.co/schemas/1.0/personas" 
+		xmlns:com="http://www.colpensiones.gov.co/schemas/1.0/comun">
 	
 	 	  <camel:dataFormats>
-		  	  <camel:jaxb id="registrarDocumentoJaxB" prettyPrint="true" contextPath="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo"/>
+		  	  <camel:jaxb id="registrarDocumentoJaxB" prettyPrint="true" contextPath="co.gov.colpensiones.schemas._1_0.personas"/>
 <!-- 		      <camel:soapjaxb id="myJaxbSOAP" contextPath="com.info.dinardap.sei.xsd"/> -->
 		  </camel:dataFormats>
 	  	 
