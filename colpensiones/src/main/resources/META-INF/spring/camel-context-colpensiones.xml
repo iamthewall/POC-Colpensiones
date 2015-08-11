@@ -57,7 +57,11 @@
 		xmlns:com="http://www.colpensiones.gov.co/schemas/1.0/comun">
 	
 	 	  <camel:dataFormats>
+		  	  <camel:jaxb id="registrarDocumentoJaxB" prettyPrint="true" contextPath="co.gov.colpensiones.schemas._1_0.personas"
+		  	  partClass="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo"/>
+		  	  <!--  
 		  	  <camel:jaxb id="registrarDocumentoJaxB" prettyPrint="true" contextPath="co.gov.colpensiones.schemas._1_0.personas"/>
+		  	  -->
 <!-- 		      <camel:soapjaxb id="myJaxbSOAP" contextPath="com.info.dinardap.sei.xsd"/> -->
 		  </camel:dataFormats>
 	  	 
