@@ -41,7 +41,7 @@
 
 	<!-- </cxf:cxfEndpoint> -->
 
-	<bean id="procesarTransformacion" class="co.gov.colpensiones.processor.ProcesarTransformacion" />
+	<bean id="procesarAuditoria" class="co.gov.colpensiones.processor.ProcesarTransformacion" />
 	<bean id="procesarGenerarNuevoObjeto" class="co.gov.colpensiones.processor.GeneraNuevoObjetoProcessor" />
 
 	<!-- <camel:marshal ref="registrarDocumentoJaxB"/> -->
@@ -66,14 +66,17 @@
 		<route id="registrarDocumento">
 			<from uri="cxf:bean:ColpensionesRegistroArchivo" />
 			<log message="ESTE ES EL BODY = ${body}" />
-			<to uri="bean:procesarTransformacion" />
+			<to uri="bean:procesarAuditoria" />
 			<log message="ESTE ES EL BODY 2 = ${body}" />
 			<unmarshal ref="registrarDocumentoJaxB" />
 			<log message="ESTE ES EL BODY 3 = ${body}" />
-			<to uri="bean:procesarTransformacion" />
+			<to uri="bean:procesarAuditoria" />
 			<to uri="bean:procesarGenerarNuevoObjeto" />
-			<marshal ref="registrarDocumentoLegacyJaxB" />
 			<log message="ESTE ES EL BODY 4 = ${body}" />
+			<to uri="bean:procesarAuditoria" />
+			<marshal ref="registrarDocumentoLegacyJaxB" />
+			<log message="ESTE ES EL BODY 5 = ${body}" />
+			<to uri="bean:procesarAuditoria" />
 			<to uri="bean:procesarTransformacion" />			
 		</route>
 	</camelContext>
