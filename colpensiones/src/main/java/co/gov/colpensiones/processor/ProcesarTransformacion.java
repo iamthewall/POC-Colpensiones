@@ -25,7 +25,11 @@ public class ProcesarTransformacion implements Processor {
 		 if (body instanceof TipoInformacionRegistroNuevo)
 		 {
 			 TipoInformacionRegistroNuevo tirn = (TipoInformacionRegistroNuevo)body;
-			 log.info("tramite =" + tirn.getDetalle().getIdentificacionTRD().getTramite()); 		 
+			 log.info("BEAN TIPO INFORMACIÓN REGISTRO NUEVO");
+			 log.info("tramite =" + tirn.getDetalle().getIdentificacionTRD().getTramite());
+			 log.info("Subtramite =" + tirn.getDetalle().getIdentificacionTRD().getSubtramite());
+			 log.info("Agrupador =" + tirn.getDetalle().getAgrupador());
+			 
 			 /*
 			 TipoInformacionRegistroTRDDTO tirv = new TipoInformacionRegistroTRDDTO();
 			 tirv.setDetalle(tirn.getDetalle());
@@ -37,24 +41,22 @@ public class ProcesarTransformacion implements Processor {
 		 }
 		 else if(body instanceof TipoInformacionRegistroTRDDTO)
 		 {
-			 log.info("DOCUMENTO TRDDTO");
+			 log.info("BEAN TIPO DOCUMENTO TRDDTO");
 			 TipoInformacionRegistroTRDDTO tirn = (TipoInformacionRegistroTRDDTO)body;
-			 log.info("ya es trddtotramite =" + tirn.getDetalle().getIdentificacionTRD().getTramite());
-			 log.info("documento TRDDTO =" + tirn.getDetalle().getDocumentos().getDocumento().get(0).getId());
+			 if (tirn.getDetalle() ==null)
+				 
+				 	log.info("Detalle NULL");
+			 else
+				 	log.info("Detalle no NULL");
+				 	
+			 
+			 
 			 
 		 }
 		 else
 		 {
 			 log.info("body.class.name != TipoInformacionRegistroNuevo");
 		 }
-		
-		
-		 DataHandler dr = e.getIn().getAttachment("Demo Overview.pdf");
-		 
-		 if (dr != null)
-			 log.info("el archivo esta");
-		 else
-			 log.info("el archivo no esta");
 		if (e.getIn().getAttachments() != null)
 		{
 			Map<String,DataHandler> adjuntos = e.getIn().getAttachments();

@@ -3,11 +3,7 @@
     <configuration>
         <wildcard>false</wildcard>
     </configuration>
-    <mapping>
-        <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo</class-a>
-        <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO</class-b>
-    </mapping>
-    <mapping>
+    <mapping map-id="detalleInput">
         <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoInformacionGeneralTRD</class-a>
         <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoInformacionGeneralTRD</class-b>
         <field>
@@ -15,24 +11,34 @@
             <b>agrupador</b>
         </field>
     </mapping>
-    <mapping>
-        <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoDocumentosTRD</class-a>
-        <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoDocumentosTRD</class-b>
-        <field>
-            <a>documento</a>
-            <b>documento</b>
+    <mapping map-id="objetoPrincipal">
+        <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo</class-a>
+        <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO</class-b>
+        <field map-id="detalleInput">
+<!-- 		<field> -->
+        	<a>detalle</a>
+        	<b>detalle</b>
         </field>
     </mapping>
-    <mapping>
-        <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoIdentificacionTRDDocumento</class-a>
-        <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoIdentificacionTRDDocumento</class-b>
-        <field>
-            <a>subtramite</a>
-            <b>subtramite</b>
-        </field>
-        <field>
-            <a>tramite</a>
-            <b>tramite</b>
-        </field>
-    </mapping>
+    
+<!--     <mapping> -->
+<!--         <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoDocumentosTRD</class-a> -->
+<!--         <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoDocumentosTRD</class-b> -->
+<!--         <field> -->
+<!--             <a>documento</a> -->
+<!--             <b>documento</b> -->
+<!--         </field> -->
+<!--     </mapping> -->
+<!--     <mapping> -->
+<!--         <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoIdentificacionTRDDocumento</class-a> -->
+<!--         <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoIdentificacionTRDDocumento</class-b> -->
+<!--         <field> -->
+<!--             <a>subtramite</a> -->
+<!--             <b>subtramite</b> -->
+<!--         </field> -->
+<!--         <field> -->
+<!--             <a>tramite</a> -->
+<!--             <b>tramite</b> -->
+<!--         </field> -->
+<!--     </mapping> -->
 </mappings>

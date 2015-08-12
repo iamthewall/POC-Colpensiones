@@ -13,13 +13,6 @@
 	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-	<!-- <bean id="soapST" -->
-	<!-- class="org.apache.camel.dataformat.soap.name.ServiceInterfaceStrategy"> -->
-	<!-- <constructor-arg value="co.gov.colpensiones.contracts._1_0.personas.ContratoRegistroArchivosNuevo" 
-		/> -->
-	<!-- <constructor-arg value="false" /> -->
-	<!-- </bean> -->
-
 	<!-- ENDPOINT DE ENTRADA -->
 	<cxf:cxfEndpoint id="ColpensionesRegistroArchivo"
 		address="http://localhost:8080/colpensionesRegistro" endpointName="tns:EndpointRegistroDocumentoNuevo"
@@ -48,15 +41,29 @@
 
 	<!-- </cxf:cxfEndpoint> -->
 
-
+	<bean id="tipoRegistroNuevo" class="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo"/>
+    <bean id="tipoRegistroLegado" class="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO"/>
+    
+	<bean id="dozerConverterLoader" class="org.apache.camel.converter.dozer.DozerTypeConverterLoader" />
+	   
+	<bean id="transformacionVisual" class="org.dozer.DozerBeanMapper">
+	  <property name="mappingFiles">
+	    <list>
+	      <value>TransformacionLegacy.xml</value>
+	    </list>
+	  </property>
+	</bean>
+	
 	<bean id="procesarTransformacion" class="co.gov.colpensiones.processor.ProcesarTransformacion" />
 
 	<!-- <camel:marshal ref="registrarDocumentoJaxB"/> -->
 	<camelContext trace="false" streamCache="true"
-		id="camel-colpensiones-wsdl" xmlns="http://camel.apache.org/schema/spring">
-		<endpoint
-			uri="dozer:transformacionVisual?sourceModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo&amp;targetModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO&amp;mappingFile=TransformacionLegacy.xml"
-			id="transformacionVisual" />
+		id="camel-colpensiones-poc" xmlns="http://camel.apache.org/schema/spring">
+<!-- 		<endpoint -->
+<!-- 			uri="dozer:transformacionVisual?sourceModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo&amp;targetModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO&amp;mappingFile=TransformacionLegacy0.xml" -->
+<!-- 			id="transformacionVisual" /> -->
+			
+		<!-- CLAVES PARA EL MARSHALL -->	
 		<dataFormats>
 			<jaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"
 				prettyPrint="true"
@@ -71,10 +78,9 @@
 			<unmarshal ref="registrarDocumentoJaxB" />
 			<log message="ESTE ES EL BODY 3 = ${body}" />
 			<to uri="bean:procesarTransformacion" />
-			<to ref="transformacionVisual" />
+			<to uri="bean:transformacionVisual" />
 			<log message="ESTE ES EL BODY 4 = ${body}" />
-			<to uri="bean:procesarTransformacion" />
-			
+			<to uri="bean:procesarTransformacion" />			
 		</route>
 	</camelContext>
 

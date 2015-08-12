@@ -16,8 +16,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>		
-		<camel-version>2.12.0.redhat-611412</camel-version>
-		<cxf-version>2.7.0.redhat-610379</cxf-version>
+		<camel-version>2.15.1.redhat-620133</camel-version>
+		<cxf-version>3.0.4.redhat-620133</cxf-version>
 		<cxf-xjc-plugin.version>2.3.0</cxf-xjc-plugin.version>
 		<servicemix.osgi.import>
 			*
@@ -96,7 +96,7 @@
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-dozer</artifactId>
-      <version>2.15.0</version>
+      <version>${camel-version}</version>
     </dependency>
     
     <!--CXF - PA LLAMAR WEB SERVICES -->
