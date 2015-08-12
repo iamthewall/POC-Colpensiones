@@ -28,6 +28,7 @@ public class GeneraNuevoObjetoProcessor implements Processor {
 			 TipoCredencialesAutorizacion contexto = new TipoCredencialesAutorizacion();
 			 contexto.setNombreUsuarioNegocio("ELSENIOR");
 			 tirv.setContexto(contexto);
+			 e.getOut().setAttachments(e.getIn().getAttachments());
 			 e.getOut().setBody(tirv);
 		 }
 	}
