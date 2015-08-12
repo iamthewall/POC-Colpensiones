@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configures the Camel Context -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camel="http://camel.apache.org/schema/spring"
+	xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:soap="http://cxf.apache.org/bindings/soap"
+	xmlns:cxf="http://camel.apache.org/schema/cxf" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+       http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd
+	   http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- ENDPOINT DE ENTRADA -->
+	<cxf:cxfEndpoint id="ColpensionesRegistroArchivo"
+		address="http://localhost:8080/colpensionesRegistro" endpointName="tns:EndpointRegistroDocumentoNuevo"
+		serviceName="tns:RegistroDocumento"
+		serviceClass="co.gov.colpensiones.contracts._1_0.personas.ContratoRegistroArchivosNuevo"
+		wsdlURL="wsdl/RegistrarDocumento.wsdl" xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas">
+		<cxf:properties>
+			<entry key="mtom-enabled" value="true" />
+			<entry key="dataFormat" value="PAYLOAD" />
+		</cxf:properties>
+
+	</cxf:cxfEndpoint>
+
+	<!-- SIMULANDO ENTRADA CON EL LEGACY -->
+
+	<!-- <cxf:cxfEndpoint id="RegistroLegacy" address="http://localhost:8080/colpensionesRegistroLegacy?wsdl" -->
+	<!-- endpointName="tns:EndpointDocumento" serviceName="tns:SvcDocumento" -->
+	<!-- serviceClass="co.gov.colpensiones.contracts._1_0.personas.ContratoSvcDocumento" -->
+	<!-- wsdlURL="wsdl/SvcDocumento.wsdl" -->
+	<!-- xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas" -->
+	<!-- > -->
+	<!-- <cxf:properties> -->
+	<!-- <entry key="mtom-enabled" value="true" /> -->
+	<!-- <entry key="dataFormat" value="POJO" /> -->
+	<!-- </cxf:properties> -->
+
+	<!-- </cxf:cxfEndpoint> -->
+
+	<bean id="procesarTransformacion" class="co.gov.colpensiones.processor.ProcesarTransformacion" />
+	<bean id="procesarGenerarNuevoObjeto" class="co.gov.colpensiones.processor.GeneraNuevoObjetoProcessor" />
+
+	<!-- <camel:marshal ref="registrarDocumentoJaxB"/> -->
+	<camelContext trace="false" streamCache="true"
+		id="camel-colpensiones-poc" xmlns="http://camel.apache.org/schema/spring">
+<!-- 		<endpoint -->
+<!-- 			uri="dozer:transformacionVisual?sourceModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo&amp;targetModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO&amp;mappingFile=TransformacionLegacy0.xml" -->
+<!-- 			id="transformacionVisual" /> -->
+			
+		<!-- CLAVES PARA EL MARSHALL -->	
+		<dataFormats>
+			<jaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"
+				prettyPrint="true"
+				partClass="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo"
+				id="registrarDocumentoJaxB" />
+			<jaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"
+				prettyPrint="true"
+				partClass="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO"
+				id="registrarDocumentoLegacyJaxB" />
+		</dataFormats>
+
+		<route id="registrarDocumento">
+			<from uri="cxf:bean:ColpensionesRegistroArchivo" />
+			<log message="ESTE ES EL BODY = ${body}" />
+			<to uri="bean:procesarTransformacion" />
+			<log message="ESTE ES EL BODY 2 = ${body}" />
+			<unmarshal ref="registrarDocumentoJaxB" />
+			<log message="ESTE ES EL BODY 3 = ${body}" />
+			<to uri="bean:procesarTransformacion" />
+			<to uri="bean:procesarGenerarNuevoObjeto" />
+			<marshal ref="registrarDocumentoLegacyJaxB" />
+			<log message="ESTE ES EL BODY 4 = ${body}" />
+			<to uri="bean:procesarTransformacion" />			
+		</route>
+	</camelContext>
+
+</beans>

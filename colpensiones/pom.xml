@@ -168,6 +168,13 @@
       <scope>test</scope>
     </dependency>
     
+    <!-- JAXB MARSHAL / UNMARSHAL -->
+    <dependency>
+    <groupId>org.apache.camel</groupId>
+    <artifactId>camel-jaxb</artifactId>
+    <version>${camel-version}</version>
+    </dependency>
+    
     <!-- BD -->
 	<dependency>
 		<groupId>org.apache.camel</groupId>
