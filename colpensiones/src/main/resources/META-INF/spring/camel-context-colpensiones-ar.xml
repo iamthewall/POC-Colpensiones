@@ -85,7 +85,8 @@
 <!-- 			<convertBodyTo type="java.lang.String"/> -->
 <!-- 			<to uri="velocity:vm/requestLegacy.vm"/> -->
 <!-- 			<log message="ESTE ES EL BODY 6 = \n ${body}" /> -->
-			<to uri="bean:procesarAuditoria" />			 
+			<to uri="bean:procesarAuditoria" />
+			<removeHeaders pattern="*" />			 
 			<to ref="invocarLegado" />
 			<log message="ESTE ES EL BODY 7 = \n ${body}" />
 			<to uri="bean:procesarAuditoria" />
