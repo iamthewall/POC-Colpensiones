@@ -70,25 +70,30 @@
 
 		<route id="registrarDocumento">
 			<from uri="cxf:bean:ColpensionesRegistroArchivo" />
-			<log message="ESTE ES EL BODY 1= \n ${body}" />
+			<log message="ESTE ES EL BODY 1= \n ${headers.operationName} \n ${body}" />
 			<to uri="bean:procesarAuditoria" />
-			<log message="ESTE ES EL BODY 2 = \n ${body}" />
+			<log message="ESTE ES EL BODY 2 = \n ${headers.operationName} \n ${body}" />
 			<unmarshal ref="registrarDocumentoJaxB" />
-			<log message="ESTE ES EL BODY 3 = \n ${body}" />
+			<log message="ESTE ES EL BODY 3 = \n ${headers.operationName} \n ${body}" />
 			<to uri="bean:procesarAuditoria" />
 			<to uri="bean:procesarGenerarNuevoObjeto" />
-			<log message="ESTE ES EL BODY 4 = \n ${body}" />
+			<log message="ESTE ES EL BODY 4 = \n ${headers.operationName} \n ${body}" />
 			<to uri="bean:procesarAuditoria" />
 			<marshal ref="registrarDocumentoLegacyJaxB" />
-			<log message="ESTE ES EL BODY 5 = \n ${body}" />
+			<log message="ESTE ES EL BODY 5 = \n ${headers.operationName} \n ${body}" />
 <!-- 			<to uri="bean:procesarAuditoria" /> -->
 <!-- 			<convertBodyTo type="java.lang.String"/> -->
 <!-- 			<to uri="velocity:vm/requestLegacy.vm"/> -->
 <!-- 			<log message="ESTE ES EL BODY 6 = \n ${body}" /> -->
 			<to uri="bean:procesarAuditoria" />
-			<removeHeaders pattern="*" />			 
+			<removeHeaders pattern="*" />		
+			<setHeader headerName="operationName">
+    				<simple resultType="java.lang.String">RegistrarArchivosTRD</simple>
+			</setHeader>
+			<log message="ESTE ES EL BODY 6 = \n ${headers.operationName}  \n ${body}" />
+			<to uri="bean:procesarAuditoria" />	 
 			<to ref="invocarLegado" />
-			<log message="ESTE ES EL BODY 7 = \n ${body}" />
+			<log message="ESTE ES EL BODY 7 = \n ${headers.operationName}  \n ${body}" />
 			<to uri="bean:procesarAuditoria" />
 
 		</route>
