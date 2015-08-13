@@ -28,18 +28,17 @@
 
 	<!-- SIMULANDO ENTRADA CON EL LEGACY -->
 
-	<!-- <cxf:cxfEndpoint id="RegistroLegacy" address="http://localhost:8080/colpensionesRegistroLegacy?wsdl" -->
-	<!-- endpointName="tns:EndpointDocumento" serviceName="tns:SvcDocumento" -->
-	<!-- serviceClass="co.gov.colpensiones.contracts._1_0.personas.ContratoSvcDocumento" -->
-	<!-- wsdlURL="wsdl/SvcDocumento.wsdl" -->
-	<!-- xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas" -->
-	<!-- > -->
-	<!-- <cxf:properties> -->
-	<!-- <entry key="mtom-enabled" value="true" /> -->
-	<!-- <entry key="dataFormat" value="POJO" /> -->
-	<!-- </cxf:properties> -->
-
-	<!-- </cxf:cxfEndpoint> -->
+	<cxf:cxfEndpoint id="invocarLegado" address="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento"
+	endpointName="tns:EndpointDocumento" serviceName="tns:SvcDocumento"
+	serviceClass="co.gov.colpensiones.contracts._1_0.personas.ContratoSvcDocumento"
+	wsdlURL="wsdl/SvcDocumento.wsdl"
+	xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas"	
+	>
+		<cxf:properties>
+			<entry key="mtom-enabled" value="true" />
+			<entry key="dataFormat" value="PAYLOAD" />
+		</cxf:properties>
+	</cxf:cxfEndpoint>
 
 	<bean id="procesarAuditoria" class="co.gov.colpensiones.processor.AuditarRuta" />
 	<bean id="procesarGenerarNuevoObjeto" class="co.gov.colpensiones.processor.GeneraNuevoObjetoProcessor" />
@@ -51,7 +50,7 @@
 <!-- 			uri="dozer:transformacionVisual?sourceModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo&amp;targetModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO&amp;mappingFile=TransformacionLegacy0.xml" -->
 <!-- 			id="transformacionVisual" /> -->
 			
-		<endpoint id="invocarLegado" uri="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento" />
+<!-- 		<endpoint id="invocarLegado" uri="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento" /> -->
 		
 		<!-- CLAVES PARA EL MARSHALL -->	
 		<dataFormats>
@@ -82,14 +81,15 @@
 			<to uri="bean:procesarAuditoria" />
 			<marshal ref="registrarDocumentoLegacyJaxB" />
 			<log message="ESTE ES EL BODY 5 = \n ${body}" />
-			<to uri="bean:procesarAuditoria" />
-			<convertBodyTo type="java.lang.String"/>
-			<to uri="velocity:vm/requestLegacy.vm"/>
-			<log message="ESTE ES EL BODY 6 = \n ${body}" />
-			<to uri="bean:procesarAuditoria" />
-			<!--  
+<!-- 			<to uri="bean:procesarAuditoria" /> -->
+<!-- 			<convertBodyTo type="java.lang.String"/> -->
+<!-- 			<to uri="velocity:vm/requestLegacy.vm"/> -->
+<!-- 			<log message="ESTE ES EL BODY 6 = \n ${body}" /> -->
+			<to uri="bean:procesarAuditoria" />			 
 			<to ref="invocarLegado" />
-			-->
+			<log message="ESTE ES EL BODY 7 = \n ${body}" />
+			<to uri="bean:procesarAuditoria" />
+
 		</route>
 	</camelContext>
 
