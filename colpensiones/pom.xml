@@ -135,6 +135,13 @@
 		<artifactId>camel-soap</artifactId>
 		<version>${camel-version}</version>
 	</dependency>	
+
+<!-- VELOCITY -->
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-velocity</artifactId>
+      <version>${camel-version}</version>
+    </dependency>
 	
     <!-- logging -->
     <dependency>

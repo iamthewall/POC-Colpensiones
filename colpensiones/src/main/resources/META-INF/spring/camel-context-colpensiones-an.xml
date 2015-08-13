@@ -60,11 +60,9 @@
 				partClass="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo"
 				id="registrarDocumentoJaxB" />
 				
-<!-- 			<soapjaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"				 -->
-<!-- 				id="registrarDocumentoLegacyJaxB" /> -->
 				
 			<jaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"	
-				prettyPrint="true"						
+				prettyPrint="false"						
 				partClass="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO"
 				partNamespace="{http://www.colpensiones.gov.co/schemas/1.0/personas}tipoInformacionRegistroTRDDTO"
 				id="registrarDocumentoLegacyJaxB" />
@@ -84,7 +82,13 @@
 			<marshal ref="registrarDocumentoLegacyJaxB" />
 			<log message="ESTE ES EL BODY 5 = \n ${body}" />
 			<to uri="bean:procesarAuditoria" />
+			<convertBodyTo type="java.lang.String"/>
+			<to uri="velocity:vm/requestLegacy.vm"/>
+			<log message="ESTE ES EL BODY 6 = \n ${body}" />
+			<to uri="bean:procesarAuditoria" />
+			<!--  
 			<to ref="invocarLegado" />
+			-->
 		</route>
 	</camelContext>
 
