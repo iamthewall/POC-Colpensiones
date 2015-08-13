@@ -1,0 +1,6 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:per1="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:com="http://www.colpensiones.gov.co/schemas/1.0/comun">
+   <soapenv:Header/>
+   <soapenv:Body>
+   ${body}
+   </soapenv:Body>
+</soapenv:Envelope>
