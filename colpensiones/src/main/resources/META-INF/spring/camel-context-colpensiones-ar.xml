@@ -28,17 +28,16 @@
 
 	<!-- SIMULANDO ENTRADA CON EL LEGACY -->
 
-	<cxf:cxfEndpoint id="invocarLegado" address="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento"
-	endpointName="tns:EndpointDocumento" serviceName="tns:SvcDocumento"
-	serviceClass="co.gov.colpensiones.contracts._1_0.personas.ContratoSvcDocumento"
-	wsdlURL="wsdl/SvcDocumento.wsdl"
-	xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas"	
-	>
-		<cxf:properties>
-			<entry key="mtom-enabled" value="true" />
-			<entry key="dataFormat" value="PAYLOAD" />
-		</cxf:properties>
-	</cxf:cxfEndpoint>
+<!-- 	<cxf:cxfEndpoint id="invocarLegado" address="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento" -->
+<!-- 	endpointName="tns:EndpointDocumento" serviceName="tns:SvcDocumento" -->
+<!-- 	serviceClass="co.gov.colpensiones.contracts._1_0.personas.ContratoSvcDocumento" -->
+<!-- 	wsdlURL="wsdl/SvcDocumento.wsdl" -->
+<!-- 	xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas"> -->
+<!-- 		<cxf:properties> -->
+<!-- 			<entry key="mtom-enabled" value="true" /> -->
+<!-- 			<entry key="dataFormat" value="PAYLOAD" /> -->
+<!-- 		</cxf:properties> -->
+<!-- 	</cxf:cxfEndpoint> -->
 
 	<bean id="procesarAuditoria" class="co.gov.colpensiones.processor.AuditarRuta" />
 	<bean id="procesarGenerarNuevoObjeto" class="co.gov.colpensiones.processor.GeneraNuevoObjetoProcessor" />
@@ -50,7 +49,7 @@
 <!-- 			uri="dozer:transformacionVisual?sourceModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo&amp;targetModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO&amp;mappingFile=TransformacionLegacy0.xml" -->
 <!-- 			id="transformacionVisual" /> -->
 			
-<!-- 		<endpoint id="invocarLegado" uri="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento" /> -->
+		<endpoint id="invocarLegado" uri="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento" />
 		
 		<!-- CLAVES PARA EL MARSHALL -->	
 		<dataFormats>
@@ -59,43 +58,66 @@
 				partClass="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo"
 				id="registrarDocumentoJaxB" />
 				
-				
+<!-- 			<soapjaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"				  -->
+<!--                       id="registrarDocumentoLegacyJaxB" /> -->
+                      
 			<jaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"
 			    fragment="true"	
 				prettyPrint="true"						
 				partClass="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO"
-				partNamespace="{http://www.colpensiones.gov.co/schemas/1.0/personas}tipoInformacionRegistroTRDDTO"
+				partNamespace="{http://www.colpensiones.gov.co/schemas/1.0/personas}tipoInformacionRegistroTRDDTO"				
 				id="registrarDocumentoLegacyJaxB" />
+				
 		</dataFormats>
 
 		<route id="registrarDocumento">
 			<from uri="cxf:bean:ColpensionesRegistroArchivo" />
-			<log message="ESTE ES EL BODY 1= \n ${headers.operationName} \n ${body}" />
+			
+			<log message="ESTE ES EL HEADER Op Name= ${headers.operationName} \n 
+						  ESTE ES EL HEADER SOAPAction = ${headers.SOAPAction} \n 
+						  ESTE ES EL BODY 1= ${body}" />
 			<to uri="bean:procesarAuditoria" />
-			<log message="ESTE ES EL BODY 2 = \n ${headers.operationName} \n ${body}" />
+			
 			<unmarshal ref="registrarDocumentoJaxB" />
-			<log message="ESTE ES EL BODY 3 = \n ${headers.operationName} \n ${body}" />
+			<log message="ESTE ES EL HEADER Op Name= ${headers.operationName} \n 
+						  ESTE ES EL HEADER SOAPAction = ${headers.SOAPAction} \n 
+						  ESTE ES EL BODY 2= ${body}" />
 			<to uri="bean:procesarAuditoria" />
+			
 			<to uri="bean:procesarGenerarNuevoObjeto" />
-			<log message="ESTE ES EL BODY 4 = \n ${headers.operationName} \n ${body}" />
+			<log message="ESTE ES EL HEADER Op Name= ${headers.operationName} \n 
+						  ESTE ES EL HEADER SOAPAction = ${headers.SOAPAction} \n 
+						  ESTE ES EL BODY 3= ${body}" />
 			<to uri="bean:procesarAuditoria" />
+			
 			<marshal ref="registrarDocumentoLegacyJaxB" />
-			<log message="ESTE ES EL BODY 5 = \n ${headers.operationName} \n ${body}" />
-<!-- 			<to uri="bean:procesarAuditoria" /> -->
-<!-- 			<convertBodyTo type="java.lang.String"/> -->
-<!-- 			<to uri="velocity:vm/requestLegacy.vm"/> -->
-<!-- 			<log message="ESTE ES EL BODY 6 = \n ${body}" /> -->
+			<log message="ESTE ES EL HEADER Op Name= ${headers.operationName} \n 
+						  ESTE ES EL HEADER SOAPAction = ${headers.SOAPAction} \n 
+						  ESTE ES EL BODY 4 = ${body}" />
 			<to uri="bean:procesarAuditoria" />
-			<removeHeaders pattern="*" />		
+			
 			<setHeader headerName="operationName">
-    				<simple resultType="java.lang.String">RegistrarArchivosTRD</simple>
+    				<constant>RegistrarArchivosTRD</constant>
 			</setHeader>
-			<log message="ESTE ES EL BODY 6 = \n ${headers.operationName}  \n ${body}" />
-			<to uri="bean:procesarAuditoria" />	 
-			<to ref="invocarLegado" />
-			<log message="ESTE ES EL BODY 7 = \n ${headers.operationName}  \n ${body}" />
+			<setHeader headerName="Operation">
+    				<constant>RegistrarArchivosTRD</constant>
+			</setHeader>
+			<setHeader headerName="SOAPAction">
+    				<constant>http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/RegistrarArchivosTRD</constant>
+			</setHeader>
+			<convertBodyTo type="java.lang.String"/>
+			<to uri="velocity:vm/requestLegacy.vm"/>
+			<log message="ESTE ES EL HEADER Op Name= ${headers.operationName} \n 
+						  ESTE ES EL HEADER SOAPAction = ${headers.SOAPAction} \n 
+						  ESTE ES EL BODY 5 = ${body}" />
 			<to uri="bean:procesarAuditoria" />
-
+				 
+			<to ref="invocarLegado" />
+			<log message="ESTE ES EL HEADER Op Name= ${headers.operationName} \n 
+						  ESTE ES EL HEADER SOAPAction = ${headers.SOAPAction} \n 
+						  ESTE ES EL BODY 6 = ${body}" />
+			<to uri="bean:procesarAuditoria" />
+<!-- 			<to uri="bean:procesarAuditoria" /> -->			
 		</route>
 	</camelContext>
 
