@@ -41,7 +41,7 @@
 
 	<!-- </cxf:cxfEndpoint> -->
 
-	<bean id="procesarAuditoria" class="co.gov.colpensiones.processor.ProcesarTransformacion" />
+	<bean id="procesarAuditoria" class="co.gov.colpensiones.processor.AuditarRuta" />
 	<bean id="procesarGenerarNuevoObjeto" class="co.gov.colpensiones.processor.GeneraNuevoObjetoProcessor" />
 
 	<!-- <camel:marshal ref="registrarDocumentoJaxB"/> -->
@@ -51,14 +51,20 @@
 <!-- 			uri="dozer:transformacionVisual?sourceModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo&amp;targetModel=co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO&amp;mappingFile=TransformacionLegacy0.xml" -->
 <!-- 			id="transformacionVisual" /> -->
 			
+		<endpoint id="invocarLegado" uri="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento" />
+		
 		<!-- CLAVES PARA EL MARSHALL -->	
 		<dataFormats>
 			<jaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"
 				prettyPrint="true"
 				partClass="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo"
 				id="registrarDocumentoJaxB" />
-			<jaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"
-				prettyPrint="true"
+				
+<!-- 			<soapjaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"				 -->
+<!-- 				id="registrarDocumentoLegacyJaxB" /> -->
+				
+			<jaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"	
+				prettyPrint="true"						
 				partClass="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO"
 				partNamespace="{http://www.colpensiones.gov.co/schemas/1.0/personas}tipoInformacionRegistroTRDDTO"
 				id="registrarDocumentoLegacyJaxB" />
@@ -66,18 +72,19 @@
 
 		<route id="registrarDocumento">
 			<from uri="cxf:bean:ColpensionesRegistroArchivo" />
-			<log message="ESTE ES EL BODY = ${body}" />
+			<log message="ESTE ES EL BODY 1= \n ${body}" />
 			<to uri="bean:procesarAuditoria" />
-			<log message="ESTE ES EL BODY 2 = ${body}" />
+			<log message="ESTE ES EL BODY 2 = \n ${body}" />
 			<unmarshal ref="registrarDocumentoJaxB" />
-			<log message="ESTE ES EL BODY 3 = ${body}" />
+			<log message="ESTE ES EL BODY 3 = \n ${body}" />
 			<to uri="bean:procesarAuditoria" />
 			<to uri="bean:procesarGenerarNuevoObjeto" />
-			<log message="ESTE ES EL BODY 4 = ${body}" />
+			<log message="ESTE ES EL BODY 4 = \n ${body}" />
 			<to uri="bean:procesarAuditoria" />
 			<marshal ref="registrarDocumentoLegacyJaxB" />
-			<log message="ESTE ES EL BODY 5 = ${body}" />
+			<log message="ESTE ES EL BODY 5 = \n ${body}" />
 			<to uri="bean:procesarAuditoria" />
+			<to ref="invocarLegado" />
 		</route>
 	</camelContext>
 

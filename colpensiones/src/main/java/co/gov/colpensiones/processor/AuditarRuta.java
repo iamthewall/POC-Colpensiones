@@ -13,10 +13,10 @@ import co.gov.colpensiones.schemas._1_0.comun.TipoCredencialesAutorizacion;
 import co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo;
 import co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO;
 
-public class ProcesarTransformacion implements Processor {
+public class AuditarRuta implements Processor {
 
 	private static final Logger log = LoggerFactory
-			.getLogger(ProcesarTransformacion.class);
+			.getLogger(AuditarRuta.class);
 	
 	@Override
 	public void process(Exchange e) throws Exception {
@@ -29,29 +29,23 @@ public class ProcesarTransformacion implements Processor {
 			 log.info("tramite =" + tirn.getDetalle().getIdentificacionTRD().getTramite());
 			 log.info("Subtramite =" + tirn.getDetalle().getIdentificacionTRD().getSubtramite());
 			 log.info("Agrupador =" + tirn.getDetalle().getAgrupador());
-			 
-			 /*
-			 TipoInformacionRegistroTRDDTO tirv = new TipoInformacionRegistroTRDDTO();
-			 tirv.setDetalle(tirn.getDetalle());
-			 TipoCredencialesAutorizacion contexto = new TipoCredencialesAutorizacion();
-			 contexto.setNombreUsuarioNegocio("ELSENIOR");
-			 tirv.setContexto(contexto);
-			 e.getOut().setBody(tirv);
-			 */
+			 log.info("Contenido =" + tirn.getDetalle().getDocumentos().getDocumento().get(0).getContenido());
 		 }
 		 else if(body instanceof TipoInformacionRegistroTRDDTO)
 		 {
 			 log.info("BEAN TIPO DOCUMENTO TRDDTO");
-			 TipoInformacionRegistroTRDDTO tirn = (TipoInformacionRegistroTRDDTO)body;
-			 if (tirn.getDetalle() ==null)
-				 
+			 TipoInformacionRegistroTRDDTO tirn = (TipoInformacionRegistroTRDDTO)body;			 
+			 if (tirn.getDetalle() ==null)			 			 
 				 	log.info("Detalle NULL");
 			 else
-				 	log.info("Detalle no NULL");
+			 {
+				 log.info("tramite =" + tirn.getDetalle().getIdentificacionTRD().getTramite());
+				 log.info("Subtramite =" + tirn.getDetalle().getIdentificacionTRD().getSubtramite());
+				 log.info("Agrupador =" + tirn.getDetalle().getAgrupador());
+				 log.info("Contenido =" + tirn.getDetalle().getDocumentos().getDocumento().get(0).getContenido());
+			 }
 				 	
-			 
-			 
-			 
+				
 		 }
 		 else
 		 {
@@ -60,11 +54,11 @@ public class ProcesarTransformacion implements Processor {
 		if (e.getIn().getAttachments() != null)
 		{
 			Map<String,DataHandler> adjuntos = e.getIn().getAttachments();
-			log.info(Integer.toString(e.getIn().getAttachments().size()));
+			log.info("NÚMERO DE ARCHIVOS="+Integer.toString(e.getIn().getAttachments().size()));
 			
 			for (Map.Entry<String, DataHandler> entry : adjuntos.entrySet())
 			{
-			    log.info(entry.getKey() + "/" + entry.getValue());
+			    log.info("NOMBRE DEL ARCHIVO="+entry.getKey() + "/" + entry.getValue());
 			}
 		}
 		else

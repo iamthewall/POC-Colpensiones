@@ -106,14 +106,7 @@
 		<version>${camel-version}</version>
 	</dependency>
 	
-	<!--PARA USAR VELOCITY -->
-	<dependency>
-    	<groupId>org.apache.camel</groupId>
-    	<artifactId>camel-velocity</artifactId>
-    	<version>${camel-version}</version>
-    </dependency>
-    
-    <!-- PARA PODER USAR LA INVOCACION VIA HTTP EN EL TAG ENDPOINT -->
+	<!-- PARA PODER USAR LA INVOCACION VIA HTTP EN EL TAG ENDPOINT -->
     <dependency>
     	<groupId>org.apache.camel</groupId>
     	<artifactId>camel-http</artifactId>
@@ -174,46 +167,12 @@
     <artifactId>camel-jaxb</artifactId>
     <version>${camel-version}</version>
     </dependency>
-    
-    <!-- BD -->
-	<dependency>
-		<groupId>org.apache.camel</groupId>
-		<artifactId>camel-jdbc</artifactId>
-		<version>${camel-version}</version>
-	</dependency>
-	<dependency>
-		<groupId>org.apache.camel</groupId>
-		<artifactId>camel-sql</artifactId>
-		<version>${camel-version}</version>
-	</dependency>
-	
-	<!-- Este funciona para el JBDS -->
-<!-- 	<dependency>
-		<groupId>commons-dbcp</groupId>
-		<artifactId>commons-dbcp</artifactId>
-		<version>1.4</version>
-	</dependency> -->
+   
 	<dependency>
 		<groupId>org.apache.servicemix.bundles</groupId>
 		<artifactId>org.apache.servicemix.bundles.commons-dbcp</artifactId>
 		<version>1.4_3</version>
 	</dependency>
-
-	<dependency>
-		<groupId>mysql</groupId>
-		<artifactId>mysql-connector-java</artifactId>
-		<version>5.1.26</version>
-		<scope>provided</scope>
-		<optional>false</optional>
-	</dependency>
-	
-<!-- 	<dependency> -->
-<!-- 		<groupId>mysql</groupId> -->
-<!-- 		<artifactId>mysql-connector-java</artifactId> -->
-<!-- 		<version>5.1.22</version> -->
-<!-- 	</dependency> -->
-
-
 	
   </dependencies>
   
