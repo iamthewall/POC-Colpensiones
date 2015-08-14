@@ -135,6 +135,19 @@
 		<artifactId>camel-soap</artifactId>
 		<version>${camel-version}</version>
 	</dependency>	
+	
+	<!-- BALANCEO CON JMS -->
+	<dependency>
+		<groupId>org.apache.camel</groupId>
+		<artifactId>camel-jms</artifactId>
+		<version>${camel-version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.apache.activemq</groupId>
+		<artifactId>activemq-osgi</artifactId>
+		<version>5.11.1</version>
+	</dependency>
 
 <!-- VELOCITY -->
     <dependency>
