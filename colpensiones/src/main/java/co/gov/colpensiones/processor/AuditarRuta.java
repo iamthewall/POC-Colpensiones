@@ -9,7 +9,6 @@ import org.apache.camel.Processor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import co.gov.colpensiones.schemas._1_0.comun.TipoCredencialesAutorizacion;
 import co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo;
 import co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO;
 
@@ -22,6 +21,7 @@ public class AuditarRuta implements Processor {
 	public void process(Exchange e) throws Exception {
 		
 		 Object body = e.getIn().getBody();
+		 log.info("ESTE ES EL HEADER Op Name=" + e.getIn().getHeader("operationName") + "\n ESTE ES EL HEADER SOAPAction ="+ e.getIn().getHeader("SOAPAction") + "\n ESTE ES EL BODY = "+ e.getIn().getBody().toString());
 		 if (body instanceof TipoInformacionRegistroNuevo)
 		 {
 			 TipoInformacionRegistroNuevo tirn = (TipoInformacionRegistroNuevo)body;
