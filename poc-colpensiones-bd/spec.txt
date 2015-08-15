@@ -1,0 +1,43 @@
+Servicio Gestor Documental: http://10.130.70.36/WSColpensionesMTOM/SvcDocumento/SvcDocumento.wsdl
+Operacion: RegistrarArchivosTRD
+Usuario: INTBIZAGIECM
+Clave: Gesd927WS
+NOTA: Se adjunta request XML de Ejemplo
+
+Acceso a BD Sybase para realizar una consulta hacia la base de datos de afiliado para configuracion del datasource:  10.130.73.11:9600 Integración 
+(La clase driver es com.sybase.jdbc2.jdbc.SybDataSource, cambiar la extensión a .jar // Driver Java Sybase)
+Usuario: intjforerot
+Clave: banco*123
+
+NOTA:  envió query de Consulta que se debera enviar:
+
+SELECT
+				AF.af_NumeroDocumento,
+				AF.af_TipoDocumento,
+				AF.af_PrimerApellido,
+				AF.af_SegundoApellido,
+				AF.af_PrimerNombre,
+				AF.af_SegundoNombre,
+				AF.af_Sexo,
+				AF.af_FechaNacimiento,
+				AF.dp_Departamento,
+				AF.mu_Municipio,
+				AF.lc_Localidad,
+				AF.af_Direccion,
+				AF.af_Telefono,
+				AF.af_Email,
+				AF.gs_GrupoSanguineo,
+				AF.gp_GrupoPoblacion,
+				AF.af_Sector,
+				AF.af_GrupEtnico,
+				AF.na_Nacionalidad,
+				AF.af_Estrato,
+				AF.af_Estado,
+				AF.af_Depura,
+				AF.af_FechaModificacion,
+				AF.af_Zona,
+				AF.af_EstadoCarnet,
+				AF.af_NumeroCarnet
+				FROM sabass..Afiliado AS AF
+				where
+				AF.af_NumeroDocumento=? AND AF.af_TipoDocumento=?

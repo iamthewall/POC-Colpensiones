@@ -1,0 +1,73 @@
+<?xml version="1.0" ?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://colpensiones.redhat.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="AfiliadoWSService" targetNamespace="http://colpensiones.redhat.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://colpensiones.redhat.com/" version="1.0">
+
+  <xs:complexType name="afiliado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="af_Depura" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_Direccion" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_Email" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_Estado" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_EstadoCarnet" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_Estrato" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_FechaModificacion" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_FechaNacimiento" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_GrupEtnico" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_NumeroCarnet" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_NumeroDocumento" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_PrimerApellido" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_PrimerNombre" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_Sector" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_SegundoApellido" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_SegundoNombre" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_Sexo" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_Telefono" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_TipoDocumento" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="af_Zona" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="dp_Departamento" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="gp_GrupoPoblacion" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="gs_GrupoSanguineo" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="lc_Localidad" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="mu_Municipio" type="xs:string"></xs:element>
+      <xs:element minOccurs="0" name="na_Nacionalidad" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="buscarAfiliadoResponse">
+    <wsdl:part name="return" type="tns:afiliado">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="buscarAfiliado">
+    <wsdl:part name="numeroDocumento" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="tipoDocumento" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="AfiliadoWSI">
+    <wsdl:operation name="buscarAfiliado">
+      <wsdl:input message="tns:buscarAfiliado" name="buscarAfiliado">
+    </wsdl:input>
+      <wsdl:output message="tns:buscarAfiliadoResponse" name="buscarAfiliadoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AfiliadoWSServiceSoapBinding" type="tns:AfiliadoWSI">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="buscarAfiliado">
+      <soap:operation soapAction="" style="rpc"></soap:operation>
+      <wsdl:input name="buscarAfiliado">
+        <soap:body namespace="http://colpensiones.redhat.com/" use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="buscarAfiliadoResponse">
+        <soap:body namespace="http://colpensiones.redhat.com/" use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AfiliadoWSService">
+    <wsdl:port binding="tns:AfiliadoWSServiceSoapBinding" name="AfiliadoWSPort">
+      <soap:address location="http://localhost:8080/JAX-WSExample/AfiliadoWS"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
