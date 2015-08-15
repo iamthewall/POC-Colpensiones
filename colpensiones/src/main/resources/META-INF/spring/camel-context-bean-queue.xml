@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configures the Camel Context -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camel="http://camel.apache.org/schema/spring"
+	xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:soap="http://cxf.apache.org/bindings/soap"
+	xmlns:cxf="http://camel.apache.org/schema/cxf" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:amq="http://activemq.apache.org/schema/core"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+       http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd
+	   http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	   http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd">
+
+	<import resource="jmsSetup.xml" />
+	<!-- ENDPOINT DE ENTRADA -->
+	<cxf:cxfEndpoint id="ColpensionesRegistroArchivo"
+		address="http://localhost:8080/colpensionesRegistro" endpointName="tns:EndpointRegistroDocumentoNuevo"
+		serviceName="tns:RegistroDocumento"
+		serviceClass="co.gov.colpensiones.contracts._1_0.personas.ContratoRegistroArchivosNuevo"
+		wsdlURL="wsdl/RegistrarDocumento.wsdl" xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas">
+		<cxf:properties>
+			<entry key="mtom-enabled" value="true" />
+			<entry key="dataFormat" value="PAYLOAD" />
+		</cxf:properties>
+	</cxf:cxfEndpoint>
+
+	<bean id="procesarAuditoria" class="co.gov.colpensiones.processor.AuditarRuta" />
+	<bean id="procesarGenerarNuevoObjeto"
+		class="co.gov.colpensiones.processor.GeneraNuevoObjetoProcessor" />
+
+	<!-- INVOCACIÓN AL SERVICIO WEB LEGADO --><!-- CLAVES PARA EL MARSHALL --><!-- <to uri="bean:procesarAuditoria" /> -->
+	<camelContext trace="false" streamCache="true"
+		id="camel-colpensiones-poc" xmlns="http://camel.apache.org/schema/spring">
+		<endpoint uri="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento"
+			id="invocarLegado" />
+		<dataFormats>
+			<jaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"
+				prettyPrint="true"
+				partClass="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo"
+				id="registrarDocumentoJaxB" />
+			<jaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"
+				prettyPrint="true" fragment="true"
+				partClass="co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO"
+				partNamespace="{http://www.colpensiones.gov.co/schemas/1.0/personas}tipoInformacionRegistroTRDDTO"
+				id="registrarDocumentoLegacyJaxB" />
+		</dataFormats>
+		
+		<route id="balancearSolicitud">
+			<from uri="cxf:bean:ColpensionesRegistroArchivo" />							
+			<loadBalance>
+				<roundRobin />
+				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-1" />
+<!-- 					<to uri="jms:queue:registrarDocumento-QUEUE-2" /> -->
+<!-- 					<to uri="jms:queue:registrarDocumento-QUEUE-3" /> -->
+<!-- 					<to uri="jms:queue:registrarDocumento-QUEUE-4" /> -->
+			</loadBalance>			
+		</route>
+		
+		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-1" >
+			<from uri="jms:queue:registrarDocumento-QUEUE-1"/>
+			<to uri="bean:procesarAuditoria" />
+			<to uri="direct:registrarDocumento" />
+		</route>
+<!-- 		<route id="EDICSV-Transform-Queues-route-2" /> -->
+<!-- 		<route id="EDICSV-Transform-Queues-route-3" /> -->
+<!-- 		<route id="EDICSV-Transform-Queues-route-4" /> -->
+
+		<route id="registrarDocumento">
+			<from uri="direct:registrarDocumento" />
+			<unmarshal ref="registrarDocumentoJaxB" />
+			<to uri="bean:procesarGenerarNuevoObjeto" />
+			<marshal ref="registrarDocumentoLegacyJaxB" />
+			<setHeader headerName="Operation">
+				<constant>RegistrarArchivosTRD</constant>
+			</setHeader>
+			<setHeader headerName="SOAPAction">
+				<constant>http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/RegistrarArchivosTRD</constant>
+			</setHeader>
+			<convertBodyTo type="java.lang.String" />
+			<to uri="velocity:vm/requestLegacy.vm" />
+			<log message="salir"/>
+			<to ref="invocarLegado" />
+		</route>
+	</camelContext>
+</beans>
