@@ -34,8 +34,10 @@
 	<!-- INVOCACIÓN AL SERVICIO WEB LEGADO --><!-- CLAVES PARA EL MARSHALL --><!-- <to uri="bean:procesarAuditoria" /> -->
 	<camelContext trace="false" streamCache="true"
 		id="camel-colpensiones-poc" xmlns="http://camel.apache.org/schema/spring">
+		
 		<endpoint uri="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento"
 			id="invocarLegado" />
+			
 		<dataFormats>
 			<jaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"
 				prettyPrint="true"
@@ -53,23 +55,14 @@
 			<loadBalance>
 				<roundRobin />
 				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-1" />
-<!-- 					<to uri="jms:queue:registrarDocumento-QUEUE-2" /> -->
-<!-- 					<to uri="jms:queue:registrarDocumento-QUEUE-3" /> -->
-<!-- 					<to uri="jms:queue:registrarDocumento-QUEUE-4" /> -->
+				<to uri="jms:queue:registrarDocumento-QUEUE-2" />
+				<to uri="jms:queue:registrarDocumento-QUEUE-3" />
+				<to uri="jms:queue:registrarDocumento-QUEUE-4" />
 			</loadBalance>			
 		</route>
 		
 		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-1" >
 			<from uri="jms:queue:registrarDocumento-QUEUE-1"/>
-			<to uri="bean:procesarAuditoria" />
-			<to uri="direct:registrarDocumento" />
-		</route>
-<!-- 		<route id="EDICSV-Transform-Queues-route-2" /> -->
-<!-- 		<route id="EDICSV-Transform-Queues-route-3" /> -->
-<!-- 		<route id="EDICSV-Transform-Queues-route-4" /> -->
-
-		<route id="registrarDocumento">
-			<from uri="direct:registrarDocumento" />
 			<unmarshal ref="registrarDocumentoJaxB" />
 			<to uri="bean:procesarGenerarNuevoObjeto" />
 			<marshal ref="registrarDocumentoLegacyJaxB" />
@@ -84,5 +77,57 @@
 			<log message="salir"/>
 			<to ref="invocarLegado" />
 		</route>
+		
+		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-2" >
+			<from uri="jms:queue:registrarDocumento-QUEUE-2"/>
+			<unmarshal ref="registrarDocumentoJaxB" />
+			<to uri="bean:procesarGenerarNuevoObjeto" />
+			<marshal ref="registrarDocumentoLegacyJaxB" />
+			<setHeader headerName="Operation">
+				<constant>RegistrarArchivosTRD</constant>
+			</setHeader>
+			<setHeader headerName="SOAPAction">
+				<constant>http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/RegistrarArchivosTRD</constant>
+			</setHeader>
+			<convertBodyTo type="java.lang.String" />
+			<to uri="velocity:vm/requestLegacy.vm" />
+			<log message="salir"/>
+			<to ref="invocarLegado" />
+		</route>
+		
+		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-3" >
+			<from uri="jms:queue:registrarDocumento-QUEUE-3"/>			
+			<unmarshal ref="registrarDocumentoJaxB" />
+			<to uri="bean:procesarGenerarNuevoObjeto" />
+			<marshal ref="registrarDocumentoLegacyJaxB" />
+			<setHeader headerName="Operation">
+				<constant>RegistrarArchivosTRD</constant>
+			</setHeader>
+			<setHeader headerName="SOAPAction">
+				<constant>http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/RegistrarArchivosTRD</constant>
+			</setHeader>
+			<convertBodyTo type="java.lang.String" />
+			<to uri="velocity:vm/requestLegacy.vm" />
+			<log message="salir"/>
+			<to ref="invocarLegado" />
+		</route>
+		
+		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-4" >
+			<from uri="jms:queue:registrarDocumento-QUEUE-4"/>			
+			<unmarshal ref="registrarDocumentoJaxB" />
+			<to uri="bean:procesarGenerarNuevoObjeto" />
+			<marshal ref="registrarDocumentoLegacyJaxB" />
+			<setHeader headerName="Operation">
+				<constant>RegistrarArchivosTRD</constant>
+			</setHeader>
+			<setHeader headerName="SOAPAction">
+				<constant>http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/RegistrarArchivosTRD</constant>
+			</setHeader>
+			<convertBodyTo type="java.lang.String" />
+			<to uri="velocity:vm/requestLegacy.vm" />
+			<log message="salir"/>
+			<to ref="invocarLegado" />
+		</route>
+		
 	</camelContext>
 </beans>

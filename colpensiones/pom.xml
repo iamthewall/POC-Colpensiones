@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.redhat</groupId>
-  <artifactId>colpensiones-poc</artifactId>
+  <artifactId>poc-colpensiones-checkin</artifactId>
 <!--   <packaging>bundle</packaging> ESTA SE USA CON EL PLUGIN THE FELIX PARA LA VUELTA DE LA BD -->
   <packaging>jar</packaging>
   <version>1.0.0-SNAPSHOT</version>
