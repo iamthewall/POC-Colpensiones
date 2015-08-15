@@ -74,8 +74,6 @@
 
 			<log message="${body}" />
 
-
-
 			<setHeader headerName="af_Depura">
 				<simple>${body[0].[af_Depura]}</simple>
 			</setHeader>
@@ -158,7 +156,6 @@
 			<setHeader headerName="na_Nacionalidad">
 				<simple>${body[0].[na_Nacionalidad]}</simple>
 			</setHeader>
-
 
 			<to uri="velocity:vm/respuesta.vm" />
 		</route>
