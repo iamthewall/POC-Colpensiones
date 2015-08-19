@@ -42,8 +42,12 @@ public class AuditarRuta implements Processor {
 				 log.info("tramite =" + tirn.getDetalle().getIdentificacionTRD().getTramite());
 				 log.info("Subtramite =" + tirn.getDetalle().getIdentificacionTRD().getSubtramite());
 				 log.info("Agrupador =" + tirn.getDetalle().getAgrupador());
-				 log.info("Contenido =" + tirn.getDetalle().getDocumentos().getDocumento().get(0).getContenido());
+				 log.info("Contenido =" + tirn.getDetalle().getDocumentos().getDocumento().get(0).getContenido());				 
 			 }
+			 if(tirn.getContexto()!= null)			 
+				 log.info("Nombre Usuario Negocio=" + tirn.getContexto().getNombreUsuarioNegocio());
+			 else
+				 log.info("Contexto NULL");
 				 	
 				
 		 }

@@ -33,6 +33,7 @@
 		id="camel-colpensiones-poc" xmlns="http://camel.apache.org/schema/spring">
 		<endpoint uri="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento"
 			id="invocarLegado" />
+			
 		<dataFormats>
 			<jaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"
 				prettyPrint="true"
@@ -46,19 +47,20 @@
 		</dataFormats>
 		
 		<route id="registrarDocumento">
-			<from uri="cxf:bean:ColpensionesRegistroArchivo" />
-			<unmarshal ref="registrarDocumentoJaxB" />
-			<to uri="bean:procesarGenerarNuevoObjeto" />
-			<marshal ref="registrarDocumentoLegacyJaxB" />
+			<from uri="cxf:bean:ColpensionesRegistroArchivo" />			
+			<unmarshal ref="registrarDocumentoJaxB" />			
+			<to uri="bean:procesarGenerarNuevoObjeto" />			 
+			<marshal ref="registrarDocumentoLegacyJaxB" />			 
 			<setHeader headerName="Operation">
 				<constant>RegistrarArchivosTRD</constant>
 			</setHeader>
 			<setHeader headerName="SOAPAction">
 				<constant>http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/RegistrarArchivosTRD</constant>
-			</setHeader>
-			<convertBodyTo type="java.lang.String" />
+			</setHeader>			 
+			<convertBodyTo type="java.lang.String" />			 
 			<to uri="velocity:vm/requestLegacy.vm" />
-			<to ref="invocarLegado" />
+			 
+<!-- 			<to ref="invocarLegado" /> -->
 		</route>
 	</camelContext>
 </beans>
