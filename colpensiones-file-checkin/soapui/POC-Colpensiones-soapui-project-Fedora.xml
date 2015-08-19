@@ -1,0 +1,1492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="0594cf74-d4a4-47db-857b-b070b9237099" activeEnvironment="Default" name="POC - Colpensiones" resourceRoot="" soapui-version="5.1.3" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="d8309e9b-b095-4162-83f3-59149e1dd863" wsaVersion="NONE" name="EndpointDocumentoBinding" type="wsdl" bindingName="{http://www.colpensiones.gov.co/contracts/1.0/personas}EndpointDocumentoBinding" soapVersion="1_1" anonymous="optional" definition="http://10.130.70.36/WSColpensionesMTOM/SvcDocumento/SvcDocumento.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://10.130.70.36/WSColpensionesMTOM/SvcDocumento/SvcDocumento.wsdl"><con:part><con:url>http://10.130.70.36/WSColpensionesMTOM/SvcDocumento/SvcDocumento.wsdl</con:url><con:content><![CDATA[<definitions name="SvcDocumento" targetNamespace="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/personas" schemaLocation="SvcDocumento_schema1.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/tramites" schemaLocation="SvcDocumento_schema2.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" schemaLocation="SvcDocumento_schema3.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun" schemaLocation="SvcDocumento_schema4.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/contracts/1.0/personas" schemaLocation="SvcDocumento_schema5.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" schemaLocation="SvcDocumento_schema6.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="RegistrarArchivosTRDResponse">
+    <part name="DocumentosTRDDTO" element="tns:DocumentosTRDDTO"></part>
+  </message>
+  <message name="ConsultarDocumentosTRDResponse">
+    <part name="DocumentosTRD" element="tns:DocumentosTRD"></part>
+  </message>
+  <message name="ConsultarDigitalizados">
+    <part name="CriteriosConsultaDigitalizadosDTO" element="tns:CriteriosConsultaDigitalizadosDTO"></part>
+  </message>
+  <message name="ConsultarMetadataTRDResponse">
+    <part name="DocumentosTRD" element="tns:DocumentosTRD"></part>
+  </message>
+  <message name="ConsultarDigitalizadosResponse">
+    <part name="DigitalizadosDTO" element="tns:DigitalizadosDTO"></part>
+  </message>
+  <message name="MoverDocumentoTRDResponse">
+    <part name="EstadoEjecucion" element="tns:EstadoEjecucion"></part>
+  </message>
+  <message name="ConsultarMetadataTRD">
+    <part name="CriteriosConsultaTRD" element="tns:CriteriosConsultaTRD"></part>
+  </message>
+  <message name="ObtenerDocumentoTRD">
+    <part name="IdentificacionDocumentoTRD" element="tns:IdentificacionDocumentoTRD"></part>
+  </message>
+  <message name="ObtenerDocumentoTRDResponse">
+    <part name="ObtenerDocumentoTRD" element="tns:ObtenerDocumentoTRD"></part>
+  </message>
+  <message name="ActualizarMetadata">
+    <part name="InformacionActualizarDTO" element="tns:InformacionActualizarDTO"></part>
+  </message>
+  <message name="ActualizarMetadataResponse">
+    <part name="DocumentoDTO" element="tns:DocumentoDTO"></part>
+  </message>
+  <message name="MoverDocumentoTRD">
+    <part name="InformacionMovimientoDocumentoTRDDTO" element="tns:InformacionMovimientoDocumentoTRDDTO"></part>
+  </message>
+  <message name="ObtenerDocumentoResponse">
+    <part name="DocumentoDTO" element="tns:DocumentoDTO"></part>
+  </message>
+  <message name="RegistrarArchivosTRD">
+    <part name="InformacionRegistroTRDDTO" element="tns:InformacionRegistroTRDDTO"></part>
+  </message>
+  <message name="ObtenerDocumento">
+    <part name="IdentificacionDocumentoDTO" element="tns:IdentificacionDocumentoDTO"></part>
+  </message>
+  <message name="ConsultarDocumentosTRD">
+    <part name="CriteriosConsultaTRD" element="tns:CriteriosConsultaTRD"></part>
+  </message>
+  <portType name="ContratoSvcDocumento">
+    <operation name="ConsultarDocumentosTRD">
+      <input message="tns:ConsultarDocumentosTRD"></input>
+      <output message="tns:ConsultarDocumentosTRDResponse"></output>
+    </operation>
+    <operation name="ConsultarMetadataTRD">
+      <input message="tns:ConsultarMetadataTRD"></input>
+      <output message="tns:ConsultarMetadataTRDResponse"></output>
+    </operation>
+    <operation name="ObtenerDocumentoTRD">
+      <input message="tns:ObtenerDocumentoTRD"></input>
+      <output message="tns:ObtenerDocumentoTRDResponse"></output>
+    </operation>
+    <operation name="ObtenerDocumento">
+      <input message="tns:ObtenerDocumento"></input>
+      <output message="tns:ObtenerDocumentoResponse"></output>
+    </operation>
+    <operation name="ConsultarDigitalizados">
+      <input message="tns:ConsultarDigitalizados"></input>
+      <output message="tns:ConsultarDigitalizadosResponse"></output>
+    </operation>
+    <operation name="ActualizarMetadata">
+      <input message="tns:ActualizarMetadata"></input>
+      <output message="tns:ActualizarMetadataResponse"></output>
+    </operation>
+    <operation name="MoverDocumentoTRD">
+      <input message="tns:MoverDocumentoTRD"></input>
+      <output message="tns:MoverDocumentoTRDResponse"></output>
+    </operation>
+    <operation name="RegistrarArchivosTRD">
+      <input message="tns:RegistrarArchivosTRD"></input>
+      <output message="tns:RegistrarArchivosTRDResponse"></output>
+    </operation>
+  </portType>
+  <binding name="EndpointDocumentoBinding" type="tns:ContratoSvcDocumento">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="ConsultarDocumentosTRD">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ConsultarDocumentosTRD"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ConsultarMetadataTRD">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ConsultarMetadataTRD"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ObtenerDocumentoTRD">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ObtenerDocumentoTRD"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ObtenerDocumento">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ObtenerDocumento"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ConsultarDigitalizados">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ConsultarDigitalizados"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ActualizarMetadata">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ActualizarMetadata"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="MoverDocumentoTRD">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/MoverDocumentoTRD"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RegistrarArchivosTRD">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/RegistrarArchivosTRD"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="SvcDocumento">
+    <port name="EndpointDocumento" binding="tns:EndpointDocumentoBinding">
+      <soap:address location="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://10.130.70.36/WSColpensionesMTOM/SvcDocumento/SvcDocumento_schema1.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" version="1.0" targetNamespace="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:ns1="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" xmlns:ns2="http://www.colpensiones.gov.co/schemas/1.0/comun">
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" schemaLocation="SvcDocumento_schema3.xsd"/>
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun" schemaLocation="SvcDocumento_schema4.xsd"/>
+  <xs:element name="tipoAplicarDispocision" type="tns:tipoAplicarDispocision"/>
+  <xs:element name="tipoConsultaRecord" type="tns:tipoConsultaRecord"/>
+  <xs:element name="tipoConsultaSeries" type="tns:tipoConsultaSeries"/>
+  <xs:element name="tipoCriterioContent" type="tns:tipoCriterioContent"/>
+  <xs:element name="tipoDigitalizado" type="tns:tipoDigitalizado"/>
+  <xs:element name="tipoDigitalizados" type="tns:tipoDigitalizados"/>
+  <xs:element name="tipoDigitalizadosDTO" type="tns:tipoDigitalizadosDTO"/>
+  <xs:element name="tipoDocumento" type="tns:tipoDocumento"/>
+  <xs:element name="tipoDocumentoContent" type="tns:tipoDocumentoContent"/>
+  <xs:element name="tipoDocumentoDTO" type="tns:tipoDocumentoDTO"/>
+  <xs:element name="tipoDocumentoGenerico" type="tns:tipoDocumentoGenerico"/>
+  <xs:element name="tipoDocumentoTRD" type="tns:tipoDocumentoTRD"/>
+  <xs:element name="tipoDocumentos" type="tns:tipoDocumentos"/>
+  <xs:element name="tipoDocumentosGenericos" type="tns:tipoDocumentosGenericos"/>
+  <xs:element name="tipoDocumentosTRD" type="tns:tipoDocumentosTRD"/>
+  <xs:element name="tipoDocumentosTRDDTO" type="tns:tipoDocumentosTRDDTO"/>
+  <xs:element name="tipoEstadosEjecucion" type="tns:tipoEstadosEjecucion"/>
+  <xs:element name="tipoExpedienteContent" type="tns:tipoExpedienteContent"/>
+  <xs:element name="tipoExpedienteRecord" type="tns:tipoExpedienteRecord"/>
+  <xs:element name="tipoIdentificacionDocumento" type="tns:tipoIdentificacionDocumento"/>
+  <xs:element name="tipoIdentificacionDocumentoDTO" type="tns:tipoIdentificacionDocumentoDTO"/>
+  <xs:element name="tipoIdentificacionTRD" type="tns:tipoIdentificacionTRD"/>
+  <xs:element name="tipoIdentificacionTRDDocumento" type="tns:tipoIdentificacionTRDDocumento"/>
+  <xs:element name="tipoInformacionActualizarMetadata" type="tns:tipoInformacionActualizarMetadata"/>
+  <xs:element name="tipoInformacionActualizarMetadataDTO" type="tns:tipoInformacionActualizarMetadataDTO"/>
+  <xs:element name="tipoInformacionConsultaDigitalizados" type="tns:tipoInformacionConsultaDigitalizados"/>
+  <xs:element name="tipoInformacionConsultaDigitalizadosDTO" type="tns:tipoInformacionConsultaDigitalizadosDTO"/>
+  <xs:element name="tipoInformacionConsultaDocumentosTRD" type="tns:tipoInformacionConsultaDocumentosTRD"/>
+  <xs:element name="tipoInformacionConsultaRecord" type="tns:tipoInformacionConsultaRecord"/>
+  <xs:element name="tipoInformacionExpedienteContent" type="tns:tipoInformacionExpedienteContent"/>
+  <xs:element name="tipoInformacionExpedienteRecord" type="tns:tipoInformacionExpedienteRecord"/>
+  <xs:element name="tipoInformacionExpedientesContent" type="tns:tipoInformacionExpedientesContent"/>
+  <xs:element name="tipoInformacionExpedientesRecord" type="tns:tipoInformacionExpedientesRecord"/>
+  <xs:element name="tipoInformacionFolder" type="tns:tipoInformacionFolder"/>
+  <xs:element name="tipoInformacionGeneralTRD" type="tns:tipoInformacionGeneralTRD"/>
+  <xs:element name="tipoInformacionMovimientoDocumentoTRD" type="tns:tipoInformacionMovimientoDocumentoTRD"/>
+  <xs:element name="tipoInformacionMovimientoDocumentoTRDDTO" type="tns:tipoInformacionMovimientoDocumentoTRDDTO"/>
+  <xs:element name="tipoInformacionRegistroTRDDTO" type="tns:tipoInformacionRegistroTRDDTO"/>
+  <xs:element name="tipoObtenerDocumentosTRD" type="tns:tipoObtenerDocumentosTRD"/>
+  <xs:element name="tipoPagina" type="tns:tipoPagina"/>
+  <xs:element name="tipoPaginaMTOM" type="tns:tipoPaginaMTOM"/>
+  <xs:element name="tipoPaginas" type="tns:tipoPaginas"/>
+  <xs:element name="tipoPaginasMTOM" type="tns:tipoPaginasMTOM"/>
+  <xs:element name="tipoPropiedad" type="tns:tipoPropiedad"/>
+  <xs:element name="tipoPropiedades" type="tns:tipoPropiedades"/>
+  <xs:element name="tipoResultadoDispocision" type="tns:tipoResultadoDispocision"/>
+  <xs:element name="tipoSeguridadSeries" type="tns:tipoSeguridadSeries"/>
+  <xs:element name="tipoTipoDocumental" type="tns:tipoTipoDocumental"/>
+  <xs:complexType name="tipoDocumentosTRD">
+    <xs:sequence>
+      <xs:element name="documento" type="tns:tipoDocumentoTRD" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="contenido" type="xs:base64Binary"/>
+      <xs:element name="propiedades" type="tns:tipoPropiedades" nillable="true"/>
+      <xs:element name="tipoPaginasMTOM" type="tns:tipoPaginasMTOM"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoPropiedades">
+    <xs:sequence>
+      <xs:element name="propiedad" type="tns:tipoPropiedad" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoPropiedad">
+    <xs:sequence>
+      <xs:element name="clave" type="xs:string"/>
+      <xs:element name="valor" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionConsultaDocumentosTRD">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionConsultaDocumentoTRD"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumento">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="tipoDocumental" type="tns:tipoTipoDocumental" nillable="true"/>
+      <xs:element name="numFolios" type="xs:int"/>
+      <xs:element name="fechaCreacion" type="xs:string"/>
+      <xs:element name="contenido" type="xs:string"/>
+      <xs:element name="extension" type="xs:string"/>
+      <xs:element name="paginas" type="tns:tipoPaginas"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoTipoDocumental">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:string" nillable="true"/>
+      <xs:element name="nombre" type="xs:string" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoSubseries">
+    <xs:sequence>
+      <xs:element name="tipoSubserie" type="tns:tipoSubserie" nillable="true" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoSubserie">
+    <xs:sequence>
+      <xs:element name="subserie" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionConsultaDigitalizadosDTO">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionConsultaDigitalizados"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentosTRDDTO">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoDocumentosTRD"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentos">
+    <xs:sequence>
+      <xs:element name="documento" type="tns:tipoDocumento" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentoGenerico">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="propiedades" type="tns:tipoPropiedades"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoExpedienteContent">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionExpedientesContent"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionConsultaDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="identificacionTRD" type="tns:tipoIdentificacionTRDDocumento" nillable="true"/>
+      <xs:element name="agrupador" type="xs:string"/>
+      <xs:element name="filtrosDocumento" type="tns:tipoPropiedades" nillable="true"/>
+      <xs:element name="incluirContenido" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoIdentificacionTRDDocumento">
+    <xs:sequence>
+      <xs:element name="tramite" type="xs:string" nillable="true"/>
+      <xs:element name="subtramite" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentoDTO">
+    <xs:sequence>
+      <xs:element name="EstadoEjecucion" type="ns1:tipoEstadoEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoDocumento"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoIdentificacionTRD">
+    <xs:sequence>
+      <xs:element name="serie" type="xs:string" nillable="true"/>
+      <xs:element name="subserie" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoEstadosEjecucion">
+    <xs:sequence>
+      <xs:element name="resultado" type="ns1:tipoEstadoEjecucion" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionExpedienteContent">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDigitalizados">
+    <xs:sequence>
+      <xs:element name="documento" type="tns:tipoDigitalizado" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDigitalizado">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="url" type="xs:string"/>
+      <xs:element name="nombre" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionGeneralTRD">
+    <xs:sequence>
+      <xs:element name="identificacionTRD" type="tns:tipoIdentificacionTRDDocumento" nillable="true"/>
+      <xs:element name="agrupador" type="xs:string" nillable="true"/>
+      <xs:element name="documentos" type="tns:tipoDocumentosTRD" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionActualizarMetadataDTO">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionActualizarMetadata"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoObtenerDocumentosTRD">
+    <xs:sequence>
+      <xs:element name="EstadoEjecucion" type="ns1:tipoEstadoEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoObtenerDocumentoTRD"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoConsultaContent">
+    <xs:sequence>
+      <xs:element name="consultaContent" type="tns:tipoResultadoConsultaContent" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoResultadoConsultaContent">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="estado" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionExpedienteRecord">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="propiedades" type="tns:tipoPropiedades"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionConsultaRecord">
+    <xs:sequence>
+      <xs:element name="tipoInformacionRecord" type="tns:tipoInformacionRecord" nillable="true" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionRecord">
+    <xs:sequence>
+      <xs:element name="identificacionTRD" type="tns:tipoIdentificacionTRD" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoSeguridadSeries">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionSeries"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionSerie">
+    <xs:sequence>
+      <xs:element name="serie" type="xs:string"/>
+      <xs:element name="subseries" type="tns:tipoSubseries"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoConsultaSeries">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoObtenerDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="fechaCreacion" type="xs:string"/>
+      <xs:element name="contenido" type="xs:base64Binary"/>
+      <xs:element name="extension" type="xs:string"/>
+      <xs:element name="paginas" type="tns:tipoPaginasMTOM"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionFolder">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoResultadoDispocision">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDigitalizadosDTO">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoDigitalizados"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoPaginaMTOM">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="contenido" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionConsultaContent">
+    <xs:sequence>
+      <xs:element name="identificacionTRD" type="tns:tipoIdentificacionTRD" nillable="true"/>
+      <xs:element name="estado" type="xs:string" nillable="true"/>
+      <xs:element name="fechaInicial" type="xs:string"/>
+      <xs:element name="fechaFinal" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoPaginas">
+    <xs:sequence>
+      <xs:element name="pagina" type="tns:tipoPagina" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoPagina">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="contenido" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoIdentificacionDocumentoDTO">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoIdentificacionDocumento"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentoContent">
+    <xs:sequence>
+      <xs:element name="EstadoEjecucion" type="ns1:tipoEstadoEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoConsultaContent"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionExpedientesRecord">
+    <xs:sequence>
+      <xs:element name="tipoInformacionExpedienteRecord" type="tns:tipoInformacionExpedienteRecord" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoExpedienteRecord">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionExpedientesRecord"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionSeries">
+    <xs:sequence>
+      <xs:element name="tipoInformacionSerie" type="tns:tipoInformacionSerie" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoAplicarDispocision">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoFolderDispocision"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoPaginasMTOM">
+    <xs:sequence>
+      <xs:element name="tipoPaginaMTOM" type="tns:tipoPaginaMTOM" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionActualizarMetadata">
+    <xs:sequence>
+      <xs:element name="documentos" type="tns:tipoDocumentosGenericos" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentosGenericos">
+    <xs:sequence>
+      <xs:element name="documento" type="tns:tipoDocumentoGenerico" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoIdentificacionDocumento">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionMovimientoDocumentoTRDDTO">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionMovimientoDocumentoTRD"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionConsultaDigitalizados">
+    <xs:sequence>
+      <xs:element name="fechaInicial" type="xs:string"/>
+      <xs:element name="fechaFinal" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentoConsultaTRD">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoDocumentosTRD"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoFolderDispocision">
+    <xs:sequence>
+      <xs:element name="tipoInformacionFolder" type="tns:tipoInformacionFolder" nillable="true" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionMovimientoDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="identificacionTRD" type="tns:tipoIdentificacionTRDDocumento" nillable="true"/>
+      <xs:element name="agrupador" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoConsultaRecord">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionConsultaRecord"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionExpedientesContent">
+    <xs:sequence>
+      <xs:element name="razonCierre" type="xs:string"/>
+      <xs:element name="tipoInformacionExpedienteContent" type="tns:tipoInformacionExpedienteContent" nillable="true" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoIdentificacionDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoIdentificacionDocumento"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoCriterioContent">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionConsultaContent"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionRegistroTRDDTO">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion" nillable="true"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionGeneralTRD" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://10.130.70.36/WSColpensionesMTOM/SvcDocumento/SvcDocumento_schema3.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" version="1.0" targetNamespace="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/schemas/1.0/comun/errores">
+  <xs:element name="tipoEstadoEjecucion" type="tns:tipoEstadoEjecucion"/>
+  <xs:complexType name="tipoEstadoEjecucion">
+    <xs:sequence>
+      <xs:element name="codigo" type="xs:string" nillable="true"/>
+      <xs:element name="descripcion" type="xs:string" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://10.130.70.36/WSColpensionesMTOM/SvcDocumento/SvcDocumento_schema4.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" version="1.0" targetNamespace="http://www.colpensiones.gov.co/schemas/1.0/comun" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/schemas/1.0/comun">
+  <xs:element name="tipoCredencialesAutorizacion" type="tns:tipoCredencialesAutorizacion"/>
+  <xs:complexType name="tipoCredencialesAutorizacion">
+    <xs:sequence>
+      <xs:element name="nombreUsuarioNegocio" type="xs:string"/>
+      <xs:element name="nombreUsuarioSistema" type="xs:string"/>
+      <xs:element name="claveUsuarioSistema" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://10.130.70.36/WSColpensionesMTOM/SvcDocumento/SvcDocumento_schema2.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" version="1.0" targetNamespace="http://www.colpensiones.gov.co/schemas/1.0/comun/tramites" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/schemas/1.0/comun/tramites">
+  <xs:element name="tipoIdentificacionTramite" type="tns:tipoIdentificacionTramite"/>
+  <xs:complexType name="tipoIdentificacionTramite">
+    <xs:sequence>
+      <xs:element name="codigoTipo" type="xs:string" nillable="true"/>
+      <xs:element name="codigoSubTipo" type="xs:string" nillable="true"/>
+      <xs:element name="numRadicacion" type="xs:string" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://10.130.70.36/WSColpensionesMTOM/SvcDocumento/SvcDocumento_schema5.xsd</con:url><con:content><![CDATA[<xs:schema version="1.0" targetNamespace="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:ns2="http://www.colpensiones.gov.co/schemas/1.0/comun/errores">
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/personas" schemaLocation="SvcDocumento_schema1.xsd"/>
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" schemaLocation="SvcDocumento_schema3.xsd"/>
+  <xs:element name="CriteriosConsultaDigitalizadosDTO" type="ns1:tipoInformacionConsultaDigitalizadosDTO"/>
+  <xs:element name="CriteriosConsultaTRD" type="ns1:tipoInformacionConsultaDocumentosTRD"/>
+  <xs:element name="CriteriosContent" type="ns1:tipoCriterioContent"/>
+  <xs:element name="CriteriosRecord" type="ns1:tipoConsultaRecord"/>
+  <xs:element name="CriteriosSeguridadSeries" type="ns1:tipoConsultaSeries"/>
+  <xs:element name="DigitalizadosDTO" type="ns1:tipoDigitalizadosDTO"/>
+  <xs:element name="DocumentoDTO" type="ns1:tipoDocumentoDTO"/>
+  <xs:element name="DocumentosContent" type="ns1:tipoDocumentoContent"/>
+  <xs:element name="DocumentosTRD" type="ns1:tipoDocumentoConsultaTRD"/>
+  <xs:element name="DocumentosTRDDTO" type="ns1:tipoDocumentosTRDDTO"/>
+  <xs:element name="EstadoEjecucion" type="ns2:tipoEstadoEjecucion"/>
+  <xs:element name="EstadosRecord" type="ns1:tipoExpedienteRecord"/>
+  <xs:element name="EstadosSeguridadSeries" type="ns1:tipoSeguridadSeries"/>
+  <xs:element name="IdentificacionDocumentoDTO" type="ns1:tipoIdentificacionDocumentoDTO"/>
+  <xs:element name="IdentificacionDocumentoTRD" type="ns1:tipoIdentificacionDocumentoTRD"/>
+  <xs:element name="IdentificacionExpedienteContent" type="ns1:tipoExpedienteContent"/>
+  <xs:element name="IdentificacionRecord" type="ns1:tipoAplicarDispocision"/>
+  <xs:element name="InformacionActualizarDTO" type="ns1:tipoInformacionActualizarMetadataDTO"/>
+  <xs:element name="InformacionExpedienteRecord" type="ns1:tipoExpedienteRecord"/>
+  <xs:element name="InformacionMovimientoDocumentoTRDDTO" type="ns1:tipoInformacionMovimientoDocumentoTRDDTO"/>
+  <xs:element name="InformacionRegistroTRDDTO" type="ns1:tipoInformacionRegistroTRDDTO"/>
+  <xs:element name="ObtenerDocumentoTRD" type="ns1:tipoObtenerDocumentosTRD"/>
+  <xs:element name="ResultadosRecord" type="ns1:tipoResultadoDispocision"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://10.130.70.36/WSColpensionesMTOM/SvcDocumento/SvcDocumento_schema6.xsd</con:url><con:content><![CDATA[<xs:schema version="1.0" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="QName" type="xs:QName"/>
+  <xs:element name="anyType" type="xs:anyType"/>
+  <xs:element name="anyURI" type="xs:string"/>
+  <xs:element name="base64Binary" type="xs:base64Binary"/>
+  <xs:element name="boolean" type="xs:boolean"/>
+  <xs:element name="byte" type="xs:byte"/>
+  <xs:element name="char" type="xs:int"/>
+  <xs:element name="dateTime" type="xs:anySimpleType"/>
+  <xs:element name="decimal" type="xs:decimal"/>
+  <xs:element name="double" type="xs:double"/>
+  <xs:element name="duration" type="xs:duration"/>
+  <xs:element name="float" type="xs:float"/>
+  <xs:element name="guid" type="xs:string"/>
+  <xs:element name="int" type="xs:int"/>
+  <xs:element name="long" type="xs:long"/>
+  <xs:element name="short" type="xs:short"/>
+  <xs:element name="string" type="xs:string"/>
+  <xs:element name="unsignedByte" type="xs:short"/>
+  <xs:element name="unsignedInt" type="xs:long"/>
+  <xs:element name="unsignedLong" type="xs:integer"/>
+  <xs:element name="unsignedShort" type="xs:int"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento</con:endpoint></con:endpoints><con:operation id="8086c80f-9908-4d41-bfbb-8dbd5614e066" isOneWay="false" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ActualizarMetadata" name="ActualizarMetadata" bindingOperationName="ActualizarMetadata" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="505e6ce5-d4bf-43ed-aef5-9561055ee2b9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:per1="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:com="http://www.colpensiones.gov.co/schemas/1.0/comun">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <per:InformacionActualizarDTO>\r
+         <per1:Contexto>\r
+            <com:nombreUsuarioNegocio>?</com:nombreUsuarioNegocio>\r
+            <com:nombreUsuarioSistema>?</com:nombreUsuarioSistema>\r
+            <com:claveUsuarioSistema>?</com:claveUsuarioSistema>\r
+         </per1:Contexto>\r
+         <per1:Detalle>\r
+            <per1:documentos>\r
+               <!--Zero or more repetitions:-->\r
+               <per1:documento>\r
+                  <per1:id>?</per1:id>\r
+                  <per1:propiedades>\r
+                     <!--Zero or more repetitions:-->\r
+                     <per1:propiedad>\r
+                        <per1:clave>?</per1:clave>\r
+                        <per1:valor>?</per1:valor>\r
+                     </per1:propiedad>\r
+                  </per1:propiedades>\r
+               </per1:documento>\r
+            </per1:documentos>\r
+         </per1:Detalle>\r
+      </per:InformacionActualizarDTO>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ActualizarMetadata"/></con:call></con:operation><con:operation id="f5f3c71a-900a-4447-b136-7487eafd9512" isOneWay="false" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ConsultarDigitalizados" name="ConsultarDigitalizados" bindingOperationName="ConsultarDigitalizados" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="82b8a627-ef78-4e86-97d7-5fe1f413d429" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:per1="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:com="http://www.colpensiones.gov.co/schemas/1.0/comun">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <per:CriteriosConsultaDigitalizadosDTO>\r
+         <per1:Contexto>\r
+            <com:nombreUsuarioNegocio>?</com:nombreUsuarioNegocio>\r
+            <com:nombreUsuarioSistema>?</com:nombreUsuarioSistema>\r
+            <com:claveUsuarioSistema>?</com:claveUsuarioSistema>\r
+         </per1:Contexto>\r
+         <per1:Detalle>\r
+            <per1:fechaInicial>?</per1:fechaInicial>\r
+            <per1:fechaFinal>?</per1:fechaFinal>\r
+         </per1:Detalle>\r
+      </per:CriteriosConsultaDigitalizadosDTO>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ConsultarDigitalizados"/></con:call></con:operation><con:operation id="e7b84199-e5eb-4509-9cc6-ade86d2bfd62" isOneWay="false" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ConsultarDocumentosTRD" name="ConsultarDocumentosTRD" bindingOperationName="ConsultarDocumentosTRD" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c1ac81a5-2db5-4528-b62f-1ea3f9147ccd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:per1="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:com="http://www.colpensiones.gov.co/schemas/1.0/comun">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <per:CriteriosConsultaTRD>\r
+         <per1:Contexto>\r
+            <com:nombreUsuarioNegocio>?</com:nombreUsuarioNegocio>\r
+            <com:nombreUsuarioSistema>?</com:nombreUsuarioSistema>\r
+            <com:claveUsuarioSistema>?</com:claveUsuarioSistema>\r
+         </per1:Contexto>\r
+         <per1:Detalle>\r
+            <per1:identificacionTRD>\r
+               <per1:tramite>?</per1:tramite>\r
+               <per1:subtramite>?</per1:subtramite>\r
+            </per1:identificacionTRD>\r
+            <per1:agrupador>?</per1:agrupador>\r
+            <per1:filtrosDocumento>\r
+               <!--Zero or more repetitions:-->\r
+               <per1:propiedad>\r
+                  <per1:clave>?</per1:clave>\r
+                  <per1:valor>?</per1:valor>\r
+               </per1:propiedad>\r
+            </per1:filtrosDocumento>\r
+            <per1:incluirContenido>?</per1:incluirContenido>\r
+         </per1:Detalle>\r
+      </per:CriteriosConsultaTRD>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ConsultarDocumentosTRD"/></con:call></con:operation><con:operation id="aaeb2898-e295-4cf8-bd74-19ba94813b5b" isOneWay="false" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ConsultarMetadataTRD" name="ConsultarMetadataTRD" bindingOperationName="ConsultarMetadataTRD" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5adf2d8f-b77f-4145-8ef0-dc053a431af9" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:per1="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:com="http://www.colpensiones.gov.co/schemas/1.0/comun">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <per:CriteriosConsultaTRD>\r
+         <per1:Contexto>\r
+            <com:nombreUsuarioNegocio>?</com:nombreUsuarioNegocio>\r
+            <com:nombreUsuarioSistema>?</com:nombreUsuarioSistema>\r
+            <com:claveUsuarioSistema>?</com:claveUsuarioSistema>\r
+         </per1:Contexto>\r
+         <per1:Detalle>\r
+            <per1:identificacionTRD>\r
+               <per1:tramite>?</per1:tramite>\r
+               <per1:subtramite>?</per1:subtramite>\r
+            </per1:identificacionTRD>\r
+            <per1:agrupador>?</per1:agrupador>\r
+            <per1:filtrosDocumento>\r
+               <!--Zero or more repetitions:-->\r
+               <per1:propiedad>\r
+                  <per1:clave>?</per1:clave>\r
+                  <per1:valor>?</per1:valor>\r
+               </per1:propiedad>\r
+            </per1:filtrosDocumento>\r
+            <per1:incluirContenido>?</per1:incluirContenido>\r
+         </per1:Detalle>\r
+      </per:CriteriosConsultaTRD>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ConsultarMetadataTRD"/></con:call></con:operation><con:operation id="ef3cd941-9dc6-4888-8bab-2d4688ac0708" isOneWay="false" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/MoverDocumentoTRD" name="MoverDocumentoTRD" bindingOperationName="MoverDocumentoTRD" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="00e9defd-a10b-4f16-ad47-c4487d2ecdf8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:per1="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:com="http://www.colpensiones.gov.co/schemas/1.0/comun">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <per:InformacionMovimientoDocumentoTRDDTO>\r
+         <per1:Contexto>\r
+            <com:nombreUsuarioNegocio>?</com:nombreUsuarioNegocio>\r
+            <com:nombreUsuarioSistema>?</com:nombreUsuarioSistema>\r
+            <com:claveUsuarioSistema>?</com:claveUsuarioSistema>\r
+         </per1:Contexto>\r
+         <per1:Detalle>\r
+            <per1:id>?</per1:id>\r
+            <per1:identificacionTRD>\r
+               <per1:tramite>?</per1:tramite>\r
+               <per1:subtramite>?</per1:subtramite>\r
+            </per1:identificacionTRD>\r
+            <per1:agrupador>?</per1:agrupador>\r
+         </per1:Detalle>\r
+      </per:InformacionMovimientoDocumentoTRDDTO>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/MoverDocumentoTRD"/></con:call></con:operation><con:operation id="a03a21ff-2c9e-47a3-b9a6-66bb45b6cf2b" isOneWay="false" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ObtenerDocumento" name="ObtenerDocumento" bindingOperationName="ObtenerDocumento" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="66e841e9-14e4-4d36-bceb-1080e5ba871b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:per1="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:com="http://www.colpensiones.gov.co/schemas/1.0/comun">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <per:IdentificacionDocumentoDTO>\r
+         <per1:Contexto>\r
+            <com:nombreUsuarioNegocio>?</com:nombreUsuarioNegocio>\r
+            <com:nombreUsuarioSistema>?</com:nombreUsuarioSistema>\r
+            <com:claveUsuarioSistema>?</com:claveUsuarioSistema>\r
+         </per1:Contexto>\r
+         <per1:Detalle>\r
+            <per1:id>?</per1:id>\r
+         </per1:Detalle>\r
+      </per:IdentificacionDocumentoDTO>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ObtenerDocumento"/></con:call></con:operation><con:operation id="bc0bf7f9-4e6a-4861-bf93-013d2d60eae9" isOneWay="false" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ObtenerDocumentoTRD" name="ObtenerDocumentoTRD" bindingOperationName="ObtenerDocumentoTRD" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bd4d6385-fdb6-466d-8ce2-711ab9de2ee3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:per1="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:com="http://www.colpensiones.gov.co/schemas/1.0/comun">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <per:IdentificacionDocumentoTRD>\r
+         <per1:Contexto>\r
+            <com:nombreUsuarioNegocio>?</com:nombreUsuarioNegocio>\r
+            <com:nombreUsuarioSistema>?</com:nombreUsuarioSistema>\r
+            <com:claveUsuarioSistema>?</com:claveUsuarioSistema>\r
+         </per1:Contexto>\r
+         <per1:Detalle>\r
+            <per1:id>?</per1:id>\r
+         </per1:Detalle>\r
+      </per:IdentificacionDocumentoTRD>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/ObtenerDocumentoTRD"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="40618a2d-8e3e-4e6f-ba7f-66be7ff131b0" isOneWay="false" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/RegistrarArchivosTRD" name="RegistrarArchivosTRD" bindingOperationName="RegistrarArchivosTRD" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5c24f624-433e-4d8f-b0ec-894e378bdc94" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://127.0.0.1:80/WSColpensionesMTOM/SvcDocumento</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:per1="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:com="http://www.colpensiones.gov.co/schemas/1.0/comun">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <per:InformacionRegistroTRDDTO>
+         <per1:Contexto>
+            <com:nombreUsuarioNegocio>INTBIZAGIECM</com:nombreUsuarioNegocio>
+            <com:nombreUsuarioSistema>INTBIZAGIECM</com:nombreUsuarioSistema>
+            <com:claveUsuarioSistema>Gesd927WS</com:claveUsuarioSistema>
+         </per1:Contexto>
+         <per1:Detalle>
+            <per1:identificacionTRD>
+               <per1:tramite>AFL</per1:tramite>
+               <per1:subtramite>AFLPV</per1:subtramite>
+            </per1:identificacionTRD>
+            <per1:agrupador>CC-35332239</per1:agrupador>
+            <per1:documentos>
+               <!--Zero or more repetitions:-->
+               <per1:documento>
+                  <per1:id>CRP-5-2014</per1:id>
+                  <per1:contenido>cid:1149384665413</per1:contenido>
+                  <per1:propiedades>
+                     <!--Zero or more repetitions:-->
+                     <per1:propiedad>
+                        <per1:clave>CodigoTipoDocumento</per1:clave>
+                        <per1:valor>GAF-CEA-AF</per1:valor>
+                     </per1:propiedad>
+                     <per1:propiedad>
+                        <per1:clave>NombreDocumento</per1:clave>
+                        <per1:valor>test.pdf</per1:valor>
+                     </per1:propiedad>
+                     <per1:propiedad>
+                        <per1:clave>NumeroFolios</per1:clave>
+                        <per1:valor>1</per1:valor>
+                     </per1:propiedad>
+                     <per1:propiedad>
+                        <per1:clave>extension</per1:clave>
+                        <per1:valor>PDF</per1:valor>
+                     </per1:propiedad>
+                     <per1:propiedad>
+                        <per1:clave>NumeroRadicadoCorrespondencia</per1:clave>
+                        <per1:valor>123456</per1:valor>
+                     </per1:propiedad>
+                  </per1:propiedades>
+                  <per1:tipoPaginasMTOM>
+                     <!--Zero or more repetitions:-->
+                
+                  </per1:tipoPaginasMTOM>
+               </per1:documento>
+            </per1:documentos>
+         </per1:Detalle>
+      </per:InformacionRegistroTRDDTO>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/RegistrarArchivosTRD"/><con:wsrmConfig version="1.2"/></con:call><con:call id="99399958-4633-4981-a010-cc33021c8263" name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:per1="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:com="http://www.colpensiones.gov.co/schemas/1.0/comun">
+   <soapenv:Header/>
+   <soapenv:Body>
+   
+<ns2:tipoInformacionRegistroTRDDTO xmlns="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" xmlns:ns2="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:ns3="http://www.colpensiones.gov.co/schemas/1.0/comun">
+    <ns2:Contexto>
+        <ns3:nombreUsuarioNegocio>INTBIZAGIECM</ns3:nombreUsuarioNegocio>
+        <ns3:nombreUsuarioSistema>INTBIZAGIECM</ns3:nombreUsuarioSistema>
+        <ns3:claveUsuarioSistema>Gesd927WS</ns3:claveUsuarioSistema>
+    </ns2:Contexto>
+    <ns2:Detalle>
+        <ns2:identificacionTRD>
+            <ns2:tramite>AFL</ns2:tramite>
+            <ns2:subtramite>AFLPV</ns2:subtramite>
+        </ns2:identificacionTRD>
+        <ns2:agrupador>CC-35332239</ns2:agrupador>
+        <ns2:documentos>
+            <ns2:documento>
+                <ns2:id>CRP-5-2014</ns2:id>
+                <ns2:contenido>cid1149384665413</ns2:contenido>
+                <ns2:propiedades>
+                    <ns2:propiedad>
+                        <ns2:clave>CodigoTipoDocumento</ns2:clave>
+                        <ns2:valor>GAF-CEA-AF</ns2:valor>
+                    </ns2:propiedad>
+                    <ns2:propiedad>
+                        <ns2:clave>NombreDocumento</ns2:clave>
+                        <ns2:valor>test.pdf</ns2:valor>
+                    </ns2:propiedad>
+                    <ns2:propiedad>
+                        <ns2:clave>NumeroFolios</ns2:clave>
+                        <ns2:valor>1</ns2:valor>
+                    </ns2:propiedad>
+                    <ns2:propiedad>
+                        <ns2:clave>extension</ns2:clave>
+                        <ns2:valor>PDF</ns2:valor>
+                    </ns2:propiedad>
+                    <ns2:propiedad>
+                        <ns2:clave>NumeroRadicadoCorrespondencia</ns2:clave>
+                        <ns2:valor>123456</ns2:valor>
+                    </ns2:propiedad>
+                </ns2:propiedades>
+                <ns2:tipoPaginasMTOM/>
+            </ns2:documento>
+        </ns2:documentos>
+    </ns2:Detalle>
+</ns2:tipoInformacionRegistroTRDDTO>
+
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/RegistrarArchivosTRD"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="8360ffcb-d64b-4dbf-86be-1309e1ad78dd" wsaVersion="NONE" name="EndpointRegistroDocumentoNuevoBinding" type="wsdl" bindingName="{http://www.colpensiones.gov.co/contracts/1.0/personas}EndpointRegistroDocumentoNuevoBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/colpensionesRegistro?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/colpensionesRegistro?wsdl"><con:part><con:url>http://localhost:8080/colpensionesRegistro?wsdl</con:url><con:content><![CDATA[<definitions name="RegistrarDocumento" targetNamespace="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/personas" schemaLocation="http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema1.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/tramites" schemaLocation="http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema2.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" schemaLocation="http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema3.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun" schemaLocation="http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema4.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://www.colpensiones.gov.co/contracts/1.0/personas" schemaLocation="http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema5.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" schemaLocation="http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema6.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="RegistrarArchivosNuevo">
+    <part element="tns:InformacionRegistroNuevo" name="InformacionRegistroNuevo"></part>
+  </message>
+  <message name="RegistrarArchivosNuevoResponse">
+    <part element="tns:DocumentosTRDDTO" name="SalidaRegistroArchivosNuevo"></part>
+  </message>
+  <portType name="ContratoRegistroArchivosNuevo">
+    <operation name="RegistrarArchivosNuevo">
+      <input message="tns:RegistrarArchivosNuevo"></input>
+      <output message="tns:RegistrarArchivosNuevoResponse"></output>
+    </operation>
+  </portType>
+  <binding name="EndpointRegistroDocumentoNuevoBinding" type="tns:ContratoRegistroArchivosNuevo">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="RegistrarArchivosNuevo">
+      <soap:operation soapAction="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoRegistroArchivosNuevo/RegistrarArchivosNuevo"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="RegistroDocumento">
+    <port binding="tns:EndpointRegistroDocumentoNuevoBinding" name="EndpointRegistroDocumentoNuevo">
+      <soap:address location="http://localhost:8080/colpensionesRegistro"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema1.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://www.colpensiones.gov.co/schemas/1.0/personas" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/schemas/1.0/personas" xmlns:ns2="http://www.colpensiones.gov.co/schemas/1.0/comun" xmlns:ns1="http://www.colpensiones.gov.co/schemas/1.0/comun/errores">
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" schemaLocation="http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema3.xsd"/>
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun" schemaLocation="http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema4.xsd"/>
+  <xs:element name="tipoAplicarDispocision" type="tns:tipoAplicarDispocision"/>
+  <xs:element name="tipoConsultaRecord" type="tns:tipoConsultaRecord"/>
+  <xs:element name="tipoConsultaSeries" type="tns:tipoConsultaSeries"/>
+  <xs:element name="tipoCriterioContent" type="tns:tipoCriterioContent"/>
+  <xs:element name="tipoDigitalizado" type="tns:tipoDigitalizado"/>
+  <xs:element name="tipoDigitalizados" type="tns:tipoDigitalizados"/>
+  <xs:element name="tipoDigitalizadosDTO" type="tns:tipoDigitalizadosDTO"/>
+  <xs:element name="tipoDocumento" type="tns:tipoDocumento"/>
+  <xs:element name="tipoDocumentoContent" type="tns:tipoDocumentoContent"/>
+  <xs:element name="tipoDocumentoDTO" type="tns:tipoDocumentoDTO"/>
+  <xs:element name="tipoDocumentoGenerico" type="tns:tipoDocumentoGenerico"/>
+  <xs:element name="tipoDocumentoTRD" type="tns:tipoDocumentoTRD"/>
+  <xs:element name="tipoDocumentos" type="tns:tipoDocumentos"/>
+  <xs:element name="tipoDocumentosGenericos" type="tns:tipoDocumentosGenericos"/>
+  <xs:element name="tipoDocumentosTRD" type="tns:tipoDocumentosTRD"/>
+  <xs:element name="tipoDocumentosTRDDTO" type="tns:tipoDocumentosTRDDTO"/>
+  <xs:element name="tipoEstadosEjecucion" type="tns:tipoEstadosEjecucion"/>
+  <xs:element name="tipoExpedienteContent" type="tns:tipoExpedienteContent"/>
+  <xs:element name="tipoExpedienteRecord" type="tns:tipoExpedienteRecord"/>
+  <xs:element name="tipoIdentificacionDocumento" type="tns:tipoIdentificacionDocumento"/>
+  <xs:element name="tipoIdentificacionDocumentoDTO" type="tns:tipoIdentificacionDocumentoDTO"/>
+  <xs:element name="tipoIdentificacionTRD" type="tns:tipoIdentificacionTRD"/>
+  <xs:element name="tipoIdentificacionTRDDocumento" type="tns:tipoIdentificacionTRDDocumento"/>
+  <xs:element name="tipoInformacionActualizarMetadata" type="tns:tipoInformacionActualizarMetadata"/>
+  <xs:element name="tipoInformacionActualizarMetadataDTO" type="tns:tipoInformacionActualizarMetadataDTO"/>
+  <xs:element name="tipoInformacionConsultaDigitalizados" type="tns:tipoInformacionConsultaDigitalizados"/>
+  <xs:element name="tipoInformacionConsultaDigitalizadosDTO" type="tns:tipoInformacionConsultaDigitalizadosDTO"/>
+  <xs:element name="tipoInformacionConsultaDocumentosTRD" type="tns:tipoInformacionConsultaDocumentosTRD"/>
+  <xs:element name="tipoInformacionConsultaRecord" type="tns:tipoInformacionConsultaRecord"/>
+  <xs:element name="tipoInformacionExpedienteContent" type="tns:tipoInformacionExpedienteContent"/>
+  <xs:element name="tipoInformacionExpedienteRecord" type="tns:tipoInformacionExpedienteRecord"/>
+  <xs:element name="tipoInformacionExpedientesContent" type="tns:tipoInformacionExpedientesContent"/>
+  <xs:element name="tipoInformacionExpedientesRecord" type="tns:tipoInformacionExpedientesRecord"/>
+  <xs:element name="tipoInformacionFolder" type="tns:tipoInformacionFolder"/>
+  <xs:element name="tipoInformacionGeneralTRD" type="tns:tipoInformacionGeneralTRD"/>
+  <xs:element name="tipoInformacionMovimientoDocumentoTRD" type="tns:tipoInformacionMovimientoDocumentoTRD"/>
+  <xs:element name="tipoInformacionMovimientoDocumentoTRDDTO" type="tns:tipoInformacionMovimientoDocumentoTRDDTO"/>
+  <xs:element name="tipoInformacionRegistroTRDDTO" type="tns:tipoInformacionRegistroTRDDTO"/>
+  <!--NUEVO-->
+  <xs:element name="tipoInformacionRegistroNuevo" type="tns:tipoInformacionRegistroNuevo"/>
+  <xs:element name="tipoObtenerDocumentosTRD" type="tns:tipoObtenerDocumentosTRD"/>
+  <xs:element name="tipoPagina" type="tns:tipoPagina"/>
+  <xs:element name="tipoPaginaMTOM" type="tns:tipoPaginaMTOM"/>
+  <xs:element name="tipoPaginas" type="tns:tipoPaginas"/>
+  <xs:element name="tipoPaginasMTOM" type="tns:tipoPaginasMTOM"/>
+  <xs:element name="tipoPropiedad" type="tns:tipoPropiedad"/>
+  <xs:element name="tipoPropiedades" type="tns:tipoPropiedades"/>
+  <xs:element name="tipoResultadoDispocision" type="tns:tipoResultadoDispocision"/>
+  <xs:element name="tipoSeguridadSeries" type="tns:tipoSeguridadSeries"/>
+  <xs:element name="tipoTipoDocumental" type="tns:tipoTipoDocumental"/>
+  <xs:complexType name="tipoDocumentosTRD">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="documento" nillable="true" type="tns:tipoDocumentoTRD"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="contenido" type="xs:base64Binary"/>
+      <xs:element name="propiedades" nillable="true" type="tns:tipoPropiedades"/>
+      <xs:element name="tipoPaginasMTOM" type="tns:tipoPaginasMTOM"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoPropiedades">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="propiedad" nillable="true" type="tns:tipoPropiedad"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoPropiedad">
+    <xs:sequence>
+      <xs:element name="clave" type="xs:string"/>
+      <xs:element name="valor" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionConsultaDocumentosTRD">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionConsultaDocumentoTRD"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumento">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="tipoDocumental" nillable="true" type="tns:tipoTipoDocumental"/>
+      <xs:element name="numFolios" type="xs:int"/>
+      <xs:element name="fechaCreacion" type="xs:string"/>
+      <xs:element name="contenido" type="xs:string"/>
+      <xs:element name="extension" type="xs:string"/>
+      <xs:element name="paginas" type="tns:tipoPaginas"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoTipoDocumental">
+    <xs:sequence>
+      <xs:element name="codigo" nillable="true" type="xs:string"/>
+      <xs:element name="nombre" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoSubseries">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="tipoSubserie" nillable="true" type="tns:tipoSubserie"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoSubserie">
+    <xs:sequence>
+      <xs:element name="subserie" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionConsultaDigitalizadosDTO">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionConsultaDigitalizados"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentosTRDDTO">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoDocumentosTRD"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentos">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="documento" nillable="true" type="tns:tipoDocumento"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentoGenerico">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="propiedades" type="tns:tipoPropiedades"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoExpedienteContent">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionExpedientesContent"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionConsultaDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="identificacionTRD" nillable="true" type="tns:tipoIdentificacionTRDDocumento"/>
+      <xs:element name="agrupador" type="xs:string"/>
+      <xs:element name="filtrosDocumento" nillable="true" type="tns:tipoPropiedades"/>
+      <xs:element name="incluirContenido" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoIdentificacionTRDDocumento">
+    <xs:sequence>
+      <xs:element name="tramite" nillable="true" type="xs:string"/>
+      <xs:element name="subtramite" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentoDTO">
+    <xs:sequence>
+      <xs:element name="EstadoEjecucion" type="ns1:tipoEstadoEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoDocumento"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoIdentificacionTRD">
+    <xs:sequence>
+      <xs:element name="serie" nillable="true" type="xs:string"/>
+      <xs:element name="subserie" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoEstadosEjecucion">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="resultado" nillable="true" type="ns1:tipoEstadoEjecucion"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionExpedienteContent">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDigitalizados">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="documento" nillable="true" type="tns:tipoDigitalizado"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDigitalizado">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="url" type="xs:string"/>
+      <xs:element name="nombre" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionGeneralTRD">
+    <xs:sequence>
+      <xs:element name="identificacionTRD" nillable="true" type="tns:tipoIdentificacionTRDDocumento"/>
+      <xs:element name="agrupador" nillable="true" type="xs:string"/>
+      <xs:element name="documentos" nillable="true" type="tns:tipoDocumentosTRD"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionActualizarMetadataDTO">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionActualizarMetadata"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoObtenerDocumentosTRD">
+    <xs:sequence>
+      <xs:element name="EstadoEjecucion" type="ns1:tipoEstadoEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoObtenerDocumentoTRD"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoConsultaContent">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="consultaContent" nillable="true" type="tns:tipoResultadoConsultaContent"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoResultadoConsultaContent">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="estado" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionExpedienteRecord">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="propiedades" type="tns:tipoPropiedades"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionConsultaRecord">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="tipoInformacionRecord" nillable="true" type="tns:tipoInformacionRecord"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionRecord">
+    <xs:sequence>
+      <xs:element name="identificacionTRD" nillable="true" type="tns:tipoIdentificacionTRD"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoSeguridadSeries">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionSeries"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionSerie">
+    <xs:sequence>
+      <xs:element name="serie" type="xs:string"/>
+      <xs:element name="subseries" type="tns:tipoSubseries"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoConsultaSeries">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoObtenerDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="fechaCreacion" type="xs:string"/>
+      <xs:element name="contenido" type="xs:base64Binary"/>
+      <xs:element name="extension" type="xs:string"/>
+      <xs:element name="paginas" type="tns:tipoPaginasMTOM"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionFolder">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoResultadoDispocision">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDigitalizadosDTO">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoDigitalizados"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoPaginaMTOM">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="contenido" type="xs:base64Binary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionConsultaContent">
+    <xs:sequence>
+      <xs:element name="identificacionTRD" nillable="true" type="tns:tipoIdentificacionTRD"/>
+      <xs:element name="estado" nillable="true" type="xs:string"/>
+      <xs:element name="fechaInicial" type="xs:string"/>
+      <xs:element name="fechaFinal" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoPaginas">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="pagina" nillable="true" type="tns:tipoPagina"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoPagina">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="contenido" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoIdentificacionDocumentoDTO">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoIdentificacionDocumento"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentoContent">
+    <xs:sequence>
+      <xs:element name="EstadoEjecucion" type="ns1:tipoEstadoEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoConsultaContent"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionExpedientesRecord">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="tipoInformacionExpedienteRecord" nillable="true" type="tns:tipoInformacionExpedienteRecord"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoExpedienteRecord">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionExpedientesRecord"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionSeries">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="tipoInformacionSerie" nillable="true" type="tns:tipoInformacionSerie"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoAplicarDispocision">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoFolderDispocision"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoPaginasMTOM">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="tipoPaginaMTOM" nillable="true" type="tns:tipoPaginaMTOM"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionActualizarMetadata">
+    <xs:sequence>
+      <xs:element name="documentos" nillable="true" type="tns:tipoDocumentosGenericos"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentosGenericos">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="documento" nillable="true" type="tns:tipoDocumentoGenerico"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoIdentificacionDocumento">
+    <xs:sequence>
+      <xs:element name="id" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionMovimientoDocumentoTRDDTO">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionMovimientoDocumentoTRD"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionConsultaDigitalizados">
+    <xs:sequence>
+      <xs:element name="fechaInicial" type="xs:string"/>
+      <xs:element name="fechaFinal" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoDocumentoConsultaTRD">
+    <xs:sequence>
+      <xs:element name="ResultadosEjecucion" type="tns:tipoEstadosEjecucion"/>
+      <xs:element name="Detalle" type="tns:tipoDocumentosTRD"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoFolderDispocision">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="tipoInformacionFolder" nillable="true" type="tns:tipoInformacionFolder"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionMovimientoDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="id" type="xs:string"/>
+      <xs:element name="identificacionTRD" nillable="true" type="tns:tipoIdentificacionTRDDocumento"/>
+      <xs:element name="agrupador" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoConsultaRecord">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionConsultaRecord"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionExpedientesContent">
+    <xs:sequence>
+      <xs:element name="razonCierre" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="tipoInformacionExpedienteContent" nillable="true" type="tns:tipoInformacionExpedienteContent"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoIdentificacionDocumentoTRD">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoIdentificacionDocumento"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoCriterioContent">
+    <xs:sequence>
+      <xs:element name="Contexto" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" type="tns:tipoInformacionConsultaContent"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tipoInformacionRegistroTRDDTO">
+    <xs:sequence>
+      <xs:element name="Contexto" nillable="true" type="ns2:tipoCredencialesAutorizacion"/>
+      <xs:element name="Detalle" nillable="true" type="tns:tipoInformacionGeneralTRD"/>
+    </xs:sequence>
+  </xs:complexType>
+  <!--ELEMENTO NUEVO-->
+  <xs:complexType name="tipoInformacionRegistroNuevo">
+    <xs:sequence>
+      <xs:element name="Detalle" nillable="true" type="tns:tipoInformacionGeneralTRD"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema3.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/schemas/1.0/comun/errores">
+  <xs:element name="tipoEstadoEjecucion" type="tns:tipoEstadoEjecucion"/>
+  <xs:complexType name="tipoEstadoEjecucion">
+    <xs:sequence>
+      <xs:element name="codigo" nillable="true" type="xs:string"/>
+      <xs:element name="descripcion" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema4.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://www.colpensiones.gov.co/schemas/1.0/comun" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/schemas/1.0/comun">
+  <xs:element name="tipoCredencialesAutorizacion" type="tns:tipoCredencialesAutorizacion"/>
+  <xs:complexType name="tipoCredencialesAutorizacion">
+    <xs:sequence>
+      <xs:element name="nombreUsuarioNegocio" type="xs:string"/>
+      <xs:element name="nombreUsuarioSistema" type="xs:string"/>
+      <xs:element name="claveUsuarioSistema" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema2.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://www.colpensiones.gov.co/schemas/1.0/comun/tramites" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.colpensiones.gov.co/schemas/1.0/comun/tramites">
+  <xs:element name="tipoIdentificacionTramite" type="tns:tipoIdentificacionTramite"/>
+  <xs:complexType name="tipoIdentificacionTramite">
+    <xs:sequence>
+      <xs:element name="codigoTipo" nillable="true" type="xs:string"/>
+      <xs:element name="codigoSubTipo" nillable="true" type="xs:string"/>
+      <xs:element name="numRadicacion" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema5.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://www.colpensiones.gov.co/contracts/1.0/personas" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" xmlns:ns1="http://www.colpensiones.gov.co/schemas/1.0/personas">
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/personas" schemaLocation="http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema1.xsd"/>
+  <xs:import namespace="http://www.colpensiones.gov.co/schemas/1.0/comun/errores" schemaLocation="http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema3.xsd"/>
+  <xs:element name="CriteriosConsultaDigitalizadosDTO" type="ns1:tipoInformacionConsultaDigitalizadosDTO"/>
+  <xs:element name="CriteriosConsultaTRD" type="ns1:tipoInformacionConsultaDocumentosTRD"/>
+  <xs:element name="CriteriosContent" type="ns1:tipoCriterioContent"/>
+  <xs:element name="CriteriosRecord" type="ns1:tipoConsultaRecord"/>
+  <xs:element name="CriteriosSeguridadSeries" type="ns1:tipoConsultaSeries"/>
+  <xs:element name="DigitalizadosDTO" type="ns1:tipoDigitalizadosDTO"/>
+  <xs:element name="DocumentoDTO" type="ns1:tipoDocumentoDTO"/>
+  <xs:element name="DocumentosContent" type="ns1:tipoDocumentoContent"/>
+  <xs:element name="DocumentosTRD" type="ns1:tipoDocumentoConsultaTRD"/>
+  <xs:element name="DocumentosTRDDTO" type="ns1:tipoDocumentosTRDDTO"/>
+  <xs:element name="EstadoEjecucion" type="ns2:tipoEstadoEjecucion"/>
+  <xs:element name="EstadosRecord" type="ns1:tipoExpedienteRecord"/>
+  <xs:element name="EstadosSeguridadSeries" type="ns1:tipoSeguridadSeries"/>
+  <xs:element name="IdentificacionDocumentoDTO" type="ns1:tipoIdentificacionDocumentoDTO"/>
+  <xs:element name="IdentificacionDocumentoTRD" type="ns1:tipoIdentificacionDocumentoTRD"/>
+  <xs:element name="IdentificacionExpedienteContent" type="ns1:tipoExpedienteContent"/>
+  <xs:element name="IdentificacionRecord" type="ns1:tipoAplicarDispocision"/>
+  <xs:element name="InformacionActualizarDTO" type="ns1:tipoInformacionActualizarMetadataDTO"/>
+  <xs:element name="InformacionExpedienteRecord" type="ns1:tipoExpedienteRecord"/>
+  <xs:element name="InformacionMovimientoDocumentoTRDDTO" type="ns1:tipoInformacionMovimientoDocumentoTRDDTO"/>
+  <xs:element name="InformacionRegistroTRDDTO" type="ns1:tipoInformacionRegistroTRDDTO"/>
+  <!--NUEVAO-->
+  <xs:element name="InformacionRegistroNuevo" type="ns1:tipoInformacionRegistroNuevo"/>
+  <xs:element name="ObtenerDocumentoTRD" type="ns1:tipoObtenerDocumentosTRD"/>
+  <xs:element name="ResultadosRecord" type="ns1:tipoResultadoDispocision"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://localhost:8080/colpensionesRegistro?xsd=SvcDocumento_schema6.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="QName" type="xs:QName"/>
+  <xs:element name="anyType" type="xs:anyType"/>
+  <xs:element name="anyURI" type="xs:string"/>
+  <xs:element name="base64Binary" type="xs:base64Binary"/>
+  <xs:element name="boolean" type="xs:boolean"/>
+  <xs:element name="byte" type="xs:byte"/>
+  <xs:element name="char" type="xs:int"/>
+  <xs:element name="dateTime" type="xs:anySimpleType"/>
+  <xs:element name="decimal" type="xs:decimal"/>
+  <xs:element name="double" type="xs:double"/>
+  <xs:element name="duration" type="xs:duration"/>
+  <xs:element name="float" type="xs:float"/>
+  <xs:element name="guid" type="xs:string"/>
+  <xs:element name="int" type="xs:int"/>
+  <xs:element name="long" type="xs:long"/>
+  <xs:element name="short" type="xs:short"/>
+  <xs:element name="string" type="xs:string"/>
+  <xs:element name="unsignedByte" type="xs:short"/>
+  <xs:element name="unsignedInt" type="xs:long"/>
+  <xs:element name="unsignedLong" type="xs:integer"/>
+  <xs:element name="unsignedShort" type="xs:int"/>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/colpensionesRegistro</con:endpoint></con:endpoints><con:operation id="6eb0b78f-5830-42b3-a4be-880cc726ec1b" isOneWay="false" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoRegistroArchivosNuevo/RegistrarArchivosNuevo" name="RegistrarArchivosNuevo" bindingOperationName="RegistrarArchivosNuevo" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="28c4fa13-c01e-4676-8c25-13fbdcc87437" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/colpensionesRegistro</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:per="http://www.colpensiones.gov.co/contracts/1.0/personas" xmlns:per1="http://www.colpensiones.gov.co/schemas/1.0/personas">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <per:InformacionRegistroNuevo>
+         <per1:Detalle>
+            <per1:identificacionTRD>
+               <per1:tramite>?</per1:tramite>
+               <per1:subtramite>?</per1:subtramite>
+            </per1:identificacionTRD>
+            <per1:agrupador>?</per1:agrupador>
+            <per1:documentos>
+               <!--Zero or more repetitions:-->
+               <per1:documento>
+                  <per1:id>?</per1:id>
+                  <per1:contenido>cid:540021312092</per1:contenido>
+                  <per1:propiedades>
+                     <!--Zero or more repetitions:-->
+                     <per1:propiedad>
+                        <per1:clave>?</per1:clave>
+                        <per1:valor>?</per1:valor>
+                     </per1:propiedad>
+                  </per1:propiedades>
+                  <per1:tipoPaginasMTOM>
+                     <!--Zero or more repetitions:-->
+                     <per1:tipoPaginaMTOM>
+                        <per1:id>?</per1:id>
+                        <per1:contenido>cid:812990884847</per1:contenido>
+                     </per1:tipoPaginaMTOM>
+                  </per1:tipoPaginasMTOM>
+               </per1:documento>
+            </per1:documentos>
+         </per1:Detalle>
+      </per:InformacionRegistroNuevo>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoRegistroArchivosNuevo/RegistrarArchivosNuevo"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
