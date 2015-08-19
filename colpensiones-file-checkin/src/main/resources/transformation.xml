@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
+    <configuration>
+        <wildcard>false</wildcard>
+    </configuration>
+    <mapping>
+        <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo</class-a>
+        <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO</class-b>
+    </mapping>
+    <mapping>
+        <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoInformacionGeneralTRD</class-a>
+        <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoInformacionGeneralTRD</class-b>
+    </mapping>
+    <mapping>
+        <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoDocumentosTRD</class-a>
+        <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoDocumentosTRD</class-b>
+    </mapping>
+</mappings>

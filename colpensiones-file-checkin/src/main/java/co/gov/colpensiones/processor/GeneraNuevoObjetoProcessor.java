@@ -21,13 +21,14 @@ public class GeneraNuevoObjetoProcessor implements Processor {
 			 tirv.setDetalle(tirn.getDetalle());
 			 
 			 TipoCredencialesAutorizacion contexto = new TipoCredencialesAutorizacion();			 
-			 contexto.setNombreUsuarioNegocio("INTBIZAGIECM");
-			 contexto.setNombreUsuarioSistema("INTBIZAGIECM");
-			 contexto.setClaveUsuarioSistema("Gesd927WS");
+			 contexto.setNombreUsuarioNegocio(e.getContext().resolvePropertyPlaceholders("{{login.nombreUsuarioNegocio}}"));
+			 contexto.setNombreUsuarioSistema(e.getContext().resolvePropertyPlaceholders("{{login.nombreUsuarioSistema}}"));
+			 contexto.setClaveUsuarioSistema(e.getContext().resolvePropertyPlaceholders("{{login.claveUsuarioSistema}}"));
 			 
 			 tirv.setContexto(contexto);
 			 e.getOut().setAttachments(e.getIn().getAttachments());
 			 e.getOut().setBody(tirv);
+			 
 		 }
 	}
 

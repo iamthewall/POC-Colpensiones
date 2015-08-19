@@ -14,7 +14,7 @@
 
 	<!-- ENDPOINT DE ENTRADA -->
 	<cxf:cxfEndpoint id="ColpensionesRegistroArchivo"
-		address="http://localhost:8080/colpensionesRegistro" endpointName="tns:EndpointRegistroDocumentoNuevo"
+		address="http://virtfuse:8080/colpensionesRegistro" endpointName="tns:EndpointRegistroDocumentoNuevo"
 		serviceName="tns:RegistroDocumento"
 		serviceClass="co.gov.colpensiones.contracts._1_0.personas.ContratoRegistroArchivosNuevo"
 		wsdlURL="wsdl/RegistrarDocumento.wsdl" xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas">
@@ -30,8 +30,12 @@
 
 	<!-- INVOCACIÓN AL SERVICIO WEB LEGADO --><!-- CLAVES PARA EL MARSHALL --><!-- <to uri="bean:procesarAuditoria" /> -->
 	<camelContext trace="false" streamCache="true"
-		id="camel-colpensiones-poc" xmlns="http://camel.apache.org/schema/spring">
-		<endpoint uri="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento"
+		id="COLPENSIONES-POC-FILECHECKIN" xmlns="http://camel.apache.org/schema/spring">
+		
+		<propertyPlaceholder location="classpath:login.properties"
+			id="placeholder" />
+		
+		<endpoint uri="http://virtfuse/WSColpensionesMTOM/SvcDocumento"
 			id="invocarLegado" />
 			
 		<dataFormats>
@@ -47,8 +51,8 @@
 		</dataFormats>
 		
 		<route id="registrarDocumento">
-			<from uri="cxf:bean:ColpensionesRegistroArchivo" />			
-			<unmarshal ref="registrarDocumentoJaxB" />			
+			<from uri="cxf:bean:ColpensionesRegistroArchivo" />					
+			<unmarshal ref="registrarDocumentoJaxB" />
 			<to uri="bean:procesarGenerarNuevoObjeto" />			 
 			<marshal ref="registrarDocumentoLegacyJaxB" />			 
 			<setHeader headerName="Operation">
@@ -58,9 +62,8 @@
 				<constant>http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/RegistrarArchivosTRD</constant>
 			</setHeader>			 
 			<convertBodyTo type="java.lang.String" />			 
-			<to uri="velocity:vm/requestLegacy.vm" />
-			 
-<!-- 			<to ref="invocarLegado" /> -->
+			<to uri="velocity:vm/requestLegacy.vm" />			 
+			<to ref="invocarLegado" />
 		</route>
 	</camelContext>
 </beans>

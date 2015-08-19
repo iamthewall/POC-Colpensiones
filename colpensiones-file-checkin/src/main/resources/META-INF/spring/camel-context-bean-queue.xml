@@ -15,9 +15,9 @@
 	   http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd">
 
 	<import resource="jmsSetup.xml" />
-	<!-- ENDPOINT DE ENTRADA -->
-	<cxf:cxfEndpoint id="ColpensionesRegistroArchivo"
-		address="http://localhost:8080/colpensionesRegistro" endpointName="tns:EndpointRegistroDocumentoNuevo"
+	<!-- ENDPOINT DE ENTRADA QUEUE -->
+	<cxf:cxfEndpoint id="ColpensionesRegistroArchivoQueue"
+		address="http://virtfuse:8080/colpensionesRegistroQueue" endpointName="tns:EndpointRegistroDocumentoNuevo"
 		serviceName="tns:RegistroDocumento"
 		serviceClass="co.gov.colpensiones.contracts._1_0.personas.ContratoRegistroArchivosNuevo"
 		wsdlURL="wsdl/RegistrarDocumento.wsdl" xmlns:tns="http://www.colpensiones.gov.co/contracts/1.0/personas">
@@ -33,10 +33,13 @@
 
 	<!-- INVOCACIÓN AL SERVICIO WEB LEGADO --><!-- CLAVES PARA EL MARSHALL --><!-- <to uri="bean:procesarAuditoria" /> -->
 	<camelContext trace="false" streamCache="true"
-		id="camel-colpensiones-poc" xmlns="http://camel.apache.org/schema/spring">
+		id="COLPENSIONES-POC-FILECHECKIN-QUEUE" xmlns="http://camel.apache.org/schema/spring">
 		
-		<endpoint uri="http://10.130.70.36:80/WSColpensionesMTOM/SvcDocumento"
-			id="invocarLegado" />
+		<propertyPlaceholder location="classpath:login.properties"
+			id="placeholder" />
+		
+		<endpoint uri="http://virtfuse/WSColpensionesMTOM/SvcDocumento"
+			id="invocarLegadoQ" />
 			
 		<dataFormats>
 			<jaxb contextPath="co.gov.colpensiones.schemas._1_0.personas"
@@ -51,18 +54,21 @@
 		</dataFormats>
 		
 		<route id="balancearSolicitud">
-			<from uri="cxf:bean:ColpensionesRegistroArchivo" />							
+			<from uri="cxf:bean:ColpensionesRegistroArchivoQueue" />	
+<!-- 			<removeHeader headerName="JMSCorrelationId" />						 -->
 			<loadBalance>
 				<roundRobin />
-				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-1" />
-				<to uri="jms:queue:registrarDocumento-QUEUE-2" />
-				<to uri="jms:queue:registrarDocumento-QUEUE-3" />
-				<to uri="jms:queue:registrarDocumento-QUEUE-4" />
-			</loadBalance>			
+				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-1?requestTimeout=1000000" pattern="InOut" />
+				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-2?requestTimeout=1000000" pattern="InOut" />
+				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-3?requestTimeout=1000000" pattern="InOut" />
+				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-4?requestTimeout=1000000" pattern="InOut" />
+			</loadBalance>
+			<log message="VUELVE A LA PRIMERA ${body}"/>
+<!-- 			<to uri="velocity:vm/responseInQueue.vm" />			 -->
 		</route>
 		
 		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-1" >
-			<from uri="jms:queue:registrarDocumento-QUEUE-1"/>
+			<from uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-1"/>
 			<unmarshal ref="registrarDocumentoJaxB" />
 			<to uri="bean:procesarGenerarNuevoObjeto" />
 			<marshal ref="registrarDocumentoLegacyJaxB" />
@@ -74,12 +80,13 @@
 			</setHeader>
 			<convertBodyTo type="java.lang.String" />
 			<to uri="velocity:vm/requestLegacy.vm" />
-			<log message="salir"/>
-			<to ref="invocarLegado" />
+			<log message="INVOCANDO LEGADO"/>
+			<to ref="invocarLegadoQ" />
+			<log message="SALIENDO ${body}"/>
 		</route>
 		
 		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-2" >
-			<from uri="jms:queue:registrarDocumento-QUEUE-2"/>
+			<from uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-2"/>
 			<unmarshal ref="registrarDocumentoJaxB" />
 			<to uri="bean:procesarGenerarNuevoObjeto" />
 			<marshal ref="registrarDocumentoLegacyJaxB" />
@@ -91,12 +98,13 @@
 			</setHeader>
 			<convertBodyTo type="java.lang.String" />
 			<to uri="velocity:vm/requestLegacy.vm" />
-			<log message="salir"/>
-			<to ref="invocarLegado" />
+			<log message="INVOCANDO LEGADO"/>
+			<to ref="invocarLegadoQ" />
+			<log message="SALIENDO ${body}"/>
 		</route>
 		
 		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-3" >
-			<from uri="jms:queue:registrarDocumento-QUEUE-3"/>			
+			<from uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-3"/>			
 			<unmarshal ref="registrarDocumentoJaxB" />
 			<to uri="bean:procesarGenerarNuevoObjeto" />
 			<marshal ref="registrarDocumentoLegacyJaxB" />
@@ -108,12 +116,13 @@
 			</setHeader>
 			<convertBodyTo type="java.lang.String" />
 			<to uri="velocity:vm/requestLegacy.vm" />
-			<log message="salir"/>
-			<to ref="invocarLegado" />
+			<log message="INVOCANDO LEGADO"/>
+			<to ref="invocarLegadoQ" />
+			<log message="SALIENDO ${body}"/>
 		</route>
 		
 		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-4" >
-			<from uri="jms:queue:registrarDocumento-QUEUE-4"/>			
+			<from uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-4"/>			
 			<unmarshal ref="registrarDocumentoJaxB" />
 			<to uri="bean:procesarGenerarNuevoObjeto" />
 			<marshal ref="registrarDocumentoLegacyJaxB" />
@@ -125,8 +134,9 @@
 			</setHeader>
 			<convertBodyTo type="java.lang.String" />
 			<to uri="velocity:vm/requestLegacy.vm" />
-			<log message="salir"/>
-			<to ref="invocarLegado" />
+			<log message="INVOCANDO LEGADO"/>
+			<to ref="invocarLegadoQ" />
+			<log message="SALIENDO ${body}"/>
 		</route>
 		
 	</camelContext>

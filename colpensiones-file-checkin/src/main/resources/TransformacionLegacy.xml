@@ -15,30 +15,29 @@
         <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo</class-a>
         <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroTRDDTO</class-b>
         <field map-id="detalleInput">
-<!-- 		<field> -->
         	<a>detalle</a>
         	<b>detalle</b>
         </field>
     </mapping>
     
-    <mapping>
-        <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoDocumentosTRD</class-a>
-        <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoDocumentosTRD</class-b>
-        <field>
-            <a>documento</a>
-            <b>documento</b>
-        </field>
-    </mapping>
-    <mapping>
-        <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoIdentificacionTRDDocumento</class-a>
-        <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoIdentificacionTRDDocumento</class-b>
-        <field>
-            <a>subtramite</a>
-            <b>subtramite</b>
-        </field>
-        <field>
-            <a>tramite</a>
-            <b>tramite</b>
-        </field>
-    </mapping>
+<!--     <mapping> -->
+<!--         <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoDocumentosTRD</class-a> -->
+<!--         <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoDocumentosTRD</class-b> -->
+<!--         <field> -->
+<!--             <a>documento</a> -->
+<!--             <b>documento</b> -->
+<!--         </field> -->
+<!--     </mapping> -->
+<!--     <mapping> -->
+<!--         <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoIdentificacionTRDDocumento</class-a> -->
+<!--         <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoIdentificacionTRDDocumento</class-b> -->
+<!--         <field> -->
+<!--             <a>subtramite</a> -->
+<!--             <b>subtramite</b> -->
+<!--         </field> -->
+<!--         <field> -->
+<!--             <a>tramite</a> -->
+<!--             <b>tramite</b> -->
+<!--         </field> -->
+<!--     </mapping> -->
 </mappings>
