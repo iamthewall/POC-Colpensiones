@@ -63,7 +63,8 @@
 				<xpath resultType="java.lang.String">/soapenv:Envelope/soapenv:Body/col:buscarAfiliado/tipoDocumento/text()</xpath>
 			</setHeader>
 
-			<log message="${body} - ${body.size()}" />
+			<to uri="sqlComponent:{{sql.consultaAfiliado}}" />
+			
 			<choice>
 				<when>
 				<simple>${body.size()} == 1</simple>
