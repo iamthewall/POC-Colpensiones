@@ -1,0 +1,37 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <ns1:buscarAfiliadoResponse xmlns:ns1="http://colpensiones.redhat.com/">
+         <return>
+            <af_Depura>LA CONSULTA NO ARROJÓ NINGÚN RESULTADO</af_Depura>
+            <af_Direccion></af_Direccion>
+            <af_Email></af_Email>
+            <af_Estado></af_Estado>
+            <af_EstadoCarnet></af_EstadoCarnet>
+            <af_Estrato></af_Estrato>
+            <af_FechaModificacion></af_FechaModificacion>
+            <af_FechaNacimiento></af_FechaNacimiento>
+            <af_GrupEtnico></af_GrupEtnico>
+            <af_NumeroCarnet></af_NumeroCarnet>
+            <af_NumeroDocumento></af_NumeroDocumento>
+            <af_PrimerApellido></af_PrimerApellido>
+            <af_PrimerNombre></af_PrimerNombre>
+            <af_Sector></af_Sector>
+            <af_SegundoApellido></af_SegundoApellido>
+            <af_SegundoNombre></af_SegundoNombre>
+            <af_Sexo></af_Sexo>
+            <af_Telefono></af_Telefono>
+            <af_TipoDocumento></af_TipoDocumento>
+            <af_Zona></af_Zona>
+            <dp_Departamento></dp_Departamento>
+            <gp_GrupoPoblacion></gp_GrupoPoblacion>
+            <gs_GrupoSanguineo></gs_GrupoSanguineo>
+            <lc_Localidad></lc_Localidad>
+            <mu_Municipio></mu_Municipio>
+            <na_Nacionalidad></na_Nacionalidad>
+         </return>
+      </ns1:buscarAfiliadoResponse>
+   </soap:Body>
+</soap:Envelope>
+
+
+
