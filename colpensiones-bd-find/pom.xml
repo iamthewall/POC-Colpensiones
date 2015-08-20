@@ -5,9 +5,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.redhat.poc</groupId>
-	<artifactId>poc-colpensiones-find</artifactId>
+	<artifactId>Poc-Colpensiones-DB-Find</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>2.0.0</version>
 
 	<name>A Camel Spring Route</name>
 	<url>http://www.myorganization.org</url>

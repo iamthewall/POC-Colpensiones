@@ -40,7 +40,7 @@
 	<camelContext streamCache="true"
 		xmlns="http://camel.apache.org/schema/spring" 
 		xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-		xmlns:col="http://colpensiones.redhat.com/">
+		xmlns:col="http://colpensiones.redhat.com/" id="COLPENSIONES-POC-DB-FIND">
 
 		<propertyPlaceholder location="classpath:sql.properties"
 			id="placeholder" />
