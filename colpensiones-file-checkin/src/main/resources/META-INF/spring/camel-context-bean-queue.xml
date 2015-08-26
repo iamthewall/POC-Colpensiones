@@ -56,19 +56,21 @@
 		<route id="balancearSolicitud">
 			<from uri="cxf:bean:ColpensionesRegistroArchivoQueue" />	
 <!-- 			<removeHeader headerName="JMSCorrelationId" />						 -->
+			<log message="ENTRE"/>
 			<loadBalance>
 				<roundRobin />
-				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-1?requestTimeout=1000000" pattern="InOut" />
-				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-2?requestTimeout=1000000" pattern="InOut" />
-				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-3?requestTimeout=1000000" pattern="InOut" />
-				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-4?requestTimeout=1000000" pattern="InOut" />
+				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-1?requestTimeout=400000" pattern="InOut" />
+				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-2?requestTimeout=400000" pattern="InOut" />
+				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-3?requestTimeout=400000" pattern="InOut" />
+				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-4?requestTimeout=400000" pattern="InOut" />
 			</loadBalance>
-			<log message="VUELVE A LA PRIMERA ${body}"/>
+			<log message="VUELVE A LA PRIMERA"/>
 <!-- 			<to uri="velocity:vm/responseInQueue.vm" />			 -->
 		</route>
 		
 		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-1" >
 			<from uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-1"/>
+			<log message="ENTRANDO COLA 1"/>
 			<unmarshal ref="registrarDocumentoJaxB" />
 			<to uri="bean:procesarGenerarNuevoObjeto" />
 			<marshal ref="registrarDocumentoLegacyJaxB" />
@@ -82,7 +84,7 @@
 			<to uri="velocity:vm/requestLegacy.vm" />
 			<log message="INVOCANDO LEGADO"/>
 			<to ref="invocarLegadoQ" />
-			<log message="SALIENDO ${body}"/>
+			<log message="SALIENDO "/>
 		</route>
 		
 		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-2" >
@@ -100,7 +102,7 @@
 			<to uri="velocity:vm/requestLegacy.vm" />
 			<log message="INVOCANDO LEGADO"/>
 			<to ref="invocarLegadoQ" />
-			<log message="SALIENDO ${body}"/>
+			<log message="SALIENDO "/>
 		</route>
 		
 		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-3" >
@@ -118,7 +120,7 @@
 			<to uri="velocity:vm/requestLegacy.vm" />
 			<log message="INVOCANDO LEGADO"/>
 			<to ref="invocarLegadoQ" />
-			<log message="SALIENDO ${body}"/>
+			<log message="SALIENDO "/>
 		</route>
 		
 		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-4" >
@@ -136,7 +138,7 @@
 			<to uri="velocity:vm/requestLegacy.vm" />
 			<log message="INVOCANDO LEGADO"/>
 			<to ref="invocarLegadoQ" />
-			<log message="SALIENDO ${body}"/>
+			<log message="SALIENDO "/>
 		</route>
 		
 	</camelContext>

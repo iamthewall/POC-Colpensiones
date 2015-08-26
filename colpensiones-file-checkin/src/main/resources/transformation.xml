@@ -2,6 +2,9 @@
 <mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://dozer.sourceforge.net http://dozer.sourceforge.net/schema/beanmapping.xsd">
     <configuration>
         <wildcard>false</wildcard>
+        <variables>
+            <variable name="login">USUARIO</variable>
+        </variables>
     </configuration>
     <mapping>
         <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoInformacionRegistroNuevo</class-a>
@@ -10,9 +13,29 @@
     <mapping>
         <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoInformacionGeneralTRD</class-a>
         <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoInformacionGeneralTRD</class-b>
+        <field>
+            <a>agrupador</a>
+            <b>agrupador</b>
+        </field>
     </mapping>
     <mapping>
         <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoDocumentosTRD</class-a>
         <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoDocumentosTRD</class-b>
+        <field>
+            <a>documento</a>
+            <b>documento</b>
+        </field>
+    </mapping>
+    <mapping>
+        <class-a>co.gov.colpensiones.schemas._1_0.personas.TipoIdentificacionTRDDocumento</class-a>
+        <class-b>co.gov.colpensiones.schemas._1_0.personas.TipoIdentificacionTRDDocumento</class-b>
+        <field>
+            <a>subtramite</a>
+            <b>subtramite</b>
+        </field>
+        <field>
+            <a>tramite</a>
+            <b>tramite</b>
+        </field>
     </mapping>
 </mappings>

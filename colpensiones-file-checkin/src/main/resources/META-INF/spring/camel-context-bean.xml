@@ -51,19 +51,25 @@
 		</dataFormats>
 		
 		<route id="registrarDocumento">
-			<from uri="cxf:bean:ColpensionesRegistroArchivo" />					
+			<from uri="cxf:bean:ColpensionesRegistroArchivo" />
+			<to uri="bean:procesarAuditoria" />					
 			<unmarshal ref="registrarDocumentoJaxB" />
-			<to uri="bean:procesarGenerarNuevoObjeto" />			 
+			<to uri="bean:procesarAuditoria" />
+			<to uri="bean:procesarGenerarNuevoObjeto" />
+			<to uri="bean:procesarAuditoria" />			 
 			<marshal ref="registrarDocumentoLegacyJaxB" />			 
 			<setHeader headerName="Operation">
 				<constant>RegistrarArchivosTRD</constant>
 			</setHeader>
+			<to uri="bean:procesarAuditoria" />
 			<setHeader headerName="SOAPAction">
 				<constant>http://www.colpensiones.gov.co/contracts/1.0/personas/ContratoSvcDocumento/RegistrarArchivosTRD</constant>
 			</setHeader>			 
+			<to uri="bean:procesarAuditoria" />
 			<convertBodyTo type="java.lang.String" />			 
 			<to uri="velocity:vm/requestLegacy.vm" />			 
 			<to ref="invocarLegado" />
+			<to uri="bean:procesarAuditoria" />
 		</route>
 	</camelContext>
 </beans>

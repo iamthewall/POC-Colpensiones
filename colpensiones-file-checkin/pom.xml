@@ -4,25 +4,17 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.redhat</groupId>
   <artifactId>POC-Colpensiones-File-CheckIn</artifactId>
-  <version>2.0.0</version>
+  <version>2.1.0</version>
   <name>POC: COLPENSIONES CHECK-IN DOCUMENT</name>
   <description>Ruta de Integración a File Net</description>
   <url>http://www.colpensiones.gov.co</url>
   <properties>
-    
-    
-    <activemq-version>5.9.0.redhat-610379</activemq-version>
-    <cxf-version>2.7.0.redhat-610379</cxf-version>
     <camel-version>2.12.0.redhat-611412</camel-version>
-<!--     <cxf-version>3.0.4.redhat-620133</cxf-version>     -->
-<!--     <camel-version>2.15.1.redhat-620133</camel-version> -->
-    
-    <cxf-xjc-plugin.version>2.3.0</cxf-xjc-plugin.version>
+    <cxf-version>2.7.0.redhat-610379</cxf-version>
+    <activemq-version>5.9.0.redhat-610379</activemq-version>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    
+    <cxf-xjc-plugin.version>2.3.0</cxf-xjc-plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    
-    
   </properties>
   <dependencies>
     <dependency>
@@ -69,7 +61,7 @@
       <groupId>org.apache.activemq</groupId>
       <artifactId>activemq-osgi</artifactId>
       <version>${activemq-version}</version>
-    </dependency>    
+    </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-velocity</artifactId>
@@ -96,14 +88,14 @@
       <artifactId>camel-jaxb</artifactId>
       <version>${camel-version}</version>
     </dependency>
-<!--     <dependency> -->
-<!--       <groupId>org.apache.servicemix.bundles</groupId> -->
-<!--       <artifactId>org.apache.servicemix.bundles.commons-dbcp</artifactId> -->
-<!--       <version>1.4_3</version> -->
-<!--     </dependency> -->
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-atom</artifactId>
+      <version>${camel-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-ejb</artifactId>
       <version>${camel-version}</version>
     </dependency>
   </dependencies>
