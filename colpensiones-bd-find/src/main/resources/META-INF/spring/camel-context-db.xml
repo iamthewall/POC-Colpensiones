@@ -18,7 +18,7 @@
 
 	<!-- ENDPOINT DE ENTRADA -->
 	<cxf:cxfEndpoint id="colpensionesServiceEndpoint"
-		address="http://localhost:8081/JAX-WSExample/AfiliadoWS" endpointName="AfiliadoWSPort"
+		address="http://localhost:8081/JAX-WSExample/AfiliadoWS" endpointName="tns:AfiliadoWSPort"
 		serviceName="tns:AfiliadoWSService" serviceClass="com.redhat.colpensiones.AfiliadoWSI"
 		wsdlURL="wsdl/AfiliadoWS.wsdl" xmlns:tns="http://colpensiones.redhat.com/" />
 
@@ -37,9 +37,7 @@
 	</bean>
 
 
-	<!-- RESUELVE ESTE ERROR Please check the message headers of operationName 
-				and operationNamespace. causado por que los Web services legados tienen Header 
-				diferente al que aca se genera --><camelContext streamCache="true" id="COLPENSIONES-POC-DB-FIND" xmlns="http://camel.apache.org/schema/spring" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:col="http://colpensiones.redhat.com/">
+  <camelContext streamCache="true" id="COLPENSIONES-POC-DB-FIND" xmlns="http://camel.apache.org/schema/spring" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:col="http://colpensiones.redhat.com/">
   <propertyPlaceholder location="classpath:sql.properties" id="placeholder"/>
   <route id="InvocacionWebServices">
     <from uri="cxf:bean:colpensionesServiceEndpoint?dataFormat=MESSAGE"/>
