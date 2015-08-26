@@ -2,32 +2,38 @@
    <soap:Body>
       <ns1:buscarAfiliadoResponse xmlns:ns1="http://colpensiones.redhat.com/">
          <return>
-            <af_Depura>${headers.af_Depura}</af_Depura>
-            <af_Direccion>${headers.af_Direccion}</af_Direccion>
-            <af_Email>${headers.af_Email}</af_Email>
-            <af_Estado>${headers.af_Estado}</af_Estado>
-            <af_EstadoCarnet>${headers.af_EstadoCarnet}</af_EstadoCarnet>
-            <af_Estrato>${headers.af_Estrato}</af_Estrato>
-            <af_FechaModificacion>${headers.af_FechaModificacion}</af_FechaModificacion>
-            <af_FechaNacimiento>${headers.af_FechaNacimiento}</af_FechaNacimiento>
-            <af_GrupEtnico>${headers.af_GrupEtnico}</af_GrupEtnico>
-            <af_NumeroCarnet>${headers.af_NumeroCarnet}</af_NumeroCarnet>
-            <af_NumeroDocumento>${headers.af_NumeroDocumento}</af_NumeroDocumento>
-            <af_PrimerApellido>${headers.af_PrimerApellido}</af_PrimerApellido>
-            <af_PrimerNombre>${headers.af_PrimerNombre}</af_PrimerNombre>
-            <af_Sector>${headers.af_Sector}</af_Sector>
-            <af_SegundoApellido>${headers.af_SegundoApellido}</af_SegundoApellido>
-            <af_SegundoNombre>${headers.af_SegundoNombre}</af_SegundoNombre>
-            <af_Sexo>${headers.af_Sexo}</af_Sexo>
-            <af_Telefono>${headers.af_Telefono}</af_Telefono>
-            <af_TipoDocumento>${headers.af_TipoDocumento}</af_TipoDocumento>
-            <af_Zona>${headers.af_Zona}</af_Zona>
-            <dp_Departamento>${headers.dp_Departamento}</dp_Departamento>
+         	<af_TipoDocumento>${headers.af_TipoDocumento}</af_TipoDocumento>
+         	<af_NumeroDocumento>${headers.af_NumeroDocumento}</af_NumeroDocumento>
+         	<datosPrincipales>         	
+            	<af_PrimerApellido>${headers.af_PrimerApellido}</af_PrimerApellido>
+            	<af_SegundoApellido>${headers.af_SegundoApellido}</af_SegundoApellido>
+            	<af_PrimerNombre>${headers.af_PrimerNombre}</af_PrimerNombre>
+            	<af_SegundoNombre>${headers.af_SegundoNombre}</af_SegundoNombre>
+            	<na_Nacionalidad>${headers.na_Nacionalidad}</na_Nacionalidad>
+            	<af_FechaNacimiento>${headers.af_FechaNacimiento}</af_FechaNacimiento>
+            	<af_Sexo>${headers.af_Sexo}</af_Sexo>
+            	<af_GrupEtnico>${headers.af_GrupEtnico}</af_GrupEtnico>
+            </datosPrincipales>
+            <datosLocalizacion>
+            	<af_Direccion>${headers.af_Direccion}</af_Direccion>
+            	<af_Email>${headers.af_Email}</af_Email>
+            	<af_Telefono>${headers.af_Telefono}</af_Telefono>
+            	<af_Estrato>${headers.af_Estrato}</af_Estrato>
+            	<af_Sector>${headers.af_Sector}</af_Sector>
+            	<lc_Localidad>${headers.lc_Localidad}</lc_Localidad>
+            	<mu_Municipio>${headers.mu_Municipio}</mu_Municipio>
+            	<af_Zona>${headers.af_Zona}</af_Zona>
+            	<dp_Departamento>${headers.dp_Departamento}</dp_Departamento>            
+            </datosLocalizacion>
+            
+            <af_Depura>${headers.af_Depura}</af_Depura>            
+            <af_Estado>${headers.af_Estado}</af_Estado>            
             <gp_GrupoPoblacion>${headers.gp_GrupoPoblacion}</gp_GrupoPoblacion>
             <gs_GrupoSanguineo>${headers.gs_GrupoSanguineo}</gs_GrupoSanguineo>
-            <lc_Localidad>${headers.lc_Localidad}</lc_Localidad>
-            <mu_Municipio>${headers.mu_Municipio}</mu_Municipio>
-            <na_Nacionalidad>${headers.na_Nacionalidad}</na_Nacionalidad>
+            <af_NumeroCarnet>${headers.af_NumeroCarnet}</af_NumeroCarnet>
+            <af_EstadoCarnet>${headers.af_EstadoCarnet}</af_EstadoCarnet>            
+            <af_FechaModificacion>${headers.af_FechaModificacion}</af_FechaModificacion>
+            
          </return>
       </ns1:buscarAfiliadoResponse>
    </soap:Body>

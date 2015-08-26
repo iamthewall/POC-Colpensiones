@@ -37,128 +37,108 @@
 	</bean>
 
 
-	<camelContext streamCache="true"
-		xmlns="http://camel.apache.org/schema/spring" 
-		xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-		xmlns:col="http://colpensiones.redhat.com/" id="COLPENSIONES-POC-DB-FIND">
-
-		<propertyPlaceholder location="classpath:sql.properties"
-			id="placeholder" />
-
-
-		<route id="InvocacionWebServices">
-
-			<from uri="cxf:bean:colpensionesServiceEndpoint?dataFormat=MESSAGE" />
-
-			<!-- RESUELVE ESTE ERROR Please check the message headers of operationName 
+	<!-- RESUELVE ESTE ERROR Please check the message headers of operationName 
 				and operationNamespace. causado por que los Web services legados tienen Header 
-				diferente al que aca se genera -->
-			<removeHeaders pattern="*" />
-
-			<setHeader headerName="nroDocumento">
-				<xpath resultType="java.lang.Integer">/soapenv:Envelope/soapenv:Body/col:buscarAfiliado/numeroDocumento/text()</xpath>
-			</setHeader>
-
-			<setHeader headerName="tipoDocumento">
-				<xpath resultType="java.lang.String">/soapenv:Envelope/soapenv:Body/col:buscarAfiliado/tipoDocumento/text()</xpath>
-			</setHeader>
-
-			<to uri="sqlComponent:{{sql.consultaAfiliado}}" />
-			
-			<choice>
-				<when>
-				<simple>${body.size()} == 1</simple>
-					<setHeader headerName="af_Depura">
-						<simple>${body[0].[af_Depura]}</simple>
-					</setHeader>
-					<setHeader headerName="af_Direccion">
-						<simple>${body[0].[af_Direccion]}</simple>
-					</setHeader>
-					<setHeader headerName="af_Email">
-						<simple>${body[0].[af_Email]}</simple>
-					</setHeader>
-					<setHeader headerName="af_Estado">
-						<simple>${body[0].[af_Estado]}</simple>
-					</setHeader>
-					<setHeader headerName="af_EstadoCarnet">
-						<simple>${body[0].[af_EstadoCarnet]}</simple>
-					</setHeader>
-					<setHeader headerName="af_Estrato">
-						<simple>${body[0].[af_Estrato]}</simple>
-					</setHeader>
-					<setHeader headerName="af_Estrato">
-						<simple>${body[0].[af_Estrato]}</simple>
-					</setHeader>
-					<setHeader headerName="af_FechaNacimiento">
-						<simple>${body[0].[af_FechaNacimiento]}</simple>
-					</setHeader>
-					<setHeader headerName="af_Estrato">
-						<simple>${body[0].[af_Estrato]}</simple>
-					</setHeader>
-					<setHeader headerName="af_GrupEtnico">
-						<simple>${body[0].[af_GrupEtnico]}</simple>
-					</setHeader>
-					<setHeader headerName="af_NumeroCarnet">
-						<simple>${body[0].[af_NumeroCarnet]}</simple>
-					</setHeader>
-					<setHeader headerName="af_NumeroDocumento">
-						<simple>${body[0].[af_NumeroDocumento]}</simple>
-					</setHeader>
-		
-					<setHeader headerName="af_PrimerApellido">
-						<simple>${body[0].[af_PrimerApellido]}</simple>
-					</setHeader>
-					<setHeader headerName="af_PrimerNombre">
-						<simple>${body[0].[af_PrimerNombre]}</simple>
-					</setHeader>
-					<setHeader headerName="af_Sector">
-						<simple>${body[0].[af_Sector]}</simple>
-					</setHeader>
-					<setHeader headerName="af_SegundoApellido">
-						<simple>${body[0].[af_SegundoApellido]}</simple>
-					</setHeader>
-					<setHeader headerName="af_SegundoNombre">
-						<simple>${body[0].[af_SegundoNombre]}</simple>
-					</setHeader>
-					<setHeader headerName="af_Sexo">
-						<simple>${body[0].[af_Sexo]}</simple>
-					</setHeader>
-					<setHeader headerName="af_Telefono">
-						<simple>${body[0].[af_Telefono]}</simple>
-					</setHeader>
-					<setHeader headerName="af_TipoDocumento">
-						<simple>${body[0].[af_TipoDocumento]}</simple>
-					</setHeader>
-					<setHeader headerName="af_Zona">
-						<simple>${body[0].[af_Zona]}</simple>
-					</setHeader>
-					<setHeader headerName="dp_Departamento">
-						<simple>${body[0].[dp_Departamento]}</simple>
-					</setHeader>
-					<setHeader headerName="gp_GrupoPoblacion">
-						<simple>${body[0].[gp_GrupoPoblacion]}</simple>
-					</setHeader>
-					<setHeader headerName="gs_GrupoSanguineo">
-						<simple>${body[0].[gs_GrupoSanguineo]}</simple>
-					</setHeader>
-					<setHeader headerName="lc_Localidad">
-						<simple>${body[0].[lc_Localidad]}</simple>
-					</setHeader>
-					<setHeader headerName="mu_Municipio">
-						<simple>${body[0].[mu_Municipio]}</simple>
-					</setHeader>
-					<setHeader headerName="na_Nacionalidad">
-						<simple>${body[0].[na_Nacionalidad]}</simple>
-					</setHeader>
-					<to uri="velocity:vm/respuesta.vm" />
-				</when>
-				<otherwise>
-					<to uri="velocity:vm/respuestaVacia.vm" />
-				</otherwise>
-			</choice>
-			
-			
-		</route>
-	</camelContext>
+				diferente al que aca se genera --><camelContext streamCache="true" id="COLPENSIONES-POC-DB-FIND" xmlns="http://camel.apache.org/schema/spring" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:col="http://colpensiones.redhat.com/">
+  <propertyPlaceholder location="classpath:sql.properties" id="placeholder"/>
+  <route id="InvocacionWebServices">
+    <from uri="cxf:bean:colpensionesServiceEndpoint?dataFormat=MESSAGE"/>
+    <removeHeaders pattern="*"/>
+    <setHeader headerName="nroDocumento">
+      <xpath resultType="java.lang.Integer">/soapenv:Envelope/soapenv:Body/col:buscarAfiliado/numeroDocumento/text()</xpath>
+    </setHeader>
+    <setHeader headerName="tipoDocumento">
+      <xpath resultType="java.lang.String">/soapenv:Envelope/soapenv:Body/col:buscarAfiliado/tipoDocumento/text()</xpath>
+    </setHeader>
+    <to uri="sqlComponent:{{sql.consultaAfiliado}}"/>
+    <choice>
+      <when>
+        <simple>${body.size()} == 1</simple>
+        <setHeader headerName="af_Depura">
+          <simple>${body[0].[af_Depura]}</simple>
+        </setHeader>
+        <setHeader headerName="af_Direccion">
+          <simple>${body[0].[af_Direccion]}</simple>
+        </setHeader>
+        <setHeader headerName="af_Email">
+          <simple>${body[0].[af_Email]}</simple>
+        </setHeader>
+        <setHeader headerName="af_Estado">
+          <simple>${body[0].[af_Estado]}</simple>
+        </setHeader>
+        <setHeader headerName="af_EstadoCarnet">
+          <simple>${body[0].[af_EstadoCarnet]}</simple>
+        </setHeader>
+        <setHeader headerName="af_Estrato">
+          <simple>${body[0].[af_Estrato]}</simple>
+        </setHeader>
+        <setHeader headerName="af_FechaNacimiento">
+          <simple>${body[0].[af_FechaNacimiento]}</simple>
+        </setHeader>
+        <setHeader headerName="af_FechaModificacion">
+          <simple>${body[0].[af_FechaModificacion]}</simple>
+        </setHeader>
+        <setHeader headerName="af_GrupEtnico">
+          <simple>${body[0].[af_GrupEtnico]}</simple>
+        </setHeader>
+        <setHeader headerName="af_NumeroCarnet">
+          <simple>${body[0].[af_NumeroCarnet]}</simple>
+        </setHeader>
+        <setHeader headerName="af_NumeroDocumento">
+          <simple>${body[0].[af_NumeroDocumento]}</simple>
+        </setHeader>
+        <setHeader headerName="af_PrimerApellido">
+          <simple>${body[0].[af_PrimerApellido]}</simple>
+        </setHeader>
+        <setHeader headerName="af_PrimerNombre">
+          <simple>${body[0].[af_PrimerNombre]}</simple>
+        </setHeader>
+        <setHeader headerName="af_Sector">
+          <simple>${body[0].[af_Sector]}</simple>
+        </setHeader>
+        <setHeader headerName="af_SegundoApellido">
+          <simple>${body[0].[af_SegundoApellido]}</simple>
+        </setHeader>
+        <setHeader headerName="af_SegundoNombre">
+          <simple>${body[0].[af_SegundoNombre]}</simple>
+        </setHeader>
+        <setHeader headerName="af_Sexo">
+          <simple>${body[0].[af_Sexo]}</simple>
+        </setHeader>
+        <setHeader headerName="af_Telefono">
+          <simple>${body[0].[af_Telefono]}</simple>
+        </setHeader>
+        <setHeader headerName="af_TipoDocumento">
+          <simple>${body[0].[af_TipoDocumento]}</simple>
+        </setHeader>
+        <setHeader headerName="af_Zona">
+          <simple>${body[0].[af_Zona]}</simple>
+        </setHeader>
+        <setHeader headerName="dp_Departamento">
+          <simple>${body[0].[dp_Departamento]}</simple>
+        </setHeader>
+        <setHeader headerName="gp_GrupoPoblacion">
+          <simple>${body[0].[gp_GrupoPoblacion]}</simple>
+        </setHeader>
+        <setHeader headerName="gs_GrupoSanguineo">
+          <simple>${body[0].[gs_GrupoSanguineo]}</simple>
+        </setHeader>
+        <setHeader headerName="lc_Localidad">
+          <simple>${body[0].[lc_Localidad]}</simple>
+        </setHeader>
+        <setHeader headerName="mu_Municipio">
+          <simple>${body[0].[mu_Municipio]}</simple>
+        </setHeader>
+        <setHeader headerName="na_Nacionalidad">
+          <simple>${body[0].[na_Nacionalidad]}</simple>
+        </setHeader>
+        <to uri="velocity:vm/respuesta.vm"/>
+      </when>
+      <otherwise>
+        <to uri="velocity:vm/respuestaVacia.vm"/>
+      </otherwise>
+    </choice>
+  </route>
+</camelContext>
 
 </beans>
