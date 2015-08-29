@@ -59,17 +59,17 @@
 			<log message="ENTRE"/>
 			<loadBalance>
 				<roundRobin />
-				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-1?requestTimeout=400000" pattern="InOut" />
-				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-2?requestTimeout=400000" pattern="InOut" />
-				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-3?requestTimeout=400000" pattern="InOut" />
-				<to uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-4?requestTimeout=400000" pattern="InOut" />
+				<to uri="jms:queue:COLP-REG-DOC-QUEUE-1?requestTimeout=40000" pattern="InOut" />
+				<to uri="jms:queue:COLP-REG-DOC-QUEUE-2?requestTimeout=40000" pattern="InOut" />
+				<to uri="jms:queue:COLP-REG-DOC-QUEUE-3?requestTimeout=40000" pattern="InOut" />
+				<to uri="jms:queue:COLP-REG-DOC-QUEUE-4?requestTimeout=40000" pattern="InOut" />
 			</loadBalance>
 			<log message="VUELVE A LA PRIMERA"/>
 <!-- 			<to uri="velocity:vm/responseInQueue.vm" />			 -->
 		</route>
 		
-		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-1" >
-			<from uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-1"/>
+		<route id="RegistrarArchivo-Cola1" >
+			<from uri="jms:queue:COLP-REG-DOC-QUEUE-1"/>
 			<log message="ENTRANDO COLA 1"/>
 			<unmarshal ref="registrarDocumentoJaxB" />
 			<to uri="bean:procesarGenerarNuevoObjeto" />
@@ -87,8 +87,8 @@
 			<log message="SALIENDO "/>
 		</route>
 		
-		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-2" >
-			<from uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-2"/>
+		<route id="RegistrarArchivo-Cola2" >
+			<from uri="jms:queue:COLP-REG-DOC-QUEUE-2"/>
 			<unmarshal ref="registrarDocumentoJaxB" />
 			<to uri="bean:procesarGenerarNuevoObjeto" />
 			<marshal ref="registrarDocumentoLegacyJaxB" />
@@ -105,8 +105,8 @@
 			<log message="SALIENDO "/>
 		</route>
 		
-		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-3" >
-			<from uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-3"/>			
+		<route id="RegistrarArchivo-Cola3" >
+			<from uri="jms:queue:COLP-REG-DOC-QUEUE-3"/>			
 			<unmarshal ref="registrarDocumentoJaxB" />
 			<to uri="bean:procesarGenerarNuevoObjeto" />
 			<marshal ref="registrarDocumentoLegacyJaxB" />
@@ -123,8 +123,8 @@
 			<log message="SALIENDO "/>
 		</route>
 		
-		<route id="jms:queue:REGISTRARDOCUMENTO-QUEUE-4" >
-			<from uri="jms:queue:REGISTRARDOCUMENTO-QUEUE-4"/>			
+		<route id="RegistrarArchivo-Cola4" >
+			<from uri="jms:queue:COLP-REG-DOC-QUEUE-4"/>			
 			<unmarshal ref="registrarDocumentoJaxB" />
 			<to uri="bean:procesarGenerarNuevoObjeto" />
 			<marshal ref="registrarDocumentoLegacyJaxB" />
